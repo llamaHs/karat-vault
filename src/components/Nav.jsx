@@ -1,12 +1,15 @@
 import Logo from "./Logo";
 import styles from "./Nav.module.css";
+import { IoCartOutline, IoSearchOutline } from "react-icons/io5";
 
 function Nav() {
   return (
     <nav className={styles.nav}>
-      <ul>
+      <ul className={styles.navLeft}>
         <li>
-          <a href="#">Hot Items</a>
+          <a href="#" className={styles.hotItems}>
+            Hot Items
+          </a>
         </li>
         <li>
           <a href="#">Buy</a>
@@ -14,27 +17,34 @@ function Nav() {
         <li>
           <a href="#">Sell</a>
         </li>
+
+        <li>
+          <a href="#">About</a>
+        </li>
       </ul>
 
       <Logo />
 
-      <ul>
+      <ul className={styles.navRight}>
         <li>
           <a href="#">My Page</a>
         </li>
         <li>
-          <select>
-            <option value={"USD"}>USD 🇺🇸</option>
-            <option value={"AUD"}>AUD 🇦🇺</option>
-            <option value={"CAD"}>CAD 🇨🇦</option>
-            <option value={"EURO"}>EURO 🇪🇺</option>
-            <option value={"GBP"}>GBP 🇬🇧</option>
-            <option value={"KOR"}>KOR 🇰🇷</option>
+          <select className={styles.currency}>
+            <option value={"USD"}>USD $ 🇺🇸</option>
+            <option value={"AUD"}>AUD $ 🇦🇺</option>
+            <option value={"CAD"}>CAD $ 🇨🇦</option>
+            <option value={"EURO"}>EURO € 🇪🇺</option>
+            <option value={"GBP"}>GBP £ 🇬🇧</option>
+            <option value={"KOR"}>KOR ₩ 🇰🇷</option>
           </select>
         </li>
 
         <li>
-          <ion-icon className={styles.iconCart} name="cart-outline"></ion-icon>
+          <div className={styles.navIconContainer}>
+            <IoCartOutline className={styles.iconCart} />
+            <IoSearchOutline className={styles.iconSearch} />
+          </div>
         </li>
       </ul>
     </nav>

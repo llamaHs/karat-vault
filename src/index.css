@@ -1,7 +1,9 @@
 :root {
   --color-brand--main: #c9a24d;
+  --color-brand--main-lighter: #ebc04b;
 
   --color-text: #1f2933;
+  --color-text-white: #f9fafb;
   --color-background: #f9fafb;
 }
 
@@ -19,4 +21,5 @@ html {
 body {
   font-family: "Figtree", "Inter", sans-serif;
   background-color: var(--color-background);
+  height: 100vh;
 }

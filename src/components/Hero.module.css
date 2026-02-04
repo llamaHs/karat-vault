@@ -1,0 +1,63 @@
+.sectionHero {
+  height: 90vh;
+}
+
+.heroImg {
+  height: 90vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.heroImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heroText {
+  position: absolute;
+  left: 9rem;
+  top: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.heroHeading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.heroHeading h1 {
+  font-family: "Lora", serif;
+  color: var(--color-text-white);
+  font-size: 6rem;
+  font-weight: 400;
+}
+
+.heroSubHeading {
+  font-family: "Poppins", serif;
+  color: var(--color-text-white);
+  font-size: 2.1rem;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ctaButton button {
+  font-family: "Poppins", serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  border: none;
+  padding: 1rem 2.5rem;
+  background-color: var(--color-brand--main-lighter);
+  cursor: pointer;
+  transition: all 0.1s;
+  margin-top: 2rem;
+}
+
+.ctaButton button:hover {
+  background-color: var(--color-brand--main);
+}
