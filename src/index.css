@@ -1,0 +1,22 @@
+:root {
+  --color-brand--main: #c9a24d;
+
+  --color-text: #1f2933;
+  --color-background: #f9fafb;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Figtree", "Inter", sans-serif;
+  background-color: var(--color-background);
+}

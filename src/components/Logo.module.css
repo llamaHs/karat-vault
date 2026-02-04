@@ -1,0 +1,6 @@
+.logo {
+  width: 23rem;
+  cursor: pointer;
+  display: flex;
+  justify-self: center;
+}
