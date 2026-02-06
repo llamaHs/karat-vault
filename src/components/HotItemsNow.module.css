@@ -1,0 +1,80 @@
+.sectionHotItems {
+  height: 100vh;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 85%;
+  height: 100%;
+  padding-top: 8rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.heading {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.heading h2 {
+  font-family: "Lora", serif;
+  font-weight: 400;
+  font-size: 3.8rem;
+}
+
+.heading p {
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+
+.listContainer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.listItem {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  cursor: pointer;
+  /* transition: all 0.5s; */
+}
+
+/* .listItem:hover {
+  transform: scale(1.05);
+} */
+
+.imgContainer {
+  width: 30rem;
+  height: 40rem;
+  overflow: hidden;
+  background-size: contain;
+  overflow: hidden;
+}
+
+.imgContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s;
+}
+
+.imgContainer img:hover {
+  transform: scale(1.1);
+}
+
+.listItem p {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
