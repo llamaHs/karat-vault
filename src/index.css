@@ -3,8 +3,11 @@
   --color-brand--main-lighter: #ebc04b;
 
   --color-text: #1f2933;
+  --color-text-light: #898989;
   --color-text-white: #f9fafb;
   --color-background: #f9fafb;
+  /* --color-background--brand: #faf7f0; */
+  --color-background--brand: #f6f2e8;
 }
 
 * {

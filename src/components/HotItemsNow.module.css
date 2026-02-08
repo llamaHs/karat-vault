@@ -1,4 +1,4 @@
-.sectionHotItems {
+.section {
   height: 100vh;
 }
 
@@ -7,6 +7,7 @@
   max-width: 85%;
   height: 100%;
   padding-top: 8rem;
+  padding-bottom: 8rem;
 
   display: flex;
   flex-direction: column;
@@ -70,11 +71,15 @@
   transition: all 0.5s;
 }
 
-.imgContainer img:hover {
-  transform: scale(1.1);
-}
-
 .listItem p {
   font-size: 1.6rem;
   font-weight: 500;
+}
+
+.listItem:hover img {
+  transform: scale(1.1);
+}
+
+.listItem:hover p {
+  font-weight: 600;
 }

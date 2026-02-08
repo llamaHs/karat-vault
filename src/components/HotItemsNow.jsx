@@ -2,7 +2,7 @@ import styles from "./HotItemsNow.module.css";
 
 function HotItemsNow() {
   return (
-    <section className={styles.sectionHotItems}>
+    <section className={styles.section}>
       <div className={styles.container}>
         <div className={styles.heading}>
           <h2>Shop Today’s Most Popular Gold Jewelry</h2>
