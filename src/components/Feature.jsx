@@ -67,13 +67,13 @@ function AboutUs() {
             <div className={styles.featureText}>
               <p>
                 The minimum starting price is calculated automatically based on
-                the seller’s original purchase price and the live gold rate on
-                the day the item is listed. Sellers can adjust their desired
-                price at any time.
+                the seller’s original purchase price and the the gold market
+                price on the listing date. Sellers may adjust their desired
+                price during listing submission.
               </p>
               <p>
-                Buyers can also update their offers anytime before the bidding
-                deadline through My Page.
+                Buyers can also update their offers at any time before the
+                bidding deadline through My Page.
               </p>
             </div>
           </div>

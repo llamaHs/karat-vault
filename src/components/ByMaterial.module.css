@@ -4,7 +4,7 @@
 
 .container {
   margin: 0 auto;
-  max-width: 85%;
+  max-width: 80%;
   height: 100%;
   padding-top: 8rem;
   padding-bottom: 8rem;
@@ -37,8 +37,8 @@
 .listContainer {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
   justify-items: center;
   align-items: center;
   margin-top: 5rem;
@@ -49,17 +49,18 @@
   flex-direction: column;
   gap: 1.2rem;
   cursor: pointer;
-  /* transition: all 0.5s; */
+  transition: all 0.5s;
 }
 
-/* .listItem:hover {
+.listItem:hover {
   transform: scale(1.05);
-} */
+}
 
 .imgContainer {
-  width: 30rem;
+  align-self: center;
+  width: 35rem;
   height: 40rem;
-  overflow: hidden;
+  /* overflow: hidden; */
   background-size: contain;
 }
 
@@ -75,9 +76,9 @@
   font-weight: 500;
 }
 
-.listItem:hover img {
+/* .listItem:hover img {
   transform: scale(1.1);
-}
+} */
 
 .listItem:hover p {
   font-weight: 600;

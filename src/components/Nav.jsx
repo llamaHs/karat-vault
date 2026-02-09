@@ -34,7 +34,7 @@ function Nav() {
             <option value={"USD"}>USD $ 🇺🇸</option>
             <option value={"AUD"}>AUD $ 🇦🇺</option>
             <option value={"CAD"}>CAD $ 🇨🇦</option>
-            <option value={"EURO"}>EURO € 🇪🇺</option>
+            <option value={"EURO"}>EUR € 🇪🇺</option>
             <option value={"GBP"}>GBP £ 🇬🇧</option>
             <option value={"KOR"}>KOR ₩ 🇰🇷</option>
           </select>
