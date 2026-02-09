@@ -1,4 +1,5 @@
 import ByMaterial from "../components/ByMaterial";
+import FAQ from "../components/FAQ";
 import Feature from "../components/Feature";
 import Hero from "../components/Hero";
 import HotItemsNow from "../components/HotItemsNow";
@@ -13,6 +14,7 @@ function Home() {
       <Feature />
       <ByMaterial />
       <Testimonial />
+      <FAQ />
     </>
   );
 }

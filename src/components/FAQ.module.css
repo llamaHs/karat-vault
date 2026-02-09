@@ -1,0 +1,76 @@
+.section {
+  min-height: 100vh;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 85%;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.heading {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.heading h2 {
+  font-family: "Lora", serif;
+  font-weight: 400;
+  font-size: 3.8rem;
+}
+
+.heading p {
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+
+.faqContainer {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  margin-top: 1rem;
+}
+
+.faq {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border-bottom: 2px solid var(--color-brand--main-circle1);
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+}
+
+.boxQuestion {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.icon {
+  font-size: 1.8rem;
+  color: var(--color-brand--main);
+}
+
+.question {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.boxAnswer {
+  padding-left: 5rem;
+}
+
+.answer {
+  font-size: 1.6rem;
+  line-height: 1.8;
+}
