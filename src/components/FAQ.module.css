@@ -58,12 +58,14 @@
 .icon {
   font-size: 1.8rem;
   color: var(--color-brand--main);
+  cursor: pointer;
 }
 
 .question {
   font-size: 1.8rem;
   text-transform: uppercase;
   font-weight: 300;
+  cursor: pointer;
 }
 
 .boxAnswer {

@@ -1,0 +1,77 @@
+footer {
+  height: 55vh;
+}
+
+ul {
+  list-style: none;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  padding: 10rem 12rem;
+  background-color: var(--color-background--brand);
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10rem;
+  justify-items: end;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.colLogo img {
+  width: 20rem;
+  margin-bottom: 14rem;
+}
+
+.copyright {
+  font-size: 1.6rem;
+  padding-left: 2rem;
+  margin-bottom: 2rem;
+}
+
+.term {
+  padding-left: 2rem;
+  color: var(--color-text-light);
+  display: flex;
+  gap: 0.7rem;
+  font-size: 1.4rem;
+}
+
+.term a:link,
+.term a:visited {
+  color: var(--color-text-light);
+}
+
+.linkTitle {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 5rem;
+}
+
+.linkList,
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  font-size: 1.6rem;
+}
+
+.linkList a:link,
+.linkList a:visited {
+  color: var(--color-text);
+}
+
+.contacts a:link,
+.contacts a:visited {
+  color: var(--color-text);
+}
