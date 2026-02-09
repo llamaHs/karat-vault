@@ -1,0 +1,138 @@
+.section {
+  height: 100vh;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 100%;
+  height: 100%;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.heading {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.heading h2 {
+  font-family: "Lora", serif;
+  font-weight: 400;
+  font-size: 3.8rem;
+}
+
+.heading p {
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+
+.reviewContainer {
+  width: 100%;
+  height: 40rem;
+  margin-top: 7rem;
+  /* background-color: var(--color-background--brand); */
+  background-color: var(--color-brand--main-circle1);
+  padding: 5rem;
+
+  display: flex;
+  gap: 2rem;
+  position: relative;
+}
+
+.btnLeft,
+.btnRight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  border: none;
+  width: 3rem;
+  height: 5rem;
+  background-color: rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.btnLeft {
+  left: 0;
+}
+
+.btnRight {
+  right: 0;
+}
+
+.btnIcon {
+  font-size: 2.4rem;
+  color: var(--color-text-white);
+}
+
+.btnLeft:hover,
+.btnRight:hover {
+  transform: translate(0, -50%) scale(1.1);
+}
+
+.review {
+  max-width: 49rem;
+  height: 100;
+  background-color: var(--color-background);
+  box-shadow: 0.2rem 0.2rem 0.5rem 0 rgba(0, 0, 0, 0.03);
+
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 4rem;
+}
+
+.reviewContent {
+  height: 11.6rem;
+  font-size: 1.8rem;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.profileImg {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profileImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profileText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.profileName {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.date {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--color-text-light);
+}
