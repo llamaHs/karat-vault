@@ -6,9 +6,7 @@ function Footer() {
       <div className={styles.container}>
         <div className={`${styles.col} ${styles.colLogo}`}>
           <img src="/logo-main-serif-short.png" alt="KaratVault logo" />
-          <p className={styles.copyright}>
-            © 2026 by Karat Vault All right reserved.
-          </p>
+          <p className={styles.copyright}>© 2026 Karat Vault</p>
           <ul className={styles.term}>
             <li>
               <a href="#">Terms and Conditions</a>

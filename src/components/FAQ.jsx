@@ -1,6 +1,5 @@
 import styles from "./FAQ.module.css";
-import { FaChevronUp } from "react-icons/fa";
-import { AiOutlineMinus } from "react-icons/ai";
+import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 
 function FAQ() {
   return (
