@@ -49,21 +49,23 @@ nav li {
   line-height: 1;
 }
 
-nav li a:link,
-nav li a:visited {
+.link {
   color: var(--color-text);
   text-decoration: none;
 }
 
-.hotItems:link,
-.hotItems:visited {
+.hotItems {
   color: var(--color-brand--main-lighter);
 }
 
-nav li a:hover,
+.link:hover,
 .iconCart:hover,
 .iconSearch:hover,
 .hotItems:hover {
+  color: var(--color-brand--main);
+}
+
+.active {
   color: var(--color-brand--main);
 }
 

@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import Logo from "./Logo";
 import styles from "./Nav.module.css";
 import { IoCartOutline, IoSearchOutline } from "react-icons/io5";
@@ -7,27 +8,64 @@ function Nav() {
     <nav className={styles.nav}>
       <ul className={styles.navLeft}>
         <li>
-          <a href="#" className={styles.hotItems}>
+          <NavLink
+            to="hot-items"
+            className={({ isActive }) =>
+              `${styles.link} ${styles.hotItems} ${
+                isActive ? styles.active : ""
+              }`
+            }
+          >
             Hot Items
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a href="#">Buy</a>
+          <NavLink
+            to="buy"
+            className={({ isActive }) =>
+              isActive ? styles.active : styles.link
+            }
+          >
+            Buy
+          </NavLink>
         </li>
         <li>
-          <a href="#">Sell</a>
+          <NavLink
+            to="sell"
+            className={({ isActive }) =>
+              isActive ? styles.active : styles.link
+            }
+          >
+            Sell
+          </NavLink>
         </li>
 
         <li>
-          <a href="#">About</a>
+          <NavLink
+            to="about"
+            className={({ isActive }) =>
+              isActive ? styles.active : styles.link
+            }
+          >
+            About
+          </NavLink>
         </li>
       </ul>
 
-      <Logo />
+      <NavLink to="/">
+        <Logo />
+      </NavLink>
 
       <ul className={styles.navRight}>
         <li>
-          <a href="#">My Page</a>
+          <NavLink
+            to="mypage"
+            className={({ isActive }) =>
+              isActive ? styles.active : styles.link
+            }
+          >
+            My Page
+          </NavLink>
         </li>
         <li>
           <select className={styles.currency}>

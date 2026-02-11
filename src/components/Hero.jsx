@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./Hero.module.css";
 
 function Hero() {
@@ -19,7 +20,9 @@ function Hero() {
           </div>
 
           <div className={styles.ctaButton}>
-            <button>Explore the Marketplace</button>
+            <Link to="buy">
+              <button>Explore the Marketplace</button>
+            </Link>
           </div>
         </div>
       </div>

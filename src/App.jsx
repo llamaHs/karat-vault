@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import HotItems from "./pages/HotItems";
 import Buy from "./pages/Buy";
 import Sell from "./pages/Sell";
+import About from "./pages/About";
 import MyPage from "./pages/MyPage";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="hot-items" element={<HotItems />} />
           <Route path="buy" element={<Buy />} />
           <Route path="sell" element={<Sell />} />
+          <Route path="about" element={<About />} />
           <Route path="mypage" element={<MyPage />} />
         </Route>
       </Routes>
