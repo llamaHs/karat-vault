@@ -1,0 +1,45 @@
+.section {
+  height: 50vh;
+  display: grid;
+}
+
+.section > * {
+  grid-area: 1 / 1;
+}
+
+.imgContainer {
+  max-width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.titleImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  z-index: 1;
+}
+
+.heading {
+  font-family: "Lora", serif;
+  font-size: 5rem;
+  font-weight: 400;
+  color: var(--color-text-white);
+  text-shadow: 0 0 2rem rgba(0, 0, 0, 1);
+}
+
+.subHeading {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--color-text-white);
+  text-shadow: 0 0 2rem rgba(0, 0, 0, 1);
+}
