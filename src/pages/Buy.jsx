@@ -5,7 +5,7 @@ import SearchFilter from "../components/SearchFilter";
 
 function Buy() {
   return (
-    <div className={styles.buyContainer}>
+    <div className={styles.container}>
       <PageTitle
         img="./background-title-2-1.png"
         heading="Bid on Pieces"
