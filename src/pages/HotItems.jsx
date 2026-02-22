@@ -12,7 +12,7 @@ function HotItems() {
         subHeading="Discover trending gold and jewelry pieces loved by our customers."
       />
       <SearchFilter />
-      <ItemList />
+      <ItemList listType={"hot"} />
     </div>
   );
 }

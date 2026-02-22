@@ -120,3 +120,9 @@
   background-color: var(--color-brand--main);
   color: var(--color-text-white);
 }
+
+.itemLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}

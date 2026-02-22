@@ -1,7 +1,7 @@
 import styles from "../pages/Buy.module.css";
 import ItemList from "../components/ItemList";
-import PageTitle from "../components/PageTitle";
 import SearchFilter from "../components/SearchFilter";
+import PageTitle from "../components/PageTitle";
 
 function Buy() {
   return (
