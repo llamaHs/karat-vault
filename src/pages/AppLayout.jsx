@@ -3,11 +3,11 @@ import Nav from "../components/Nav";
 import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
 
-function AppLayout() {
+function AppLayout({ startLoading, finishLoading }) {
   return (
     <>
-      <Nav />
-      <Outlet />
+      <Nav startLoading={startLoading} />
+      <Outlet context={{ startLoading, finishLoading }} />
       <FAQ />
       <Footer />
     </>

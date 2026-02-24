@@ -1,10 +1,12 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useOutletContext } from "react-router-dom";
 import styles from "./BuyLayout.module.css";
 
 function BuyLayout() {
+  const context = useOutletContext();
+
   return (
     <div className={styles.container}>
-      <Outlet />
+      <Outlet context={context} />
     </div>
   );
 }

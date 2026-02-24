@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "./Hero.module.css";
 
-function Hero() {
+function Hero({ startLoading }) {
   return (
     <section className={styles.sectionHero}>
       <div className={styles.hero}>
@@ -23,7 +23,7 @@ function Hero() {
           </div>
 
           <div className={styles.ctaButton}>
-            <Link to="buy">
+            <Link to="buy" onClick={startLoading}>
               <button>Explore the Marketplace</button>
             </Link>
           </div>

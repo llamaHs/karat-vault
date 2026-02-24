@@ -3,7 +3,7 @@ import Logo from "./Logo";
 import styles from "./Nav.module.css";
 import { IoCartOutline, IoSearchOutline } from "react-icons/io5";
 
-function Nav() {
+function Nav({ startLoading }) {
   return (
     <nav className={styles.nav}>
       <ul className={styles.navLeft}>
@@ -15,6 +15,7 @@ function Nav() {
                 isActive ? styles.active : ""
               }`
             }
+            onClick={startLoading}
           >
             Hot Items
           </NavLink>
@@ -25,6 +26,7 @@ function Nav() {
             className={({ isActive }) =>
               isActive ? styles.active : styles.link
             }
+            onClick={startLoading}
           >
             Buy
           </NavLink>
@@ -35,6 +37,7 @@ function Nav() {
             className={({ isActive }) =>
               isActive ? styles.active : styles.link
             }
+            onClick={startLoading}
           >
             Sell
           </NavLink>
@@ -46,6 +49,7 @@ function Nav() {
             className={({ isActive }) =>
               isActive ? styles.active : styles.link
             }
+            onClick={startLoading}
           >
             About
           </NavLink>
@@ -63,6 +67,7 @@ function Nav() {
             className={({ isActive }) =>
               isActive ? styles.active : styles.link
             }
+            onClick={startLoading}
           >
             My Page
           </NavLink>

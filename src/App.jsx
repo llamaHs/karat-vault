@@ -13,13 +13,22 @@ import Item from "./pages/Item";
 import BuyLayout from "./pages/BuyLayout";
 import HotItemsLayout from "./pages/HotItemsLayout";
 import { ProductProvider } from "./contexts/ProductContext";
+import LoadingBar from "./components/LoadingBar";
+import useFakeProgress from "./hooks/useFakeProgress";
 
 function App() {
+  const { isLoading, progress, start, finish } = useFakeProgress();
+
   return (
     <ProductProvider>
       <BrowserRouter>
+        <LoadingBar isLoading={isLoading} progress={progress} />
+
         <Routes>
-          <Route path="/" element={<AppLayout />}>
+          <Route
+            path="/"
+            element={<AppLayout startLoading={start} finishLoading={finish} />}
+          >
             <Route index element={<Home />} />
 
             <Route path="hot-items" element={<HotItemsLayout />}>
