@@ -44,7 +44,7 @@ function AboutUs() {
 
           <div className={styles.featureImg}>
             <img
-              src="./icon-background.png"
+              src="./icons/icon-background.png"
               alt="circle background image for icon"
             />
             <CiLock className={styles.icon} />
@@ -53,7 +53,7 @@ function AboutUs() {
           {/* --- 2 --- */}
           <div className={styles.featureImg}>
             <img
-              src="./icon-background.png"
+              src="./icons/icon-background.png"
               alt="circle background image for icon"
             />
             <GoGraph className={styles.icon} />
@@ -98,7 +98,7 @@ function AboutUs() {
 
           <div className={styles.featureImg}>
             <img
-              src="./icon-background.png"
+              src="./icons/icon-background.png"
               alt="circle background image for icon"
             />
             <CiCreditCard1 className={styles.icon} />

@@ -4,7 +4,7 @@ function Sell() {
   return (
     <>
       <PageTitle
-        img="./background-title-5.jpg"
+        img="./backgrounds/background-title-5.jpg"
         heading="List Your Pieces"
         subHeading="Submit your jewelry pieces for bidding."
       />

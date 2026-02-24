@@ -6,7 +6,10 @@ function Hero() {
     <section className={styles.sectionHero}>
       <div className={styles.hero}>
         <div className={styles.heroImg}>
-          <img src="./hero-img-dark.png" alt="hero image with gold necklace" />
+          <img
+            src="./backgrounds/hero-img-dark.png"
+            alt="hero image with gold necklace"
+          />
         </div>
 
         <div className={styles.heroText}>

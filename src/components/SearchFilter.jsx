@@ -36,7 +36,7 @@ function SearchFilter() {
           <div className={styles.optionContainer}>
             <div className={styles.option}>
               <img
-                src="./ring-icon.png"
+                src="./icons/ring-icon.png"
                 alt="a ring icon"
                 className={styles.image}
               />
@@ -45,7 +45,7 @@ function SearchFilter() {
 
             <div className={styles.option}>
               <img
-                src="./necklace-icon.png"
+                src="./icons/necklace-icon.png"
                 alt="a necklace icon"
                 className={styles.image}
               />
@@ -54,7 +54,7 @@ function SearchFilter() {
 
             <div className={styles.option}>
               <img
-                src="./earrings-icon.png"
+                src="./icons/earrings-icon.png"
                 alt="a pair of earrings icon"
                 className={styles.image}
               />
@@ -63,7 +63,7 @@ function SearchFilter() {
 
             <div className={styles.option}>
               <img
-                src="./bracelet-icon.png"
+                src="./icons/bracelet-icon.png"
                 alt="a bracelet icon"
                 className={styles.image}
               />

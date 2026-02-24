@@ -14,20 +14,20 @@ function ByMaterial() {
         <div className={styles.listContainer}>
           <div className={styles.listItem}>
             <div className={styles.imgContainer}>
-              <img src="./14k2.jpg" alt="a gold jewelry" />
+              <img src="./backgrounds/14k2.jpg" alt="a gold jewelry" />
             </div>
             <p>14K GOLD</p>
           </div>
           <div className={styles.listItem}>
             <div className={styles.imgContainer}>
-              <img src="./14k3.jpg" alt="a gold jewelry" />
+              <img src="./backgrounds/14k3.jpg" alt="a gold jewelry" />
             </div>
             <p>18K GOLD</p>
           </div>
           <div className={styles.listItem}>
             <div className={styles.imgContainer}>
               <img
-                src="./gemstone.png"
+                src="./backgrounds/gemstone.png"
                 alt="a gold jewelry with blue gemstones"
               />
             </div>

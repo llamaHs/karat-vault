@@ -14,25 +14,28 @@ function HotItemsNow() {
         <div className={styles.listContainer}>
           <div className={styles.listItem}>
             <div className={styles.imgContainer}>
-              <img src="./ring.png" alt="a gold ring" />
+              <img src="./backgrounds/ring.png" alt="a gold ring" />
             </div>
             <p>RINGS</p>
           </div>
           <div className={styles.listItem}>
             <div className={styles.imgContainer}>
-              <img src="./necklace.jpg" alt="a gold necklace" />
+              <img src="./backgrounds/necklace.jpg" alt="a gold necklace" />
             </div>
             <p>NECKLACES</p>
           </div>
           <div className={styles.listItem}>
             <div className={styles.imgContainer}>
-              <img src="./earings.png" alt="a pair of gold earings" />
+              <img
+                src="./backgrounds/earings.png"
+                alt="a pair of gold earings"
+              />
             </div>
             <p>EARINGS</p>
           </div>
           <div className={styles.listItem}>
             <div className={styles.imgContainer}>
-              <img src="./bracelet.png" alt="a gold bracelet" />
+              <img src="./backgrounds/bracelet.png" alt="a gold bracelet" />
             </div>
             <p>BRACELETS</p>
           </div>

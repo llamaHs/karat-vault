@@ -11,26 +11,34 @@ import About from "./pages/About";
 import MyPage from "./pages/MyPage";
 import Item from "./pages/Item";
 import BuyLayout from "./pages/BuyLayout";
+import HotItemsLayout from "./pages/HotItemsLayout";
+import { ProductProvider } from "./contexts/ProductContext";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<AppLayout />}>
-          <Route index element={<Home />} />
-          <Route path="hot-items" element={<HotItems />} />
+    <ProductProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<AppLayout />}>
+            <Route index element={<Home />} />
 
-          <Route path="buy" element={<BuyLayout />}>
-            <Route index element={<Buy />} />
-            <Route path=":id" element={<Item />} />
+            <Route path="hot-items" element={<HotItemsLayout />}>
+              <Route index element={<HotItems />} />
+              <Route path=":id" element={<Item />} />
+            </Route>
+
+            <Route path="buy" element={<BuyLayout />}>
+              <Route index element={<Buy />} />
+              <Route path=":id" element={<Item />} />
+            </Route>
+
+            <Route path="sell" element={<Sell />} />
+            <Route path="about" element={<About />} />
+            <Route path="mypage" element={<MyPage />} />
           </Route>
-
-          <Route path="sell" element={<Sell />} />
-          <Route path="about" element={<About />} />
-          <Route path="mypage" element={<MyPage />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
+    </ProductProvider>
   );
 }
 

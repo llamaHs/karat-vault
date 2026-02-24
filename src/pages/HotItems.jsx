@@ -7,7 +7,7 @@ function HotItems() {
   return (
     <div className={styles.container}>
       <PageTitle
-        img="./background-title-1.png"
+        img="./backgrounds/background-title-1.png"
         heading="Popular Pieces Right Now"
         subHeading="Discover trending gold and jewelry pieces loved by our customers."
       />

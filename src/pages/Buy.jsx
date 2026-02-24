@@ -7,7 +7,7 @@ function Buy() {
   return (
     <div className={styles.container}>
       <PageTitle
-        img="./background-title-2-1.png"
+        img="./backgrounds/background-title-2-1.png"
         heading="Bid on Pieces"
         subHeading="Explore fine gold and jewelry listings available for competitive bidding now."
       />
