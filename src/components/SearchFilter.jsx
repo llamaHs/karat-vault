@@ -94,7 +94,7 @@ function SearchFilter() {
         </div>
 
         <div className={styles.bidFilter}>
-          <p className={styles.bidRange}>CURRENT BID</p>
+          <p className={styles.bidRange}>MAXIMUM BID</p>
           <div className={styles.bidContainer}>
             <p className={styles.bidNum}>0</p>
             <div className={styles.rangeContainer}>

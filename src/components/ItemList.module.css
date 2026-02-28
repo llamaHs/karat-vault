@@ -55,6 +55,7 @@
 }
 
 .image {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -95,7 +96,7 @@
 }
 
 .bid {
-  color: #1c7ed6;
+  color: var(--color-price);
   font-weight: 600;
 }
 

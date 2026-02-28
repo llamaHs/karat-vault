@@ -11,9 +11,13 @@
   /* --color-background--brand: #faf7f0; */
   --color-background--brand: #f6f2e8;
 
-  --color-14kgold: #ffd43b;
+  --color-price: #1c7ed6;
+  --color-wishlist: #f03e3e;
+  --color-error: #f03e3e;
+
+  /* --color-14kgold: #ffd43b;
   --color-18kgold: #fcc419;
-  --color-gemstone: #ff8787;
+  --color-gemstone: #ff8787; */
 }
 
 * {

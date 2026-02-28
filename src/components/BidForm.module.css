@@ -1,0 +1,169 @@
+.bidForm {
+  display: flex;
+  flex-direction: column;
+
+  width: 45rem;
+  padding: 3rem 4rem;
+  gap: 3rem;
+  font-size: 1.6rem;
+  border: 1.2px solid var(--color-brand--main);
+  border-radius: 3px;
+}
+
+.currentBidContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.currentBidValue {
+  font-weight: 600;
+  color: var(--color-price);
+}
+
+.userBidContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.bidField {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bidInput {
+  font-family: inherit;
+  width: 15rem;
+  height: 3.6rem;
+  padding: 0.2rem 1rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border: 1px solid var(--color-brand--main);
+}
+
+.paymentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.paymentOptionContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 500;
+}
+
+.subContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.savedCardOption {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 1.4rem;
+}
+
+.paypalButtonWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.paypalButton {
+  font-family: inherit;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 3px;
+  background-color: #009cde;
+  color: #fff;
+  border: none;
+  transition: background-color 0.15s ease;
+}
+
+.paypalButton:hover {
+  background-color: #0070ba;
+}
+
+.newCardInput {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dataCvcWrapper {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.newCardInput input {
+  font-family: inherit;
+  width: 100%;
+  padding: 0.6rem 1rem;
+  font-size: 1.6rem;
+  border: 1px solid var(--color-brand--main);
+}
+
+.agreementContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.agreementWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 1.4rem;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  accent-color: var(--color-brand--main);
+}
+
+.error {
+  font-size: 1.2rem;
+  color: var(--color-error);
+}
+
+.error.bidError {
+  margin-left: auto;
+  margin-top: 0.4rem;
+}
+
+.error.agreeError {
+  margin: 0 auto;
+}
+
+.submitButton {
+  font-family: inherit;
+  padding: 1rem 1.5rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 3px;
+  background-color: var(--color-brand--main);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.submitButton:hover {
+  background-color: #b8923f;
+}

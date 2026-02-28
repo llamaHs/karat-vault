@@ -41,7 +41,7 @@ function ItemList({ listType }) {
               <div className={styles.infoContainer}>
                 <h3 className={styles.title}>{item.name}</h3>
                 <dl className={styles.itemInfo}>
-                  <dt>Asking Price</dt>
+                  <dt>Starting Price</dt>
                   <dd>{`$${item.askingPrice}`}</dd>
 
                   <dt>Current Bid</dt>
