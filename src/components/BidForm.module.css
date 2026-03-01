@@ -165,5 +165,5 @@ input[type="checkbox"] {
 }
 
 .submitButton:hover {
-  background-color: #b8923f;
+  background-color: var(--color-brand--main-darker);
 }
