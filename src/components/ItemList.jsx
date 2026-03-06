@@ -4,24 +4,28 @@ import { useProduct } from "../contexts/ProductContext";
 import { useState } from "react";
 import Spinner from "./Spinner";
 
+const initialListNumber = 24;
+
 function ItemList({ listType }) {
   const { products } = useProduct();
 
-  const [listNumber, setListNumber] = useState(24);
-  const [isRoad, setIsRoad] = useState(false);
+  const [listNumber, setListNumber] = useState(initialListNumber);
+  const [isLoad, setIsLoad] = useState(false);
   const [isSpin, setIsSpin] = useState(false);
 
-  const items =
+  const fullItems =
     listType === "hot"
-      ? products.filter((item) => item.offerCount >= 10).slice(0, listNumber)
-      : products.slice(0, listNumber);
+      ? products.filter((item) => item.offerCount >= 10)
+      : products;
 
-  function handleRoadList() {
-    setIsRoad(true);
+  const initialItems = fullItems.slice(0, listNumber);
+
+  function handleLoadList() {
+    setIsLoad(true);
     setIsSpin(true);
     setTimeout(() => {
       setIsSpin(false);
-      setListNumber(products.length);
+      setListNumber(fullItems.length);
     }, 1000);
   }
 
@@ -40,7 +44,7 @@ function ItemList({ listType }) {
       </div>
 
       <div className={styles.listContainer}>
-        {items.map((item) => (
+        {initialItems.map((item) => (
           <Link to={`${item.id}`} className={styles.itemLink} key={item.id}>
             <div className={styles.listItem}>
               <div className={styles.imgContainer}>
@@ -72,12 +76,12 @@ function ItemList({ listType }) {
       </div>
 
       <div className={styles.roadContainer}>
-        {!isRoad && (
+        {!isLoad && fullItems.length > listNumber && (
           <button
             className={styles.roadButton}
-            onClick={() => handleRoadList()}
+            onClick={() => handleLoadList()}
           >
-            ROAD MORE
+            LOAD MORE
           </button>
         )}
         {isSpin && <Spinner />}

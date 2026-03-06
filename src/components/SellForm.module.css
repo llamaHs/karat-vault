@@ -1,0 +1,269 @@
+.section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 12rem;
+  padding-bottom: 10rem;
+}
+
+.guideContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.guideTitleContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.guideTitle {
+  font-size: 1.6rem;
+}
+
+.guideIconEx {
+  font-size: 1.4rem;
+  color: var(--color-error);
+}
+
+.guideIconCh {
+  font-size: 1.6rem;
+}
+
+.guideIconEx.open {
+  color: var(--color-confirm);
+}
+
+.guideDetailContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+
+  max-height: 0;
+  padding: 2rem;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translateY(-0.5rem);
+  transition: max-height 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
+}
+
+.guideDetailContainer.open {
+  max-height: 120rem;
+  padding: 2rem;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.guideWrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.guideIconCheck {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin-top: 0.3rem;
+  color: var(--color-brand--main);
+}
+
+.guideText {
+  font-size: 1.4rem;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.formContainer {
+  margin-top: 3rem;
+  border: 2px solid var(--color-brand--main);
+}
+
+.form {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 10rem;
+  row-gap: 5rem;
+  padding: 5rem;
+}
+
+.imageContainer {
+  width: 36rem;
+  height: 36rem;
+  border-radius: 0.3rem;
+  border: 1px solid var(--color-brand--main);
+  overflow: hidden;
+  position: relative;
+}
+
+.imageUpload {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.imageUploadIcon {
+  font-size: 4rem;
+  color: var(--color-brand--main);
+}
+
+.imageUpload:hover {
+  background-color: var(--color-background-light);
+}
+
+.previewImage {
+  width: 100%;
+  height: 100%;
+}
+
+.deleteButton {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  border: none;
+  background: transparent;
+}
+
+.deleteIcon {
+  font-size: 2.7rem;
+  color: var(--color-brand--main);
+}
+
+.stateContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.formRowContainer {
+  display: flex;
+  gap: 7rem;
+}
+
+textarea {
+  resize: none;
+}
+
+.title,
+.category,
+.material,
+.condition,
+.purity,
+.weight,
+.description,
+.goldPrice,
+.purchasePrice,
+.startingPrice,
+.dueDate {
+  font-family: inherit;
+  font-size: 1.6rem;
+  font-weight: 400;
+  padding: 0.8rem 1.2rem;
+  border: 1px solid var(--color-brand--main);
+  border-radius: 0.3rem;
+}
+
+.title,
+.description {
+  width: 55rem;
+}
+
+.goldPrice,
+.purchasePrice,
+.startingPrice {
+  width: 12rem;
+}
+
+.startingPrice {
+  color: var(--color-price-sell);
+  font-weight: 600;
+}
+
+.priceContainer {
+  grid-column: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.childrenWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 2rem;
+}
+
+input[type="checkbox"] {
+  accent-color: var(--color-brand--main);
+}
+
+.agreementContainer {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.agreementWrapper {
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.buttonContainer {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+}
+
+.resetButton,
+.listButton {
+  font-family: inherit;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 0.8rem 1.8rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  border-radius: 0.3rem;
+}
+
+.resetButton {
+  border: 2px solid var(--color-brand--main);
+  background: #fff;
+  color: var(--color-brand--main);
+}
+
+.listButton {
+  border: 2px solid var(--color-brand--main);
+  background-color: var(--color-brand--main);
+  color: #fff;
+}
+
+.resetButton:hover {
+  background-color: var(--color-background--brand);
+}
+
+.listButton:hover {
+  border-color: var(--color-brand--main-darker);
+  background-color: var(--color-brand--main-darker);
+}

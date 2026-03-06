@@ -8,8 +8,28 @@ function BidForm({ currentBid, onCloseBid }) {
   const [bidError, setBidError] = useState("");
   const [agreeError, setAgreeError] = useState("");
   const [method, setMethod] = useState("");
-  const [agreed1, setAgreed1] = useState(false);
-  const [agreed2, setAgreed2] = useState(false);
+  const [agreed, setAgreed] = useState({
+    1: false,
+    2: false,
+    3: false,
+  });
+
+  const agreement = [
+    {
+      id: 1,
+      agreement: "I agree to automatic payment if I win the auction.",
+    },
+    {
+      id: 2,
+      agreement:
+        "I authorize Karat Vault to charge my selected payment method for this transaction.",
+    },
+    {
+      id: 3,
+      agreement:
+        "I understand and agree that the final amount charged may exceed my winning bid due to additional costs such as shipping fees, taxes, and customs duties.",
+    },
+  ];
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -31,7 +51,7 @@ function BidForm({ currentBid, onCloseBid }) {
       return;
     }
 
-    if (!agreed1 || !agreed2) {
+    if (!agreed) {
       setAgreeError("You must agree before placing a bid.");
       return;
     }
@@ -164,30 +184,22 @@ function BidForm({ currentBid, onCloseBid }) {
         )}
       </div>
       <div className={styles.agreementContainer}>
-        <div className={styles.agreementWrapper}>
-          <input
-            id="agreed1"
-            type="checkbox"
-            checked={agreed1}
-            onChange={(e) => setAgreed1(e.target.checked)}
-          />
-          <label htmlFor="agreed1">
-            I agree to automatic payment if I win the auction.
-          </label>
-        </div>
-
-        <div className={styles.agreementWrapper}>
-          <input
-            id="agreed2"
-            type="checkbox"
-            checked={agreed2}
-            onChange={(e) => setAgreed2(e.target.checked)}
-          />
-          <label htmlFor="agreed2">
-            I authorize Karat Vault to charge my selected payment method for
-            this transaction.
-          </label>
-        </div>
+        {agreement.map((a) => (
+          <div className={styles.agreementWrapper} key={a.id}>
+            <input
+              id={`agreement-${a.id}`}
+              type="checkbox"
+              checked={agreed[a.id]}
+              onChange={(e) =>
+                setAgreed((prev) => ({
+                  ...prev,
+                  [a.id]: e.target.checked,
+                }))
+              }
+            />
+            <label htmlFor={`agreement-${a.id}`}>{a.agreement}</label>
+          </div>
+        ))}
 
         {agreeError && (
           <p className={`${styles.error} ${styles.agreeError}`}>{agreeError}</p>
