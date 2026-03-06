@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import styles from "./SellForm.module.css";
 import { BsExclamationCircle } from "react-icons/bs";
 import { IoChevronDownOutline, IoChevronUp } from "react-icons/io5";
@@ -63,11 +63,48 @@ const agreements = [
   },
 ];
 
-function SellForm() {
-  const [isGuideOpen, setIsGuideOpen] = useState(false);
-  const [uploadedImage, setUploadedImage] = useState(null);
-  const [preview, setPreview] = useState(null);
+const initialState = {
+  uploadedImage: null,
+  preview: null,
+  itemTitle: "",
+  category: "ring",
+  material: "14k",
+  condition: "new",
+  description: "",
+  goldPurity: "14k",
+  weight: null,
+  goldPrice: null,
+  purchasePrice: null,
+  startingPrice: null,
+  dueDate: "",
+};
 
+function reducer(state, action) {
+  switch (action.type) {
+    case "uploadImage":
+      return { ...state, uploadedImage: action.payload };
+
+    case "showPreview":
+      return { ...state, preview: action.payload };
+
+    case "deleteImage":
+      return { ...state, uploadedImage: action.payload };
+
+    case "deletePreview":
+      return { ...state, preview: action.payload };
+
+    case "resetForm":
+      return initialState;
+
+    default:
+      throw new Error("");
+  }
+}
+
+function SellForm() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const [isGuideOpen, setIsGuideOpen] = useState(false);
   const today = new Date().toISOString().slice(0, 10);
 
   function handleGuideOpen() {
@@ -78,27 +115,31 @@ function SellForm() {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    setUploadedImage(file);
+    dispatch({ type: "uploadImage", payload: file });
 
     e.target.value = ""; // resetting file input DOM (not state)
   }
 
   function handleDeleteImage() {
-    setUploadedImage(null);
-    setPreview(null);
+    dispatch({ type: "deleteImage", payload: null });
+    dispatch({ type: "deletePreview", payload: null });
+  }
+
+  function handleReset(e) {
+    dispatch({ type: "resetForm" });
   }
 
   useEffect(() => {
-    if (!uploadedImage) {
-      setPreview(null);
+    if (!state.uploadedImage) {
+      dispatch({ type: "deletePreview", payload: null });
       return;
     }
 
-    const url = URL.createObjectURL(uploadedImage);
-    setPreview(url);
+    const url = URL.createObjectURL(state.uploadedImage);
+    dispatch({ type: "showPreview", payload: url });
 
     return () => URL.revokeObjectURL(url);
-  }, [uploadedImage]);
+  }, [state.uploadedImage]);
 
   return (
     <div className={styles.section}>
@@ -134,9 +175,9 @@ function SellForm() {
       <div className={styles.formContainer}>
         <form className={styles.form}>
           <div className={styles.imageContainer}>
-            {uploadedImage ? (
+            {state.uploadedImage ? (
               <>
-                <img className={styles.previewImage} src={preview} />
+                <img className={styles.previewImage} src={state.preview} />
                 <button
                   className={styles.deleteButton}
                   onClick={handleDeleteImage}
@@ -240,6 +281,7 @@ function SellForm() {
                     id="purchasePrice"
                     type="number"
                     step="1"
+                    min={0}
                   />
                 </div>
               </FormRow>
@@ -277,16 +319,22 @@ function SellForm() {
               <div className={styles.agreementWrapper} key={a.id}>
                 <input
                   type="checkbox"
-                  id="agreement"
+                  id={`agreement-${a.id}`}
                   className={styles.agreement}
                 />
-                <label htmlFor="agreement">{a.agreement}</label>
+                <label htmlFor={`agreement-${a.id}`}>{a.agreement}</label>
               </div>
             ))}
           </div>
 
           <div className={styles.buttonContainer}>
-            <button className={styles.resetButton}>RESET</button>
+            <button
+              type="reset"
+              className={styles.resetButton}
+              onClick={handleReset}
+            >
+              RESET
+            </button>
             <button className={styles.listButton}>LIST ITEM</button>
           </div>
         </form>
