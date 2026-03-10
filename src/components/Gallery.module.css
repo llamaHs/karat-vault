@@ -1,0 +1,44 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+  padding: 5rem 0;
+  background-color: var(--color-background--brand);
+}
+
+.galleryText {
+  font-size: 2rem;
+}
+
+.galleryContainer {
+  width: 100%;
+  overflow: hidden;
+}
+
+.galleryTrack {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  animation: scroll 40s linear infinite;
+}
+
+.galleryTrack img {
+  height: 25rem;
+  width: auto;
+  flex-shrink: 0;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* To Stop gallery track while hovering */
+/* .galleryContainer:hover .galleryTrack {
+  animation-play-state: paused;
+} */

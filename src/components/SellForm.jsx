@@ -21,7 +21,7 @@ const guidelines = [
   {
     id: "g3",
     guide:
-      "The minimum STARTING PRICE is determined based on the higher of the original purchase price or the current gold market value. We may request supporting documentation if the declared purchase price appears significantly higher than the actual value.",
+      "The minimum STARTING PRICE is calculated by combining half of the original purchase price with the current gold market value. We may request supporting documentation if the declared purchase price appears significantly higher than the actual value.",
   },
   {
     id: "g4",
