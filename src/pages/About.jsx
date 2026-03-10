@@ -5,6 +5,7 @@ import PageTitle from "../components/PageTitle";
 import Testimonial from "../components/Testimonial";
 import OurMission from "../components/OurMission";
 import Gallery from "../components/Gallery";
+import OurSystem from "../components/OurSystem";
 
 function About() {
   const { finishLoading } = useOutletContext();
@@ -22,6 +23,7 @@ function About() {
       />
       <OurMission />
       <Gallery />
+      <OurSystem />
       <Testimonial />
     </div>
   );

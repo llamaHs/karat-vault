@@ -21,7 +21,7 @@ function OurMission() {
             jewelry.
           </p>
           <p className={styles.mission}>
-            This raised an important question for us:
+            This raised an important question for us:{" "}
             <strong>
               how can both buyers and sellers feel confident and satisfied in a
               second-hand jewelry transaction?

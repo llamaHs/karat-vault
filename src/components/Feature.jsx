@@ -73,7 +73,7 @@ function AboutUs() {
               </p>
               <p>
                 Buyers can also update their offers at any time before the
-                bidding deadline through My Page.
+                bidding deadline.
               </p>
             </div>
           </div>
@@ -86,7 +86,7 @@ function AboutUs() {
 
             <div className={styles.featureText}>
               <p>
-                Karat Vault charges a flat <strong>7%</strong> fee.
+                Karat Vault charges a flat <strong>8%</strong> fee.
               </p>
               <p>
                 Additional costs such as card processing fees, duties, and taxes
