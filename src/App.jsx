@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import "./App.css";
 
@@ -12,6 +12,13 @@ import MyPage from "./pages/MyPage";
 import Item from "./pages/Item";
 import BuyLayout from "./pages/BuyLayout";
 import HotItemsLayout from "./pages/HotItemsLayout";
+import MyPageLayout from "./pages/MyPageLayout";
+import MyBids from "./pages/MyBids";
+import MyListings from "./pages/MyListings";
+import Wishlist from "./pages/Wishlist";
+import PaymentMethods from "./pages/PaymentMethods";
+import AccountSettings from "./pages/AccountSettings";
+
 import { ProductProvider } from "./contexts/ProductContext";
 import LoadingBar from "./components/LoadingBar";
 import useFakeProgress from "./hooks/useFakeProgress";
@@ -43,7 +50,18 @@ function App() {
 
             <Route path="sell" element={<Sell />} />
             <Route path="about" element={<About />} />
-            <Route path="mypage" element={<MyPage />} />
+
+            <Route
+              path="mypage"
+              element={<MyPageLayout finishLoading={finish} />}
+            >
+              <Route index element={<Navigate to="bids" replace />} />
+              <Route path="bids" element={<MyBids />} />
+              <Route path="listings" element={<MyListings />} />
+              <Route path="wishlist" element={<Wishlist />} />
+              <Route path="payment-methods" element={<PaymentMethods />} />
+              <Route path="account-settings" element={<AccountSettings />} />
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>
