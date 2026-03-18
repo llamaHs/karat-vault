@@ -1,0 +1,164 @@
+.section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding: 0 7rem;
+  padding-bottom: 10rem;
+}
+
+.sortContainer {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+}
+
+.sortButton {
+  font-family: inherit;
+  font-size: 1.4rem;
+  font-weight: 400;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.sortButton:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--color-text);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.listContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 5rem;
+  row-gap: 7rem;
+  justify-items: center;
+}
+
+.listItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.8rem;
+  cursor: pointer;
+}
+
+.imgContainer {
+  /* width: 30rem;
+  height: 30rem; */
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  position: relative;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.title {
+  font-family: "Lora", serif;
+  font-weight: 300;
+  font-size: 2rem;
+}
+
+.itemInfo {
+  width: 28rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem 1.2rem;
+  font-size: 1.4rem;
+  align-items: center;
+}
+
+.itemInfo dt {
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--color-text-light);
+}
+
+.itemInfo dd {
+  justify-self: end;
+  font-size: 1.6rem;
+}
+
+.bid {
+  color: var(--color-price);
+  font-weight: 600;
+}
+
+.yourBid {
+  color: var(--color-price-bid);
+  font-weight: 600;
+}
+
+.listItem:hover .imgContainer {
+  transform: scale(1.03);
+}
+
+.offerCount {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 3.3rem;
+  height: 3.3rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  background-color: var(--color-brand--main);
+  color: var(--color-text-white);
+}
+
+.listItem.completed {
+  cursor: auto;
+  filter: grayscale(100%);
+}
+
+.listItem.completed:hover .imgContainer {
+  transform: none;
+}
+
+.roadContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.roadButton {
+  font-family: inherit;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 3px;
+  padding: 1.2rem 2.4rem;
+  background-color: var(--color-brand--main);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.roadButton:hover {
+  background-color: var(--color-brand--main-darker);
+}
