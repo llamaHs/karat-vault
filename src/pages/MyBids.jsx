@@ -1,5 +1,9 @@
 import { useEffect, useReducer, useState } from "react";
-import { useOutletContext, useSearchParams } from "react-router-dom";
+import {
+  useNavigate,
+  useOutletContext,
+  useSearchParams,
+} from "react-router-dom";
 import styles from "./MyBids.module.css";
 
 const tempBidItems = [
@@ -491,6 +495,8 @@ function MyBids() {
   // const [isSpin, setIsSpin] = useState(false);
   // const initialItems = fullItems.slice(0, listNumber);
 
+  const navigate = useNavigate();
+
   const { finishLoading } = useOutletContext();
   const [{ sort }, dispatch] = useReducer(reducer, initialState);
   const listItems =
@@ -502,6 +508,10 @@ function MyBids() {
 
   function handleSort(payload) {
     dispatch({ type: "changeSort", payload: payload });
+  }
+
+  function handleMovePage(id) {
+    navigate(`/item/${id}`);
   }
 
   useEffect(() => {
@@ -540,6 +550,7 @@ function MyBids() {
               sort === "complete" ? styles.completed : ""
             }`}
             key={item.id}
+            onClick={() => handleMovePage(item.id)}
           >
             <div className={styles.imgContainer}>
               <img src={item.image} alt={item.name} className={styles.image} />

@@ -1,5 +1,5 @@
 import { useEffect, useReducer } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import styles from "./MyListings.module.css";
 
 const tempActiveListings = [
@@ -183,6 +183,7 @@ function reducer(state, action) {
 }
 
 function MyListings() {
+  const navigate = useNavigate();
   const { finishLoading } = useOutletContext();
   const [{ sort }, dispatch] = useReducer(reducer, initialState);
 
@@ -195,6 +196,10 @@ function MyListings() {
 
   function handleSort(payload) {
     dispatch({ type: "changeSort", payload: payload });
+  }
+
+  function handleMovePage(id) {
+    navigate(`/item/${id}`);
   }
 
   useEffect(() => {
@@ -228,7 +233,11 @@ function MyListings() {
 
       <div className={styles.listContainer}>
         {listItems.map((item) => (
-          <div className={styles.listItem} key={item.id}>
+          <div
+            className={styles.listItem}
+            key={item.id}
+            onClick={() => handleMovePage(item.id)}
+          >
             <div className={styles.imgContainer}>
               <img src={item.image} alt={item.name} className={styles.image} />
             </div>

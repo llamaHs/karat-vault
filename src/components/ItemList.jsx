@@ -45,7 +45,11 @@ function ItemList({ listType }) {
 
       <div className={styles.listContainer}>
         {initialItems.map((item) => (
-          <Link to={`${item.id}`} className={styles.itemLink} key={item.id}>
+          <Link
+            to={`item/${item.id}`}
+            className={styles.itemLink}
+            key={item.id}
+          >
             <div className={styles.listItem}>
               <div className={styles.imgContainer}>
                 <img

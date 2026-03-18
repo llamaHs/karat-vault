@@ -40,13 +40,15 @@ function App() {
 
             <Route path="hot-items" element={<HotItemsLayout />}>
               <Route index element={<HotItems />} />
-              <Route path=":id" element={<Item />} />
+              <Route path="item/:id" element={<Item />} />
             </Route>
 
             <Route path="buy" element={<BuyLayout />}>
               <Route index element={<Buy />} />
-              <Route path=":id" element={<Item />} />
+              <Route path="item/:id" element={<Item />} />
             </Route>
+
+            <Route path="item/:id" element={<Item />} />
 
             <Route path="sell" element={<Sell />} />
             <Route path="about" element={<About />} />
