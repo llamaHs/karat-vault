@@ -1,0 +1,226 @@
+.section {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding-bottom: 10rem;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.title {
+  /* font-family: "Lora", serif; */
+  font-size: 2.4rem;
+  /* font-weight: 500; */
+  text-transform: uppercase;
+  margin-left: 24rem;
+  /* font-style: italic; */
+}
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  column-gap: 5rem;
+  row-gap: 5rem;
+  padding: 3rem 24rem;
+  background-color: var(--color-background--brand);
+  margin-bottom: 7rem;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  font-size: 1.8rem;
+  width: 100%;
+  height: 13rem;
+  gap: 2.4rem;
+  background-color: #fff;
+  box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
+  padding: 2rem 2.4rem;
+  border-radius: 6px;
+}
+
+.cardType {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cardIcon {
+  font-size: 2rem;
+}
+
+.visa {
+  color: var(--color-card-visa);
+}
+
+.master {
+  color: var(--color-card-master);
+}
+
+.amex {
+  color: var(--color-card-amex);
+}
+
+.cardName {
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.iconsWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+  color: var(--color-text-light);
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.addCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 13rem;
+  background-color: #fff;
+  box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
+  padding: 2rem 2.4rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.addCardIcon {
+  font-size: 3rem;
+  color: var(--color-brand--main);
+}
+
+.addCard:active {
+  box-shadow: none;
+}
+
+.paypalContainer {
+  height: 15rem;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-background--brand);
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-bottom: 7rem;
+}
+
+.paypalButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: inherit;
+  font-size: 1.8rem;
+  font-weight: 500;
+  border: none;
+  padding: 1rem 2rem;
+  /* background-color: #0070ba; */
+  background-color: #009cde;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.paypalButton:hover {
+  /* background-color: #003087; */
+  background-color: #0070ba;
+}
+
+.info {
+  font-size: 1.2rem;
+}
+
+.paysContainer {
+  height: 15rem;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-background--brand);
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.buttonWrapper {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+}
+
+.applepayButton,
+.googlepayButton {
+  font-family: inherit;
+  font-size: 1.8rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.applepayButton {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #000;
+}
+
+.googlepayButton {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.googlepayIcon {
+  font-size: 2.4rem;
+}
+
+.applepayButton:hover {
+  opacity: 0.9;
+}
+
+.googlepayButton:hover {
+  background-color: #f5f5f5;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+
+.overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}

@@ -1,0 +1,86 @@
+.modal {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border: 3px solid var(--color-brand--main);
+  border-radius: 3px;
+  z-index: 3000;
+  padding: 4rem 3rem;
+  position: relative;
+}
+
+.cancelIcon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2.2rem;
+  color: var(--color-brand--main);
+  cursor: pointer;
+}
+
+.title {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--color-brand--main);
+}
+
+.explainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0 auto;
+}
+
+.explain {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.subExplain {
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.cancelButton,
+.continueButton {
+  font-family: inherit;
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border: 1.5px solid var(--color-brand--main);
+  border-radius: 3px;
+}
+
+.cancelButton {
+  background: transparent;
+  color: var(--color-brand--main);
+}
+
+.continueButton {
+  background-color: var(--color-brand--main);
+  color: #fff;
+}
+
+.cancelButton:hover {
+  background-color: var(--color-background--brand);
+}
+
+.continueButton:hover {
+  border-color: var(--color-brand--main-darker);
+  background-color: var(--color-brand--main-darker);
+}

@@ -1,0 +1,163 @@
+.modal {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border: 3px solid var(--color-brand--main);
+  border-radius: 3px;
+  z-index: 3000;
+  padding: 4rem 3rem;
+  position: relative;
+}
+
+.cancelIcon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2.2rem;
+  color: var(--color-brand--main);
+  cursor: pointer;
+}
+
+.title {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--color-brand--main);
+  margin-bottom: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.cardNumber {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.label {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.cardNumberInputs {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cardNumberInput {
+  font-family: inherit;
+  width: 7rem;
+  height: 4rem;
+  text-align: center;
+  font-size: 1.6rem;
+  border: 1px solid var(--color-brand--main);
+  border-radius: 3px;
+}
+
+.cardIcon {
+  font-size: 2.2rem;
+}
+
+.visa {
+  color: var(--color-card-visa);
+}
+
+.master {
+  color: var(--color-card-master);
+}
+
+.amex {
+  color: var(--color-card-amex);
+}
+
+.cardInfoContainer {
+  display: flex;
+  gap: 9.4rem;
+}
+
+.cardDate,
+.cardCVV {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.expiryInput {
+  font-family: inherit;
+  width: 10rem;
+  height: 4rem;
+  text-align: center;
+  font-size: 1.6rem;
+  border: 1px solid var(--color-brand--main);
+  border-radius: 3px;
+}
+
+.cvvInput {
+  font-family: inherit;
+  width: 10rem;
+  height: 4rem;
+  text-align: center;
+  font-size: 1.6rem;
+  border: 1px solid var(--color-brand--main);
+  border-radius: 3px;
+}
+
+.explainContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.explain {
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+
+.formButtonContainer {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.cancelButton,
+.addButton {
+  font-family: inherit;
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border: 1.5px solid var(--color-brand--main);
+  border-radius: 3px;
+}
+
+.cancelButton {
+  background: transparent;
+  color: var(--color-brand--main);
+}
+
+.addButton {
+  background-color: var(--color-brand--main);
+  color: #fff;
+}
+
+.cancelButton:hover {
+  background-color: var(--color-background--brand);
+}
+
+.addButton:hover {
+  border-color: var(--color-brand--main-darker);
+  background-color: var(--color-brand--main-darker);
+}

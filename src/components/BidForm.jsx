@@ -117,13 +117,13 @@ function BidForm({ currentBid, onCloseBid }) {
             <div className={styles.savedCardOption}>
               <input id="visa4821" type="radio" name="savedCard" />
               <label htmlFor="visa4821" className={styles.savedCardOption}>
-                Visa **** **** 4821
+                Visa 4123 **** **** 4821
               </label>
             </div>
             <div className={styles.savedCardOption}>
               <input id="master9012" type="radio" name="savedCard" />
               <label htmlFor="master9012" className={styles.savedCardOption}>
-                Master **** **** 9012
+                Master 5234 **** **** 9012
               </label>
             </div>
           </div>
@@ -148,9 +148,7 @@ function BidForm({ currentBid, onCloseBid }) {
         {method === "paypal" && (
           <div className={styles.subContent}>
             <div className={styles.paypalButtonWrapper}>
-              <button className={styles.paypalButton}>
-                Log in with PayPal
-              </button>
+              <button className={styles.paypalButton}>Pay with PayPal</button>
             </div>
           </div>
         )}
