@@ -135,7 +135,11 @@ function AddCardModal({ onCloseModal }) {
         </div>
 
         <div className={styles.formButtonContainer}>
-          <button type="button" className={styles.cancelButton}>
+          <button
+            type="button"
+            className={styles.cancelButton}
+            onClick={onCloseModal}
+          >
             Cancel
           </button>
           <button type="button" className={styles.addButton}>

@@ -25,7 +25,9 @@ function PayModal({ modal, onCloseModal }) {
       </div>
 
       <div className={styles.buttonContainer}>
-        <button className={styles.cancelButton}>Cancel</button>
+        <button className={styles.cancelButton} onClick={onCloseModal}>
+          Cancel
+        </button>
         <button className={styles.continueButton}>
           Continue to {payMethod}
         </button>

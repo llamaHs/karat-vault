@@ -1,0 +1,232 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.container {
+  min-height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50rem 1fr;
+  padding: 3rem 0;
+  padding-bottom: 10rem;
+  padding-right: 20rem;
+}
+
+.navContainer {
+  padding: 0 10rem;
+  align-self: flex-start;
+  position: sticky;
+  top: 5rem;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 3rem;
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+
+a {
+  color: inherit;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  /* gap: 12rem; */
+  align-self: flex-start;
+}
+
+.active {
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.profileSection,
+.securitySection,
+.shippingInfoSection,
+.notificationSection,
+.deleteAccountSection {
+  width: 100%;
+  min-height: 65vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 3rem;
+  /* padding: 10rem 0; */
+  border-bottom: 1px solid var(--color-brand--main);
+  /* border-bottom: 1px solid var(--color-text-light); */
+}
+
+.profileSection {
+  padding-top: 0;
+}
+
+.notificationSection {
+  gap: 4rem;
+}
+
+.deleteAccountSection {
+  border-bottom: none;
+}
+
+.title,
+.dangerTitle {
+  font-family: "Lora", serif;
+  font-size: 3rem;
+  font-weight: 300;
+}
+
+.dangerTitle {
+  color: var(--color-danger);
+}
+
+.nameContainer {
+  display: flex;
+  align-items: center;
+  gap: 12rem;
+}
+
+.accountContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-size: 1.4rem;
+}
+
+.shortInput,
+.longInput,
+.textarea,
+.countryCode {
+  padding: 0.6rem 1rem;
+  font-family: inherit;
+  font-size: 1.6rem;
+  font-weight: 500;
+  border: 1px solid var(--color-brand--main);
+  border-radius: 3px;
+}
+
+.shortInput {
+  width: 20rem;
+  height: 4rem;
+}
+
+.longInput {
+  width: 36rem;
+  height: 4rem;
+}
+
+.textarea {
+  width: 45rem;
+}
+
+.countryCode {
+  width: 8rem;
+  height: 4rem;
+}
+
+.editButton {
+  font-family: inherit;
+  border: none;
+  background-color: var(--color-brand--main);
+  color: #fff;
+  font-size: 1.4rem;
+  border-radius: 3px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+}
+
+.toggleWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.inputRow {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+}
+
+.toggleLabel {
+  font-size: 1.6rem;
+}
+
+.toggle {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 4rem;
+  height: 2.2rem;
+  background-color: #ccc;
+  border-radius: 99rem;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s ease;
+}
+
+.toggle::before {
+  content: "";
+  position: absolute;
+  width: 1.6rem;
+  height: 1.6rem;
+  top: 0.3rem;
+  left: 0.3rem;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.toggle:checked {
+  background-color: var(--color-brand--main);
+}
+
+.toggle:checked::before {
+  transform: translateX(1.8rem);
+}
+
+.toggleNotice {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.warningWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.warning {
+  font-size: 1.8rem;
+}
+
+.deleteAccountButton {
+  margin-left: auto;
+  font-family: inherit;
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: var(--color-danger);
+  border: none;
+  border-radius: 3px;
+  padding: 1rem 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.deleteAccountButton:hover {
+  background-color: #c92a2a;
+}
