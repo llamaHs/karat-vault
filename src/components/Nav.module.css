@@ -1,6 +1,6 @@
 .nav {
-  max-width: 100%;
-  height: 12rem;
+  width: 100%;
+  height: var(--nav-height);
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   gap: 10rem;
@@ -12,6 +12,23 @@
   box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.05);
   background-color: #fff;
   font-weight: 500;
+}
+
+.scrolled {
+  position: fixed;
+  height: var(--nav-height-small);
+  top: 0;
+  z-index: 9999;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
 .navLeft,

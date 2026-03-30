@@ -2,10 +2,37 @@ import { NavLink } from "react-router-dom";
 import Logo from "./Logo";
 import styles from "./Nav.module.css";
 import { IoCartOutline, IoSearchOutline } from "react-icons/io5";
+import { useEffect, useState } from "react";
 
 function Nav({ startLoading }) {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const trigger = document.querySelector("#nav-trigger");
+    // 특정 id 가진 element 감지
+
+    if (!trigger) return;
+
+    const observer = new IntersectionObserver(
+      // const entry = entries[0];
+      // destructuring (첫 번째 element 꺼냄)
+      ([entry]) => {
+        setScrolled(!entry.isIntersecting);
+        // 기준(nav-trigger)이 밑에서부터 올라와서 위로 나가 안 보이는 순간부터 nav가 sticky되어야 하니까
+      },
+      {
+        root: null,
+        threshold: 0,
+      }
+    );
+
+    observer.observe(trigger);
+
+    return () => observer.disconnect();
+  });
+
   return (
-    <nav className={styles.nav}>
+    <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}>
       <ul className={styles.navLeft}>
         <li>
           <NavLink

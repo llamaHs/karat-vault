@@ -29,6 +29,8 @@ function Hero({ startLoading }) {
           </div>
         </div>
       </div>
+
+      <div id="nav-trigger" className={styles.navTrigger}></div>
     </section>
   );
 }

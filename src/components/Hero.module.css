@@ -63,3 +63,12 @@
 .ctaButton button:hover {
   background-color: var(--color-brand--main);
 }
+
+.navTrigger {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 75vh;
+  height: 1px;
+  pointer-events: none;
+}

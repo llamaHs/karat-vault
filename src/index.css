@@ -1,4 +1,7 @@
 :root {
+  --nav-height: 12rem;
+  --nav-height-small: 10rem;
+
   --color-brand--main: #c9a24d;
   --color-brand--main-darker: #b8923f;
   --color-brand--main-lighter: #ebc04b;
