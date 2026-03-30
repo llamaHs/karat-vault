@@ -8,15 +8,19 @@ function Footer() {
         <div className={`${styles.col} ${styles.colLogo}`}>
           <img src="/logo-main-serif-short.png" alt="KaratVault logo" />
           <p className={styles.copyright}>© 2026 Karat Vault</p>
-          <ul className={styles.term}>
+          <ul className={styles.terms}>
             <li>
-              <a href="#">Terms and Conditions</a>
+              <Link to="terms-and-conditions" className={styles.term}>
+                Terms and Conditions
+              </Link>
             </li>
             <li>
               <p>|</p>
             </li>
             <li>
-              <a href="#">Privacy</a>
+              <Link to="privacy" className={styles.term}>
+                Privacy
+              </Link>
             </li>
           </ul>
         </div>

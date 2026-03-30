@@ -24,6 +24,8 @@ import LoadingBar from "./components/LoadingBar";
 import useFakeProgress from "./hooks/useFakeProgress";
 import ScrollToHash from "./components/ScrollToHash";
 import Careers from "./pages/Careers.JSX";
+import TermsAndConditions from "./pages/TermsAndConditions";
+import Privacy from "./pages/Privacy";
 
 function App() {
   const { isLoading, progress, start, finish } = useFakeProgress();
@@ -68,6 +70,12 @@ function App() {
             </Route>
 
             <Route path="careers" element={<Careers />} />
+
+            <Route
+              path="terms-and-conditions"
+              element={<TermsAndConditions />}
+            />
+            <Route path="privacy" element={<Privacy />} />
           </Route>
         </Routes>
       </BrowserRouter>

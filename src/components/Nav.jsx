@@ -1,13 +1,21 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import Logo from "./Logo";
 import styles from "./Nav.module.css";
 import { IoCartOutline, IoSearchOutline } from "react-icons/io5";
 import { useEffect, useState } from "react";
 
 function Nav({ startLoading }) {
+  const { pathname } = useLocation();
   const [scrolled, setScrolled] = useState(false);
 
+  const enableScrollNav = pathname === "/";
+
   useEffect(() => {
+    if (!enableScrollNav) {
+      setScrolled(false);
+      return;
+    }
+
     const trigger = document.querySelector("#nav-trigger");
     // 특정 id 가진 element 감지
 

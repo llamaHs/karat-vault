@@ -6,8 +6,12 @@ import ScrollToTop from "../components/ScrollToTop";
 import styles from "./AppLayout.module.css";
 
 function AppLayout({ startLoading, finishLoading }) {
-  const location = useLocation();
-  const hideFAQ = location.pathname === "/careers";
+  const { pathname } = useLocation();
+  // const location = useLocation();
+  // const pathname = location.pathname;
+
+  const hiddenPaths = ["/careers", "/terms-and-conditions", "/privacy"];
+  const hideFAQ = hiddenPaths.includes(pathname);
 
   return (
     <>
@@ -19,6 +23,7 @@ function AppLayout({ startLoading, finishLoading }) {
       </main>
 
       {!hideFAQ && <FAQ />}
+
       <Footer />
     </>
   );

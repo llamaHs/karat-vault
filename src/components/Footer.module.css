@@ -39,7 +39,7 @@ a:visited {
   margin-bottom: 2rem;
 }
 
-.term {
+.terms {
   padding-left: 2rem;
   color: var(--color-text-light);
   display: flex;
@@ -47,9 +47,12 @@ a:visited {
   font-size: 1.4rem;
 }
 
-.term a:link,
-.term a:visited {
+.term {
   color: var(--color-text-light);
+}
+
+.term:hover {
+  text-decoration: underline var(--color-text-light);
 }
 
 .linkTitle {
