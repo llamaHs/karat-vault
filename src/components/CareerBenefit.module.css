@@ -1,0 +1,87 @@
+.section {
+  min-height: 90vh;
+  padding: 0 45rem;
+}
+
+.container {
+  margin: 0 auto;
+  padding-top: 8rem;
+  margin-bottom: 10rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.heading {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.heading h2 {
+  font-family: "Lora", serif;
+  font-weight: 400;
+  font-size: 3.2rem;
+}
+
+.heading p {
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+
+.benefitContainer {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  margin-top: 1rem;
+}
+
+.benefit {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid var(--color-brand--main-circle1);
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+}
+
+.boxTitle {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.icon {
+  font-size: 1.8rem;
+  color: var(--color-brand--main);
+  cursor: pointer;
+}
+
+.title {
+  font-family: "Lora", serif;
+  font-size: 2rem;
+  font-weight: 200;
+  cursor: pointer;
+}
+
+.boxContent {
+  padding-left: 5rem;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease, opacity 0.25s ease;
+}
+
+.content {
+  font-size: 1.6rem;
+  line-height: 1.8;
+  padding-top: 2rem;
+}
+
+.open {
+  max-height: 30rem;
+  opacity: 1;
+}

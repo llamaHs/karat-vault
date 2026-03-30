@@ -1,5 +1,5 @@
-import { useState } from "react";
 import styles from "./Testimonial.module.css";
+import { useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 
 const testimonials = [
@@ -69,7 +69,7 @@ function Testimonial() {
   const maxIndex = testimonials.length - VISIBLE;
 
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id="reviews">
       <div className={styles.container}>
         <div className={styles.heading}>
           <h2>Trusted by Our Customers</h2>

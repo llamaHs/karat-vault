@@ -22,6 +22,8 @@ import AccountSettings from "./pages/AccountSettings";
 import { ProductProvider } from "./contexts/ProductContext";
 import LoadingBar from "./components/LoadingBar";
 import useFakeProgress from "./hooks/useFakeProgress";
+import ScrollToHash from "./components/ScrollToHash";
+import Careers from "./pages/Careers.JSX";
 
 function App() {
   const { isLoading, progress, start, finish } = useFakeProgress();
@@ -30,7 +32,7 @@ function App() {
     <ProductProvider>
       <BrowserRouter>
         <LoadingBar isLoading={isLoading} progress={progress} />
-
+        <ScrollToHash />
         <Routes>
           <Route
             path="/"
@@ -64,6 +66,8 @@ function App() {
               <Route path="payment-methods" element={<PaymentMethods />} />
               <Route path="account-settings" element={<AccountSettings />} />
             </Route>
+
+            <Route path="careers" element={<Careers />} />
           </Route>
         </Routes>
       </BrowserRouter>

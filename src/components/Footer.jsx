@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./Footer.module.css";
 
 function Footer() {
@@ -24,16 +25,17 @@ function Footer() {
           <p className={styles.linkTitle}>ABOUT US</p>
           <ul className={styles.linkList}>
             <li>
-              <a href="#">Our Story</a>
+              <Link to="/about">Our Story</Link>
             </li>
             <li>
-              <a href="#">Reviews</a>
+              <Link to="/about#reviews">Reviews</Link>
+              {/* {{ pathname: "/about", hash: "#reviews" }} */}
             </li>
             <li>
-              <a href="#">Careers</a>
+              <Link to="/careers">Careers</Link>
             </li>
             <li>
-              <a href="#">FAQs</a>
+              <Link to="/about#faq">FAQs</Link>
             </li>
           </ul>
         </div>
@@ -45,13 +47,13 @@ function Footer() {
               <a href="#">Create Account</a>
             </li>
             <li>
-              <a href="#">My Transactions</a>
+              <Link to="/mypage/bids">My Transactions</Link>
             </li>
             <li>
-              <a href="#">Payment Information</a>
+              <Link to="/mypage/payment-methods">Payment Information</Link>
             </li>
             <li>
-              <a href="#">Wish List</a>
+              <Link to="/mypage/wishlist">Wishlist</Link>
             </li>
           </ul>
         </div>

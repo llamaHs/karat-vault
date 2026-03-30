@@ -67,7 +67,7 @@ function FAQ() {
   }
 
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id="faq">
       <div className={styles.container}>
         <div className={styles.heading}>
           <h2>FAQ</h2>
