@@ -1,13 +1,30 @@
 import { useRef, useState, useEffect } from "react";
 import styles from "./SearchFilter.module.css";
 
-function SearchFilter() {
-  const [range, setRange] = useState(5000);
+function SearchFilter({ category, material, range, dispatch }) {
   const [tooltipLeft, setTooltipLeft] = useState(0);
   const rangeRef = useRef(null);
 
+  function handleCategory(newCategory) {
+    if (category === newCategory) {
+      dispatch({ type: "resetCategory" });
+      return;
+    }
+
+    dispatch({ type: "changeCategory", payload: newCategory });
+  }
+
+  function handleMaterial(newMaterial) {
+    if (material === newMaterial) {
+      dispatch({ type: "resetMaterial" });
+      return;
+    }
+
+    dispatch({ type: "changeMaterial", payload: newMaterial });
+  }
+
   function handleRange(newRange) {
-    setRange(Number(newRange));
+    dispatch({ type: "changeRange", payload: Number(newRange) });
   }
 
   useEffect(() => {
@@ -34,7 +51,12 @@ function SearchFilter() {
           <p className={styles.title}>BY CATEGORY</p>
 
           <div className={styles.optionContainer}>
-            <div className={styles.option}>
+            <div
+              className={`${styles.option} ${
+                category === "ring" ? styles.active : ""
+              }`}
+              onClick={() => handleCategory("ring")}
+            >
               <img
                 src="./icons/ring-icon.png"
                 alt="a ring icon"
@@ -43,7 +65,12 @@ function SearchFilter() {
               <p>RING</p>
             </div>
 
-            <div className={styles.option}>
+            <div
+              className={`${styles.option} ${
+                category === "necklace" ? styles.active : ""
+              }`}
+              onClick={() => handleCategory("necklace")}
+            >
               <img
                 src="./icons/necklace-icon.png"
                 alt="a necklace icon"
@@ -52,7 +79,12 @@ function SearchFilter() {
               <p>NECKLACE</p>
             </div>
 
-            <div className={styles.option}>
+            <div
+              className={`${styles.option} ${
+                category === "earrings" ? styles.active : ""
+              }`}
+              onClick={() => handleCategory("earrings")}
+            >
               <img
                 src="./icons/earrings-icon.png"
                 alt="a pair of earrings icon"
@@ -61,7 +93,12 @@ function SearchFilter() {
               <p>EARRINGS</p>
             </div>
 
-            <div className={styles.option}>
+            <div
+              className={`${styles.option} ${
+                category === "bracelet" ? styles.active : ""
+              }`}
+              onClick={() => handleCategory("bracelet")}
+            >
               <img
                 src="./icons/bracelet-icon.png"
                 alt="a bracelet icon"
@@ -76,17 +113,32 @@ function SearchFilter() {
           <p className={styles.title}>BY MATERIAL</p>
 
           <div className={styles.optionContainer}>
-            <div className={styles.option}>
+            <div
+              className={`${styles.option} ${
+                material === "14k" ? styles.active : ""
+              }`}
+              onClick={() => handleMaterial("14k")}
+            >
               <div className={styles.icon14k} />
               <p>14K GOLD</p>
             </div>
 
-            <div className={styles.option}>
+            <div
+              className={`${styles.option} ${
+                material === "18k" ? styles.active : ""
+              }`}
+              onClick={() => handleMaterial("18k")}
+            >
               <div className={styles.icon18k} />
               <p>18K GOLD</p>
             </div>
 
-            <div className={styles.option}>
+            <div
+              className={`${styles.option} ${
+                material === "gemstone" ? styles.active : ""
+              }`}
+              onClick={() => handleMaterial("gemstone")}
+            >
               <div className={styles.iconGemstone} />
               <p>GEMSTONES</p>
             </div>
@@ -99,20 +151,20 @@ function SearchFilter() {
             <p className={styles.bidNum}>0</p>
             <div className={styles.rangeContainer}>
               <span className={styles.rangeValue} style={{ left: tooltipLeft }}>
-                {range}
+                {range.toLocaleString()}
               </span>
               <input
                 ref={rangeRef}
                 type="range"
                 min="0"
-                max="10000"
-                step="10"
+                max="30000"
+                step="500"
                 className={styles.range}
                 value={range}
                 onChange={(e) => handleRange(e.target.value)}
               />
             </div>
-            <p className={styles.bidNum}>10000</p>
+            <p className={styles.bidNum}>30,000</p>
           </div>
         </div>
       </div>

@@ -128,13 +128,13 @@
   display: block;
 }
 
-.roadContainer {
+.loadContainer {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.roadButton {
+.loadButton {
   font-family: inherit;
   font-size: 1.6rem;
   font-weight: 600;
@@ -147,6 +147,6 @@
   transition: background-color 0.2s ease;
 }
 
-.roadButton:hover {
+.loadButton:hover {
   background-color: var(--color-brand--main-darker);
 }

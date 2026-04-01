@@ -48,8 +48,11 @@
   transition: all 0.3s;
 }
 
-.option:hover,
-.option:active {
+/* .option:hover {
+  background-color: var(--color-brand--main-circle1);
+} */
+
+.option.active {
   background-color: var(--color-brand--main-circle1);
 }
 

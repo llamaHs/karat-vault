@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import styles from "./ItemList.module.css";
 import { useProduct } from "../contexts/ProductContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Spinner from "./Spinner";
 
 const initialListNumber = 24;
 
-function ItemList({ listType }) {
+function ItemList({ listType, category, material, maxBid }) {
   const { products } = useProduct();
 
   const [listNumber, setListNumber] = useState(initialListNumber);
@@ -18,16 +18,29 @@ function ItemList({ listType }) {
       ? products.filter((item) => item.offerCount >= 10)
       : products;
 
-  const initialItems = fullItems.slice(0, listNumber);
+  const filteredItems = fullItems.filter((item) => {
+    const matchesCategory = category === "" || item.category === category;
+    const matchesMaterial = material === "" || item.material === material;
+    const matchesMaxBid = maxBid === 0 || item.currentBid <= maxBid;
+
+    return matchesCategory && matchesMaterial && matchesMaxBid;
+  });
+
+  const shownItems = filteredItems.slice(0, listNumber);
 
   function handleLoadList() {
     setIsLoad(true);
     setIsSpin(true);
     setTimeout(() => {
       setIsSpin(false);
-      setListNumber(fullItems.length);
+      setListNumber(filteredItems.length);
     }, 1000);
   }
+
+  useEffect(() => {
+    setIsLoad(false);
+    setListNumber(initialListNumber);
+  }, [category, material, maxBid]);
 
   return (
     <section className={styles.section}>
@@ -44,7 +57,7 @@ function ItemList({ listType }) {
       </div>
 
       <div className={styles.listContainer}>
-        {initialItems.map((item) => (
+        {shownItems.map((item) => (
           <Link
             to={`item/${item.id}`}
             className={styles.itemLink}
@@ -79,10 +92,10 @@ function ItemList({ listType }) {
         ))}
       </div>
 
-      <div className={styles.roadContainer}>
-        {!isLoad && fullItems.length > listNumber && (
+      <div className={styles.loadContainer}>
+        {!isLoad && filteredItems.length > listNumber && (
           <button
-            className={styles.roadButton}
+            className={styles.loadButton}
             onClick={() => handleLoadList()}
           >
             LOAD MORE
