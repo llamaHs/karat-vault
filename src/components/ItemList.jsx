@@ -13,6 +13,8 @@ function ItemList({ listType, category, material, maxBid }) {
   const [isLoad, setIsLoad] = useState(false);
   const [isSpin, setIsSpin] = useState(false);
 
+  const [sort, setSort] = useState("latest");
+
   const fullItems =
     listType === "hot"
       ? products.filter((item) => item.offerCount >= 10)
@@ -26,7 +28,30 @@ function ItemList({ listType, category, material, maxBid }) {
     return matchesCategory && matchesMaterial && matchesMaxBid;
   });
 
-  const shownItems = filteredItems.slice(0, listNumber);
+  let sortedItems;
+  if (sort === "latest")
+    sortedItems = [...filteredItems].sort(
+      (a, b) => new Date(b.listedAt) - new Date(a.listedAt)
+    );
+  if (sort === "endingSoon")
+    sortedItems = [...filteredItems].sort(
+      (a, b) => new Date(a.dueDate) - new Date(b.dueDate)
+    );
+
+  if (sort === "popular")
+    sortedItems = [...filteredItems].sort(
+      (a, b) => b.offerCount - a.offerCount
+    );
+  if (sort === "highestBid")
+    sortedItems = [...filteredItems].sort(
+      (a, b) => b.currentBid - a.currentBid
+    );
+  if (sort === "lowestBid")
+    sortedItems = [...filteredItems].sort(
+      (a, b) => a.currentBid - b.currentBid
+    );
+
+  const shownItems = sortedItems.slice(0, listNumber);
 
   function handleLoadList() {
     setIsLoad(true);
@@ -35,6 +60,10 @@ function ItemList({ listType, category, material, maxBid }) {
       setIsSpin(false);
       setListNumber(filteredItems.length);
     }, 1000);
+  }
+
+  function handleChangeSort(newSort) {
+    setSort(newSort);
   }
 
   useEffect(() => {
@@ -48,9 +77,15 @@ function ItemList({ listType, category, material, maxBid }) {
         <label htmlFor="sort" className={styles.sortLabel}>
           Sort:
         </label>
-        <select id="sort" className={styles.sortOption}>
+        <select
+          id="sort"
+          className={styles.sortOption}
+          value={sort}
+          onChange={(e) => handleChangeSort(e.target.value)}
+        >
           <option value="latest">Latest</option>
           <option value="popular">Popular</option>
+          <option value="endingSoon">Ending Soon</option>
           <option value="highestBid">Highest Bid</option>
           <option value="lowestBid">Lowest Bid</option>
         </select>
