@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./HotItemsNow.module.css";
 
 function HotItemsNow() {
@@ -12,33 +13,44 @@ function HotItemsNow() {
           </p>
         </div>
         <div className={styles.listContainer}>
-          <div className={styles.listItem}>
-            <div className={styles.imgContainer}>
-              <img src="./backgrounds/ring.png" alt="a gold ring" />
+          <Link to={{ pathname: "/hot-items", search: "?category=ring" }}>
+            <div className={styles.listItem}>
+              <div className={styles.imgContainer}>
+                <img src="./backgrounds/ring.png" alt="a gold ring" />
+              </div>
+              <p>RINGS</p>
             </div>
-            <p>RINGS</p>
-          </div>
-          <div className={styles.listItem}>
-            <div className={styles.imgContainer}>
-              <img src="./backgrounds/necklace.jpg" alt="a gold necklace" />
+          </Link>
+
+          <Link to={{ pathname: "/hot-items", search: "?category=necklace" }}>
+            <div className={styles.listItem}>
+              <div className={styles.imgContainer}>
+                <img src="./backgrounds/necklace.jpg" alt="a gold necklace" />
+              </div>
+              <p>NECKLACES</p>
             </div>
-            <p>NECKLACES</p>
-          </div>
-          <div className={styles.listItem}>
-            <div className={styles.imgContainer}>
-              <img
-                src="./backgrounds/earings.png"
-                alt="a pair of gold earings"
-              />
+          </Link>
+
+          <Link to={{ pathname: "/hot-items", search: "?category=earrings" }}>
+            <div className={styles.listItem}>
+              <div className={styles.imgContainer}>
+                <img
+                  src="./backgrounds/earings.png"
+                  alt="a pair of gold earings"
+                />
+              </div>
+              <p>EARINGS</p>
             </div>
-            <p>EARINGS</p>
-          </div>
-          <div className={styles.listItem}>
-            <div className={styles.imgContainer}>
-              <img src="./backgrounds/bracelet.png" alt="a gold bracelet" />
+          </Link>
+
+          <Link to={{ pathname: "/hot-items", search: "?category=bracelet" }}>
+            <div className={styles.listItem}>
+              <div className={styles.imgContainer}>
+                <img src="./backgrounds/bracelet.png" alt="a gold bracelet" />
+              </div>
+              <p>BRACELETS</p>
             </div>
-            <p>BRACELETS</p>
-          </div>
+          </Link>
         </div>
       </div>
     </section>

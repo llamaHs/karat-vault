@@ -1,37 +1,10 @@
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, useSearchParams } from "react-router-dom";
 import styles from "../pages/Buy.module.css";
 import ItemList from "../components/ItemList";
 import SearchFilter from "../components/SearchFilter";
 import PageTitle from "../components/PageTitle";
 import { useEffect, useReducer } from "react";
-
-const initialState = {
-  category: "",
-  material: "",
-  range: 0,
-};
-
-function reducer(state, action) {
-  switch (action.type) {
-    case "changeCategory":
-      return { ...state, category: action.payload };
-
-    case "changeMaterial":
-      return { ...state, material: action.payload };
-
-    case "changeRange":
-      return { ...state, range: action.payload };
-
-    case "resetCategory":
-      return { ...state, category: "" };
-
-    case "resetMaterial":
-      return { ...state, material: "" };
-
-    default:
-      return state;
-  }
-}
+import { initialState, reducer } from "../reducers/filterReducer";
 
 function Buy() {
   const { finishLoading } = useOutletContext();
@@ -39,10 +12,33 @@ function Buy() {
     reducer,
     initialState
   );
+  const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     finishLoading();
   }, [finishLoading]);
+
+  // state -> URL
+  useEffect(() => {
+    const params = {};
+
+    if (category) params.category = category;
+    if (material) params.material = material;
+    if (range !== 0) params.range = range;
+
+    setSearchParams(params, { replace: true });
+  }, [category, material, range]);
+
+  // URL -> state
+  useEffect(() => {
+    const categoryParam = searchParams.get("category") || "";
+    const materialParam = searchParams.get("material") || "";
+    const rangeParam = Number(searchParams.get("range")) || 0;
+
+    dispatch({ type: "changeCategory", payload: categoryParam });
+    dispatch({ type: "changeMaterial", payload: materialParam });
+    dispatch({ type: "changeRange", payload: rangeParam });
+  }, [searchParams]);
 
   return (
     <div className={styles.container}>

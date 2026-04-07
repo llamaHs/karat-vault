@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./ByMaterial.module.css";
 
 function ByMaterial() {
@@ -12,27 +13,35 @@ function ByMaterial() {
           </p>
         </div>
         <div className={styles.listContainer}>
-          <div className={styles.listItem}>
-            <div className={styles.imgContainer}>
-              <img src="./backgrounds/14k2.jpg" alt="a gold jewelry" />
+          <Link to={{ pathname: "/buy", search: "?material=14k" }}>
+            <div className={styles.listItem}>
+              <div className={styles.imgContainer}>
+                <img src="./backgrounds/14k2.jpg" alt="a gold jewelry" />
+              </div>
+              <p>14K GOLD</p>
             </div>
-            <p>14K GOLD</p>
-          </div>
-          <div className={styles.listItem}>
-            <div className={styles.imgContainer}>
-              <img src="./backgrounds/14k3.jpg" alt="a gold jewelry" />
+          </Link>
+
+          <Link to={{ pathname: "/buy", search: "?material=18k" }}>
+            <div className={styles.listItem}>
+              <div className={styles.imgContainer}>
+                <img src="./backgrounds/14k3.jpg" alt="a gold jewelry" />
+              </div>
+              <p>18K GOLD</p>
             </div>
-            <p>18K GOLD</p>
-          </div>
-          <div className={styles.listItem}>
-            <div className={styles.imgContainer}>
-              <img
-                src="./backgrounds/gemstone.png"
-                alt="a gold jewelry with blue gemstones"
-              />
+          </Link>
+
+          <Link to={{ pathname: "/buy", search: "?material=gemstone" }}>
+            <div className={styles.listItem}>
+              <div className={styles.imgContainer}>
+                <img
+                  src="./backgrounds/gemstone.png"
+                  alt="a gold jewelry with blue gemstones"
+                />
+              </div>
+              <p>GEMSTONES</p>
             </div>
-            <p>GEMSTONES</p>
-          </div>
+          </Link>
         </div>
       </div>
     </section>
