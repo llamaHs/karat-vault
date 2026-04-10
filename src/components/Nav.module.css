@@ -66,6 +66,85 @@ nav li {
   line-height: 1;
 }
 
+.myPageItem {
+  position: relative;
+}
+
+.myPageItem::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 1rem;
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 1rem);
+
+  min-width: 22rem;
+  background: #fff;
+  border: 1px solid #e5dfd3;
+  border-radius: 3px;
+
+  padding: 2rem 0;
+  z-index: 100;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.2s ease;
+}
+
+.myPageItem:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.navDropdownMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+  width: 100%;
+  transition: background-color 0.15s ease;
+}
+
+.navDropdownMenu:hover {
+  /* text-decoration: underline;
+  text-underline-offset: 4px; */
+  background-color: var(--color-background--brand);
+}
+
+.logoutButton {
+  font-family: inherit;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  background: transparent;
+  border: 1px solid var(--color-danger);
+  color: var(--color-danger);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.logoutButton:hover {
+  background-color: #ffe5e5;
+}
+
 .link {
   color: var(--color-text);
   text-decoration: none;

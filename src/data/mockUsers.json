@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": "hs",
+      "firstName": "Julia",
+      "famailyName": "Lee",
+      "email": "hsjlee@mockmail.com",
+      "password": "1234",
+      "address": "45 Aurora Lane, Suite 1203 San Francisco, CA 94105 United States"
+    },
+    {
+      "id": "georgiarobinson",
+      "firstName": "Georgia",
+      "famailyName": "Robinson",
+      "email": "georgiarobinson@mockmail.com",
+      "password": "1234567",
+      "address": "19 Harbourview Drive, Apt 7B, Sydney, NSW 2000, Australia"
+    },
+    {
+      "id": "brandonwalker",
+      "firstName": "Brandon",
+      "famailyName": "Walker",
+      "email": "brandonwalker@mockmail.com",
+      "password": "98765432",
+      "address": "278 Maple Crescent, Unit 508, Toronto, ON M5V 2T6, Canada"
+    }
+  ]
+}

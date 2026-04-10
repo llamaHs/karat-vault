@@ -102,7 +102,7 @@ function AccountSettings() {
 
             <div className={styles.wrapper}>
               <label className={styles.label} htmlFor="lastName">
-                Last Name
+                Family Name
               </label>
               <input
                 id="lastName"
@@ -140,7 +140,7 @@ function AccountSettings() {
                   className={styles.longInput}
                   type="text"
                   readOnly
-                  value={"georgiarobinson@gmail.com"}
+                  value={"georgiarobinson@mockmail.com"}
                 />
                 <button className={styles.editButton}>Edit</button>
               </div>
@@ -152,18 +152,18 @@ function AccountSettings() {
           <h2 className={styles.title}>Security</h2>
 
           <div className={styles.wrapper}>
-            <label className={styles.label} htmlFor="passward">
-              Passward
+            <label className={styles.label} htmlFor="password">
+              Password
             </label>
             <div className={styles.inputRow}>
               <input
-                id="passward"
+                id="password"
                 className={styles.shortInput}
-                type="passward"
+                type="password"
                 readOnly
                 value={"*******"}
               />
-              <button className={styles.editButton}>Change Passward</button>
+              <button className={styles.editButton}>Change Password</button>
             </div>
           </div>
         </section>
@@ -182,7 +182,7 @@ function AccountSettings() {
                 rows={4}
                 readOnly
                 value={
-                  "45 Aurora Lane, Suite 1203 San Francisco, CA 94105 United States"
+                  "19 Harbourview Drive, Apt 7B, Sydney, NSW 2000, Australias"
                 }
               />
               <button className={styles.editButton}>Edit</button>

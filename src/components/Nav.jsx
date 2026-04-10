@@ -3,8 +3,11 @@ import Logo from "./Logo";
 import styles from "./Nav.module.css";
 import { IoCartOutline, IoSearchOutline } from "react-icons/io5";
 import { useEffect, useState } from "react";
+import { useAuth } from "../contexts/MockAuthContext";
 
 function Nav({ startLoading }) {
+  const { isAuthenticated } = useAuth();
+
   const { pathname } = useLocation();
   const [scrolled, setScrolled] = useState(false);
 
@@ -96,17 +99,55 @@ function Nav({ startLoading }) {
       </NavLink>
 
       <ul className={styles.navRight}>
-        <li>
-          <NavLink
-            to="mypage"
-            className={({ isActive }) =>
-              isActive ? styles.active : styles.link
-            }
-            onClick={startLoading}
-          >
-            My Page
-          </NavLink>
-        </li>
+        {isAuthenticated ? (
+          <li className={styles.myPageItem}>
+            <NavLink
+              to="mypage"
+              className={({ isActive }) =>
+                isActive ? styles.active : styles.link
+              }
+              onClick={startLoading}
+            >
+              My Page
+            </NavLink>
+
+            <div className={styles.dropdown}>
+              <NavLink className={styles.navDropdownMenu} to="mypage/bids">
+                My Bids
+              </NavLink>
+              <NavLink className={styles.navDropdownMenu} to="mypage/listings">
+                My Listings
+              </NavLink>
+              <NavLink className={styles.navDropdownMenu} to="mypage/wishlist">
+                Wishlist
+              </NavLink>
+              <NavLink
+                className={styles.navDropdownMenu}
+                to="mypage/payment-methods"
+              >
+                Payment Methods
+              </NavLink>
+              <NavLink
+                className={styles.navDropdownMenu}
+                to="mypage/account-settings"
+              >
+                Account Settings
+              </NavLink>
+              <button className={styles.logoutButton}>Logout</button>
+            </div>
+          </li>
+        ) : (
+          <li>
+            <NavLink
+              to="login"
+              className={({ isActive }) =>
+                isActive ? styles.active : styles.link
+              }
+            >
+              Login
+            </NavLink>
+          </li>
+        )}
         <li>
           <select className={styles.currency}>
             <option value={"USD"}>USD $ 🇺🇸</option>

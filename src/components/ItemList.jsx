@@ -3,11 +3,13 @@ import styles from "./ItemList.module.css";
 import { useProduct } from "../contexts/ProductContext";
 import { useEffect, useState } from "react";
 import Spinner from "./Spinner";
+import { useAuth } from "../contexts/MockAuthContext";
 
 const initialListNumber = 24;
 
 function ItemList({ listType, category, material, maxBid }) {
   const { products } = useProduct();
+  const { isAuthenticated } = useAuth();
 
   const [listNumber, setListNumber] = useState(initialListNumber);
   const [isLoad, setIsLoad] = useState(false);
@@ -116,7 +118,11 @@ function ItemList({ listType, category, material, maxBid }) {
                   <dd>{`$${item.askingPrice}`}</dd>
 
                   <dt>Current Bid</dt>
-                  <dd className={styles.bid}>{`$${item.currentBid}`}</dd>
+                  <dd className={styles.bid}>
+                    {isAuthenticated
+                      ? `$${item.currentBid}`
+                      : "Log in to see price"}
+                  </dd>
 
                   <dt>Due Date</dt>
                   <dd>{item.dueDate}</dd>

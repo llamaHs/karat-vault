@@ -10,7 +10,12 @@ function AppLayout({ startLoading, finishLoading }) {
   // const location = useLocation();
   // const pathname = location.pathname;
 
-  const hiddenPaths = ["/careers", "/terms-and-conditions", "/privacy"];
+  const hiddenPaths = [
+    "/careers",
+    "/terms-and-conditions",
+    "/privacy",
+    "/login",
+  ];
   const hideFAQ = hiddenPaths.includes(pathname);
 
   return (
