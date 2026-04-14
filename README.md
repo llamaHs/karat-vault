@@ -1,20 +1,75 @@
-# React + Vite
+# 💎 Karat Vault
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Karat Vault is a gold jewelry auction marketplace where users can buy and sell pre-owned fine jewelry at prices shaped by real-time market value.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🛍️ Auction-Based Marketplace
 
-## React Compiler
+- Browse gold jewelry by category and material
+- Place bids in a real-time auction system
+- Track current bids and offer counts
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 📈 Market-Based Pricing
 
-## Expanding the ESLint configuration
+- Prices reflects real-time gold value
+- Transparent starting price guidance
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🔐 Secure Transactions (UI Simulation)
 
-<!-- add this later -->
+- Login required to view item prices
+- Protected routes for sensitive pages
+- Payment UI with card input and validation
 
-“Products are initialized from a local JSON seed file. User-created changes are persisted in localStorage. Price/exchange rate will be integrated via external APIs.”
+### 📊 User Dashboard (My Page)
+
+- View active bids and activity
+- Manage listings and wishlist
+- Manage payment methods
+
+### 💾 Persistent State
+
+- Custom hooks for reusable state logic
+- Currently managing state on the client side
+- Planning to integrate Supabase for persistent storage
+
+## 🛠️ Tech Stack
+
+**Frontend**
+
+- React (Vite)
+- React Router (SPA routing)
+- CSS Modules
+
+**Deployment**
+
+- Netlify
+
+## 📥 Installation & Usage
+
+### **1️⃣ Clone the Repository**
+
+git clone https://github.com/llamaHs/karat-vault.git
+cd karat-vault
+
+### **2️⃣ Install Dependencies**
+
+npm install
+
+### **3️⃣ Start the Development Server**
+
+npm run dev
+
+### **4️⃣ Build for Production**
+
+npm run build
+
+## 🌐 Live Demo
+
+Karat Vault is deployed on Netlify. You can access it [here]().
+
+🚧 This project is currently in progress. Some features may not be fully implemented.
+
+## 📜 License
+
+This project is licensed under the MIT License – feel free to modify and use it as needed.
