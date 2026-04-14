@@ -35,6 +35,12 @@ function ItemList({ listType, category, material, maxBid }) {
     sortedItems = [...filteredItems].sort(
       (a, b) => new Date(b.listedAt) - new Date(a.listedAt)
     );
+
+  if (sort === "oldest")
+    sortedItems = [...filteredItems].sort(
+      (a, b) => new Date(a.listedAt) - new Date(b.listedAt)
+    );
+
   if (sort === "endingSoon")
     sortedItems = [...filteredItems].sort(
       (a, b) => new Date(a.dueDate) - new Date(b.dueDate)
@@ -86,6 +92,7 @@ function ItemList({ listType, category, material, maxBid }) {
           onChange={(e) => handleChangeSort(e.target.value)}
         >
           <option value="latest">Latest</option>
+          <option value="oldest">Oldest</option>
           <option value="popular">Popular</option>
           <option value="endingSoon">Ending Soon</option>
           <option value="highestBid">Highest Bid</option>

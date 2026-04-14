@@ -1,0 +1,17 @@
+.messageContainer {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  background-color: #111;
+  padding: 1rem 0;
+
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.message {
+  font-size: 1.4rem;
+  color: #fff;
+}

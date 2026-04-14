@@ -1,11 +1,13 @@
 .modal {
+  width: 100%;
+  max-width: 58rem;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 3.6rem;
   align-items: center;
   justify-content: center;
   background-color: #fff;
-  border: 3px solid var(--color-brand--main);
+  border: 2px solid var(--color-brand--main);
   border-radius: 3px;
   z-index: 3000;
   padding: 4rem 3rem;
@@ -16,13 +18,13 @@
   position: absolute;
   top: 1rem;
   right: 1rem;
-  font-size: 2.2rem;
+  font-size: 2rem;
   color: var(--color-brand--main);
   cursor: pointer;
 }
 
 .title {
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   font-weight: 600;
   color: var(--color-brand--main);
 }
@@ -37,12 +39,12 @@
 }
 
 .explain {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 500;
 }
 
 .subExplain {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 300;
 }
 
@@ -56,7 +58,7 @@
 .cancelButton,
 .continueButton {
   font-family: inherit;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 600;
   text-transform: uppercase;
   padding: 0.6rem 1.2rem;

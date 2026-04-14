@@ -1,6 +1,6 @@
 :root {
-  --nav-height: 12rem;
-  --nav-height-small: 10rem;
+  --nav-height: 11rem;
+  --nav-height-small: 8rem;
 
   --color-brand--main: #c9a24d;
   --color-brand--main-darker: #b8923f;
@@ -38,9 +38,16 @@
   box-sizing: inherit;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   font-size: 62.5%;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -48,3 +55,13 @@ body {
   background-color: var(--color-background);
   height: 100vh;
 }
+
+/* 
+.container {
+  width: 100%;
+  max-width: 132rem;
+  margin: 0 auto;
+  padding: 0 4rem;
+  box-sizing: border-box;
+} 
+*/

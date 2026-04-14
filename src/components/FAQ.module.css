@@ -1,13 +1,14 @@
 .section {
+  width: 100%;
   min-height: 100vh;
   border-top: 0.5rem solid var(--color-brand--main-circle1);
 }
 
 .container {
   margin: 0 auto;
-  max-width: 85%;
-  padding-top: 8rem;
-  padding-bottom: 8rem;
+  width: 100%;
+  max-width: 132rem;
+  padding: 10rem 12rem;
 
   display: flex;
   flex-direction: column;
@@ -21,23 +22,24 @@
   justify-content: center;
   align-items: center;
   gap: 1.6rem;
+  text-align: center;
 }
 
 .heading h2 {
   font-family: "Lora", serif;
-  font-weight: 400;
-  font-size: 3.8rem;
+  font-weight: 300;
+  font-size: 3.2rem;
 }
 
 .heading p {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 300;
 }
 
 .faqContainer {
   display: flex;
   flex-direction: column;
-  justify-items: center;
+  justify-content: center;
   margin-top: 1rem;
 }
 
@@ -46,7 +48,7 @@
   flex-direction: column;
   gap: 2rem;
   border-bottom: 2px solid var(--color-brand--main-circle1);
-  padding-top: 5rem;
+  padding-top: 3rem;
   padding-bottom: 2rem;
 }
 
@@ -54,19 +56,17 @@
   display: flex;
   align-items: center;
   gap: 3rem;
+  cursor: pointer;
 }
 
 .icon {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: var(--color-brand--main);
-  cursor: pointer;
 }
 
 .question {
-  font-size: 1.8rem;
-  text-transform: uppercase;
+  font-size: 1.6rem;
   font-weight: 300;
-  cursor: pointer;
 }
 
 .boxAnswer {
@@ -74,8 +74,8 @@
 }
 
 .answer {
-  font-size: 1.6rem;
-  line-height: 1.8;
+  font-size: 1.4rem;
+  line-height: 1.6;
 }
 
 .hidden {

@@ -1,11 +1,13 @@
 .modal {
+  width: 100%;
+  max-width: 48rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
   align-items: center;
   justify-content: center;
   background-color: #fff;
-  border: 3px solid var(--color-brand--main);
+  border: 2px solid var(--color-brand--main);
   border-radius: 3px;
   z-index: 3000;
   padding: 4rem 3rem;
@@ -16,19 +18,20 @@
   position: absolute;
   top: 1rem;
   right: 1rem;
-  font-size: 2.2rem;
+  font-size: 2rem;
   color: var(--color-brand--main);
   cursor: pointer;
 }
 
 .title {
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   font-weight: 600;
   color: var(--color-brand--main);
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .form {
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 3rem;
@@ -36,12 +39,19 @@
 
 .cardNumber {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.6rem;
+}
+
+.inputWrapper {
+  display: flex;
   align-items: center;
   gap: 2rem;
 }
 
 .label {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 500;
 }
 
@@ -54,15 +64,15 @@
 .cardNumberInput {
   font-family: inherit;
   width: 7rem;
-  height: 4rem;
+  height: 3.6rem;
   text-align: center;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   border: 1px solid var(--color-brand--main);
   border-radius: 3px;
 }
 
 .cardIcon {
-  font-size: 2.2rem;
+  font-size: 2rem;
 }
 
 .visa {
@@ -79,32 +89,32 @@
 
 .cardInfoContainer {
   display: flex;
-  gap: 9.4rem;
+  gap: 5.4rem;
 }
 
 .cardDate,
 .cardCVV {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.6rem;
 }
 
 .expiryInput {
   font-family: inherit;
-  width: 10rem;
-  height: 4rem;
+  width: 9rem;
+  height: 3.6rem;
   text-align: center;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   border: 1px solid var(--color-brand--main);
   border-radius: 3px;
 }
 
 .cvvInput {
   font-family: inherit;
-  width: 10rem;
-  height: 4rem;
+  width: 9rem;
+  height: 3.6rem;
   text-align: center;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   border: 1px solid var(--color-brand--main);
   border-radius: 3px;
 }
@@ -114,29 +124,32 @@
   flex-direction: column;
   gap: 0.3rem;
   margin: 0 auto;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .explain {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 300;
 }
 
 .formButtonContainer {
+  width: 100%;
   margin-top: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 3rem;
+  gap: 2rem;
+  padding: 0 10rem;
 }
 
 .cancelButton,
 .addButton {
+  flex: 1;
   font-family: inherit;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 600;
   text-transform: uppercase;
-  padding: 0.6rem 1.2rem;
+  padding: 0.7rem 1.2rem;
   cursor: pointer;
   transition: all 0.15s ease;
   border: 1.5px solid var(--color-brand--main);

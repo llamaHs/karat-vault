@@ -1,9 +1,11 @@
 .section {
+  width: 100%;
+  max-width: 132rem;
   min-height: 100vh;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  padding: 5rem 12rem;
-  padding-bottom: 10rem;
+  padding: 5rem 7rem 10rem;
 }
 
 .guideContainer {
@@ -19,7 +21,7 @@
 }
 
 .guideTitle {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 
 .guideIconEx {
@@ -28,7 +30,7 @@
 }
 
 .guideIconCh {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 
 .guideIconEx.open {
@@ -41,7 +43,7 @@
   gap: 1.4rem;
 
   max-height: 0;
-  padding: 2rem;
+  padding: 0 2rem;
   opacity: 0;
   overflow: hidden;
   pointer-events: none;
@@ -71,9 +73,9 @@
 }
 
 .guideText {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   line-height: 1.5;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .formContainer {
@@ -84,14 +86,14 @@
 .form {
   display: grid;
   grid-template-columns: max-content 1fr;
-  column-gap: 10rem;
+  column-gap: 8rem;
   row-gap: 5rem;
   padding: 5rem;
 }
 
 .imageContainer {
-  width: 36rem;
-  height: 36rem;
+  width: 32rem;
+  height: 32rem;
   border-radius: 0.3rem;
   border: 1px solid var(--color-brand--main);
   overflow: hidden;
@@ -110,7 +112,7 @@
 }
 
 .imageUploadIcon {
-  font-size: 4rem;
+  font-size: 3.6rem;
   color: var(--color-brand--main);
 }
 
@@ -137,7 +139,7 @@
 }
 
 .deleteIcon {
-  font-size: 2.7rem;
+  font-size: 2.4rem;
   color: var(--color-brand--main);
 }
 
@@ -169,7 +171,7 @@ textarea {
 .startingPrice,
 .dueDate {
   font-family: inherit;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 400;
   padding: 0.8rem 1.2rem;
   border: 1px solid var(--color-brand--main);
@@ -178,13 +180,13 @@ textarea {
 
 .title,
 .description {
-  width: 55rem;
+  width: 50rem;
 }
 
 .goldPrice,
 .purchasePrice,
 .startingPrice {
-  width: 12rem;
+  width: 11rem;
 }
 
 .startingPrice {
@@ -221,7 +223,7 @@ input[type="checkbox"] {
 }
 
 .agreementWrapper {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -238,23 +240,23 @@ input[type="checkbox"] {
 .resetButton,
 .listButton {
   font-family: inherit;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 600;
   letter-spacing: 1px;
-  padding: 0.8rem 1.8rem;
+  padding: 0.7rem 1.6rem;
   cursor: pointer;
   transition: background-color 0.2s ease, border-color 0.2s ease;
   border-radius: 0.3rem;
 }
 
 .resetButton {
-  border: 2px solid var(--color-brand--main);
+  border: 1.5px solid var(--color-brand--main);
   background: #fff;
   color: var(--color-brand--main);
 }
 
 .listButton {
-  border: 2px solid var(--color-brand--main);
+  border: 1.5px solid var(--color-brand--main);
   background-color: var(--color-brand--main);
   color: #fff;
 }

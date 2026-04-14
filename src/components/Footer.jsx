@@ -63,7 +63,7 @@ function Footer() {
         </div>
 
         <div className={styles.col}>
-          <p className={styles.linkTitle}>CONTANT US</p>
+          <p className={styles.linkTitle}>CONTACT US</p>
           <div className={styles.contacts}>
             <address className={styles.address}>
               45 Aurora Lane, Suite 1203 San Francisco, CA 94105 United States

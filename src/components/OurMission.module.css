@@ -1,4 +1,7 @@
 .container {
+  width: 100%;
+  max-width: 132rem;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,6 +17,7 @@
   justify-content: center;
   align-items: center;
   gap: 1.6rem;
+  text-align: center;
 }
 
 .heading h2 {
@@ -23,16 +27,18 @@
 }
 
 .missionContainer {
-  padding: 2rem 24rem;
+  width: 100%;
+  max-width: 84rem;
+  padding: 2rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2.2rem;
+  gap: 2.4rem;
 }
 
 .mission {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 300;
   line-height: 1.6;
   text-align: center;

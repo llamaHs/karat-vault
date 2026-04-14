@@ -1,16 +1,16 @@
 .section {
   min-height: 90vh;
-  padding: 0 45rem;
 }
 
 .container {
+  width: 100%;
+  max-width: 132rem;
   margin: 0 auto;
-  padding-top: 8rem;
-  margin-bottom: 10rem;
+  padding: 2rem 0 8rem;
 
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 5rem;
 }
 
 .heading {
@@ -19,7 +19,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1.6rem;
+  gap: 1.4rem;
+  text-align: center;
 }
 
 .heading h2 {
@@ -28,23 +29,19 @@
   font-size: 3.2rem;
 }
 
-.heading p {
-  font-size: 1.6rem;
-  font-weight: 300;
-}
-
 .benefitContainer {
+  width: 100%;
+  max-width: 64rem;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-items: center;
-  margin-top: 1rem;
 }
 
 .benefit {
   display: flex;
   flex-direction: column;
   border-bottom: 2px solid var(--color-brand--main-circle1);
-  padding-top: 5rem;
+  padding-top: 3.6rem;
   padding-bottom: 2rem;
 }
 
@@ -55,20 +52,20 @@
 }
 
 .icon {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: var(--color-brand--main);
   cursor: pointer;
 }
 
 .title {
   font-family: "Lora", serif;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 200;
   cursor: pointer;
 }
 
 .boxContent {
-  padding-left: 5rem;
+  padding-left: 4.5rem;
   max-height: 0;
   opacity: 0;
   overflow: hidden;
@@ -76,9 +73,9 @@
 }
 
 .content {
-  font-size: 1.6rem;
-  line-height: 1.8;
-  padding-top: 2rem;
+  font-size: 1.4rem;
+  line-height: 1.7;
+  padding-top: 1.6rem;
 }
 
 .open {

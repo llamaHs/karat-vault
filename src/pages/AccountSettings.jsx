@@ -48,7 +48,7 @@ function AccountSettings() {
 
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
-  });
+  }, []);
 
   useEffect(() => {
     if (buyerNotify && sellerNotify) {
@@ -272,12 +272,12 @@ function AccountSettings() {
 
           <div className={styles.warningWrapper}>
             <p className={styles.warning}>
-              <strong>Delete</strong> your account and{" "}
-              <strong>permanently remove</strong> all your data, including
-              listings and bids.
+              <span>Delete</span> your account and{" "}
+              <span>permanently remove</span> all your data, including listings
+              and bids.
             </p>
             <p className={styles.warning}>
-              <strong>This action cannot be undone.</strong>
+              <span>This action cannot be undone.</span>
             </p>
             <button
               className={styles.deleteAccountButton}

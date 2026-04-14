@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../contexts/MockAuthContext";
 
 function Nav({ startLoading }) {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, logout } = useAuth();
 
   const { pathname } = useLocation();
   const [scrolled, setScrolled] = useState(false);
@@ -44,128 +44,138 @@ function Nav({ startLoading }) {
 
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}>
-      <ul className={styles.navLeft}>
-        <li>
-          <NavLink
-            to="hot-items"
-            className={({ isActive }) =>
-              `${styles.link} ${styles.hotItems} ${
-                isActive ? styles.active : ""
-              }`
-            }
-            onClick={startLoading}
-          >
-            Hot Items
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="buy"
-            className={({ isActive }) =>
-              isActive ? styles.active : styles.link
-            }
-            onClick={startLoading}
-          >
-            Buy
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="sell"
-            className={({ isActive }) =>
-              isActive ? styles.active : styles.link
-            }
-            onClick={startLoading}
-          >
-            Sell
-          </NavLink>
-        </li>
-
-        <li>
-          <NavLink
-            to="about"
-            className={({ isActive }) =>
-              isActive ? styles.active : styles.link
-            }
-            onClick={startLoading}
-          >
-            About
-          </NavLink>
-        </li>
-      </ul>
-
-      <NavLink to="/">
-        <Logo />
-      </NavLink>
-
-      <ul className={styles.navRight}>
-        {isAuthenticated ? (
-          <li className={styles.myPageItem}>
+      <div className={styles.container}>
+        <ul className={styles.navLeft}>
+          <li>
             <NavLink
-              to="mypage"
+              to="hot-items"
+              className={({ isActive }) =>
+                `${styles.link} ${styles.hotItems} ${
+                  isActive ? styles.active : ""
+                }`
+              }
+              onClick={startLoading}
+            >
+              Hot Items
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="buy"
               className={({ isActive }) =>
                 isActive ? styles.active : styles.link
               }
               onClick={startLoading}
             >
-              My Page
+              Buy
             </NavLink>
-
-            <div className={styles.dropdown}>
-              <NavLink className={styles.navDropdownMenu} to="mypage/bids">
-                My Bids
-              </NavLink>
-              <NavLink className={styles.navDropdownMenu} to="mypage/listings">
-                My Listings
-              </NavLink>
-              <NavLink className={styles.navDropdownMenu} to="mypage/wishlist">
-                Wishlist
-              </NavLink>
-              <NavLink
-                className={styles.navDropdownMenu}
-                to="mypage/payment-methods"
-              >
-                Payment Methods
-              </NavLink>
-              <NavLink
-                className={styles.navDropdownMenu}
-                to="mypage/account-settings"
-              >
-                Account Settings
-              </NavLink>
-              <button className={styles.logoutButton}>Logout</button>
-            </div>
           </li>
-        ) : (
           <li>
             <NavLink
-              to="login"
+              to="sell"
               className={({ isActive }) =>
                 isActive ? styles.active : styles.link
               }
+              onClick={startLoading}
             >
-              Login
+              Sell
             </NavLink>
           </li>
-        )}
-        <li>
-          <select className={styles.currency}>
-            <option value={"USD"}>USD $ 🇺🇸</option>
-            <option value={"AUD"}>AUD $ 🇦🇺</option>
-            <option value={"CAD"}>CAD $ 🇨🇦</option>
-            <option value={"EURO"}>EUR € 🇪🇺</option>
-            <option value={"GBP"}>GBP £ 🇬🇧</option>
-            <option value={"KOR"}>KOR ₩ 🇰🇷</option>
-          </select>
-        </li>
 
-        <li>
-          <div className={styles.navIconContainer}>
-            <IoCartOutline className={styles.iconCart} />
-            <IoSearchOutline className={styles.iconSearch} />
-          </div>
-        </li>
-      </ul>
+          <li>
+            <NavLink
+              to="about"
+              className={({ isActive }) =>
+                isActive ? styles.active : styles.link
+              }
+              onClick={startLoading}
+            >
+              About
+            </NavLink>
+          </li>
+        </ul>
+
+        <NavLink to="/">
+          <Logo />
+        </NavLink>
+
+        <ul className={styles.navRight}>
+          {isAuthenticated ? (
+            <li className={styles.myPageItem}>
+              <NavLink
+                to="mypage"
+                className={({ isActive }) =>
+                  isActive ? styles.active : styles.link
+                }
+                onClick={startLoading}
+              >
+                My Page
+              </NavLink>
+
+              <div className={styles.dropdown}>
+                <NavLink className={styles.navDropdownMenu} to="mypage/bids">
+                  My Bids
+                </NavLink>
+                <NavLink
+                  className={styles.navDropdownMenu}
+                  to="mypage/listings"
+                >
+                  My Listings
+                </NavLink>
+                <NavLink
+                  className={styles.navDropdownMenu}
+                  to="mypage/wishlist"
+                >
+                  Wishlist
+                </NavLink>
+                <NavLink
+                  className={styles.navDropdownMenu}
+                  to="mypage/payment-methods"
+                >
+                  Payment Methods
+                </NavLink>
+                <NavLink
+                  className={styles.navDropdownMenu}
+                  to="mypage/account-settings"
+                >
+                  Account Settings
+                </NavLink>
+                <button className={styles.logoutButton} onClick={logout}>
+                  Logout
+                </button>
+              </div>
+            </li>
+          ) : (
+            <li>
+              <NavLink
+                to="login"
+                className={({ isActive }) =>
+                  isActive ? styles.active : styles.link
+                }
+              >
+                Login
+              </NavLink>
+            </li>
+          )}
+          <li>
+            <select className={styles.currency}>
+              <option value={"USD"}>USD $ 🇺🇸</option>
+              <option value={"AUD"}>AUD $ 🇦🇺</option>
+              <option value={"CAD"}>CAD $ 🇨🇦</option>
+              <option value={"EURO"}>EUR € 🇪🇺</option>
+              <option value={"GBP"}>GBP £ 🇬🇧</option>
+              <option value={"KOR"}>KOR ₩ 🇰🇷</option>
+            </select>
+          </li>
+
+          <li>
+            <div className={styles.navIconContainer}>
+              <IoCartOutline className={styles.iconCart} />
+              <IoSearchOutline className={styles.iconSearch} />
+            </div>
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 }

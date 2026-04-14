@@ -1,11 +1,15 @@
-.sectionHero {
+.section {
+  min-height: 80vh;
+}
+
+.hero {
+  position: relative;
   min-height: 90vh;
 }
 
 .heroImg {
   height: 90vh;
   overflow: hidden;
-  position: relative;
 }
 
 .heroImg img {
@@ -14,13 +18,28 @@
   object-fit: cover;
 }
 
-.heroText {
+.heroContent {
   position: absolute;
+  inset: 0;
+
+  width: 100%;
+  max-width: 132rem;
+  margin: 0 auto;
+  padding: 0 4rem;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+}
+
+.heroText {
+  /* position: absolute;
   left: 9rem;
-  top: 30%;
+  top: 30%; */
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 3rem;
+  max-width: 60rem;
 }
 
 .heroHeading {
@@ -32,7 +51,7 @@
 .heroHeading h1 {
   font-family: "Lora", serif;
   color: var(--color-text-white);
-  font-size: 6rem;
+  font-size: 5rem;
   font-weight: 400;
   text-shadow: 0 0 1.2rem rgba(0, 0, 0, 0.45);
 }
@@ -40,7 +59,7 @@
 .heroSubHeading {
   font-family: "Poppins", serif;
   color: var(--color-text-white);
-  font-size: 2.1rem;
+  font-size: 1.8rem;
   font-weight: 400;
   display: flex;
   flex-direction: column;
@@ -50,10 +69,10 @@
 
 .ctaButton button {
   font-family: "Poppins", serif;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 500;
   border: none;
-  padding: 1rem 2.5rem;
+  padding: 1rem 2rem;
   background-color: var(--color-brand--main-lighter);
   cursor: pointer;
   transition: all 0.3s;

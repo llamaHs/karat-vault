@@ -67,35 +67,39 @@ function AddCardModal({ onCloseModal }) {
       <form className={styles.form}>
         <div className={styles.cardNumber}>
           <label className={styles.label}>Card Number</label>
-          <div className={styles.cardNumberInputs}>
-            {cardNumber.map((num, index) => (
-              <input
-                className={styles.cardNumberInput}
-                key={index}
-                type="text"
-                inputMode="numeric"
-                maxLength={4}
-                value={num}
-                ref={(el) => (inputRefs.current[index] = el)}
-                onChange={(e) => handleCardNumberChange(e, index)}
-                onKeyDown={(e) => handleCardNumberKeyDown(e, index)}
-              />
-            ))}
-          </div>
+          <div className={styles.inputWrapper}>
+            <div className={styles.cardNumberInputs}>
+              {cardNumber.map((num, index) => (
+                <input
+                  className={styles.cardNumberInput}
+                  key={index}
+                  type="text"
+                  inputMode="numeric"
+                  maxLength={4}
+                  value={num}
+                  ref={(el) => (inputRefs.current[index] = el)}
+                  onChange={(e) => handleCardNumberChange(e, index)}
+                  onKeyDown={(e) => handleCardNumberKeyDown(e, index)}
+                />
+              ))}
+            </div>
 
-          {fullCardNumber.startsWith("4") ? (
-            <FaCcVisa className={`${styles.cardIcon} ${styles.visa}`} />
-          ) : ["51", "52", "53", "54", "55"].some((num) =>
-              fullCardNumber.startsWith(num)
-            ) ? (
-            <FaCcMastercard className={`${styles.cardIcon} ${styles.master}`} />
-          ) : ["34", "37"].some((num) => fullCardNumber.startsWith(num)) ? (
-            <FaCcAmex className={`${styles.cardIcon} ${styles.amex}`} />
-          ) : (
-            <FaRegCreditCard
-              className={`${styles.cardIcon} ${styles.others}`}
-            />
-          )}
+            {fullCardNumber.startsWith("4") ? (
+              <FaCcVisa className={`${styles.cardIcon} ${styles.visa}`} />
+            ) : ["51", "52", "53", "54", "55"].some((num) =>
+                fullCardNumber.startsWith(num)
+              ) ? (
+              <FaCcMastercard
+                className={`${styles.cardIcon} ${styles.master}`}
+              />
+            ) : ["34", "37"].some((num) => fullCardNumber.startsWith(num)) ? (
+              <FaCcAmex className={`${styles.cardIcon} ${styles.amex}`} />
+            ) : (
+              <FaRegCreditCard
+                className={`${styles.cardIcon} ${styles.others}`}
+              />
+            )}
+          </div>
         </div>
 
         <div className={styles.cardInfoContainer}>

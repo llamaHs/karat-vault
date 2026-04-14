@@ -4,6 +4,7 @@ import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
 import styles from "./AppLayout.module.css";
+import Message from "../components/Message";
 
 function AppLayout({ startLoading, finishLoading }) {
   const { pathname } = useLocation();
@@ -21,6 +22,7 @@ function AppLayout({ startLoading, finishLoading }) {
   return (
     <>
       <ScrollToTop />
+      <Message />
       <Nav startLoading={startLoading} />
 
       <main className={styles.main}>

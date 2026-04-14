@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
 
 function Login() {
-  const { login, loginError } = useAuth();
+  const { login, loginError, clearLoginError } = useAuth();
   const [userId, setUserId] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const { finishLoading } = useOutletContext();
@@ -24,6 +24,7 @@ function Login() {
 
   useEffect(() => {
     finishLoading();
+    clearLoginError();
   }, [finishLoading]);
 
   return (
@@ -37,7 +38,10 @@ function Login() {
               className={styles.input}
               type="text"
               value={userId}
-              onChange={(e) => setUserId(e.target.value)}
+              onChange={(e) => {
+                setUserId(e.target.value);
+                clearLoginError();
+              }}
             />
           </div>
 
@@ -47,17 +51,14 @@ function Login() {
               className={styles.input}
               type="password"
               value={userPassword}
-              onChange={(e) => setUserPassword(e.target.value)}
+              onChange={(e) => {
+                setUserPassword(e.target.value);
+                clearLoginError();
+              }}
             />
           </div>
 
-          <p
-            className={`${styles.errorMessage} ${
-              loginError ? styles.loginError : ""
-            }`}
-          >
-            {loginError}
-          </p>
+          {loginError && <p className={styles.errorMessage}>{loginError}</p>}
 
           <div className={styles.formButtonContainer}>
             <button

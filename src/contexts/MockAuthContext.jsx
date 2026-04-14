@@ -17,6 +17,9 @@ function reducer(state, action) {
     case "loginFailed":
       return { ...state, loginError: "Invalid ID or password" };
 
+    case "clearLoginError":
+      return { ...state, loginError: null };
+
     case "logout":
       return { ...state, isAuthenticated: false, user: null };
 
@@ -53,9 +56,20 @@ function AuthProvider({ children }) {
     dispatch({ type: "logout" });
   }
 
+  function clearLoginError() {
+    dispatch({ type: "clearLoginError" });
+  }
+
   return (
     <AuthContext.Provider
-      value={{ isAuthenticated, user, loginError, login, logout }}
+      value={{
+        isAuthenticated,
+        user,
+        loginError,
+        login,
+        logout,
+        clearLoginError,
+      }}
     >
       {children}
     </AuthContext.Provider>

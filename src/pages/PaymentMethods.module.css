@@ -15,23 +15,29 @@
 }
 
 .title {
-  /* font-family: "Lora", serif; */
-  font-size: 2.4rem;
-  /* font-weight: 500; */
-  text-transform: uppercase;
-  margin-left: 24rem;
-  /* font-style: italic; */
+  font-family: "Lora", serif;
+  font-size: 2rem;
+  font-weight: 400;
+  padding-left: 10rem;
 }
 
 .cardContainer {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  align-items: center;
-  column-gap: 5rem;
-  row-gap: 5rem;
-  padding: 3rem 24rem;
+  width: 100%;
   background-color: var(--color-background--brand);
   margin-bottom: 7rem;
+}
+
+.cardInner {
+  max-width: 132rem;
+  margin: 0 auto;
+  padding: 3rem 10rem;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  align-items: center;
+  column-gap: 4rem;
+  row-gap: 5rem;
 }
 
 .card {
@@ -39,13 +45,14 @@
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   width: 100%;
-  height: 13rem;
-  gap: 2.4rem;
+  max-width: 22rem;
+  height: 12rem;
+  gap: 2.7rem;
   background-color: #fff;
   box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
-  padding: 2rem 2.4rem;
+  padding: 0 3rem;
   border-radius: 6px;
 }
 
@@ -57,7 +64,7 @@
 }
 
 .cardIcon {
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 .visa {
@@ -74,7 +81,7 @@
 
 .cardName {
   text-transform: uppercase;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 500;
 }
 
@@ -95,7 +102,8 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 13rem;
+  max-width: 22rem;
+  height: 12rem;
   background-color: #fff;
   box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
   padding: 2rem 2.4rem;
@@ -104,7 +112,7 @@
 }
 
 .addCardIcon {
-  font-size: 3rem;
+  font-size: 2.7rem;
   color: var(--color-brand--main);
 }
 
@@ -112,27 +120,47 @@
   box-shadow: none;
 }
 
-.paypalContainer {
-  height: 15rem;
+.paypalContainer,
+.paysContainer {
+  width: 100%;
+  padding: 3rem 0;
   display: flex;
   flex-direction: column;
   background-color: var(--color-background--brand);
   align-items: center;
   justify-content: center;
   gap: 1.2rem;
+}
+
+.paypalContainer {
   margin-bottom: 7rem;
+}
+
+.inner {
+  max-width: 132rem;
+  margin: 0 auto;
+  padding: 0 10rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.paypalButton,
+.applepayButton,
+.googlepayButton {
+  font-family: inherit;
+  font-size: 1.6rem;
+  font-weight: 500;
+  padding: 0.8rem 1.6rem;
 }
 
 .paypalButton {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: inherit;
-  font-size: 1.8rem;
-  font-weight: 500;
   border: none;
-  padding: 1rem 2rem;
-  /* background-color: #0070ba; */
   background-color: #009cde;
   color: #fff;
   border-radius: 3px;
@@ -141,7 +169,6 @@
 }
 
 .paypalButton:hover {
-  /* background-color: #003087; */
   background-color: #0070ba;
 }
 
@@ -149,32 +176,18 @@
   font-size: 1.2rem;
 }
 
-.paysContainer {
-  height: 15rem;
-  display: flex;
-  flex-direction: column;
-  background-color: var(--color-background--brand);
-  align-items: center;
-  justify-content: center;
-  gap: 1.2rem;
-}
-
 .buttonWrapper {
   display: flex;
   align-items: center;
-  gap: 5rem;
+  gap: 3rem;
 }
 
 .applepayButton,
 .googlepayButton {
-  font-family: inherit;
-  font-size: 1.8rem;
-  font-weight: 500;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.7rem;
-  padding: 1rem 2rem;
   cursor: pointer;
   border-radius: 3px;
   transition: background-color 0.15s ease, opacity 0.15s ease;
@@ -184,6 +197,7 @@
   background-color: #000;
   color: #fff;
   border: 1px solid #000;
+  border-radius: 3px;
 }
 
 .googlepayButton {
@@ -194,7 +208,7 @@
 }
 
 .googlepayIcon {
-  font-size: 2.4rem;
+  font-size: 2rem;
 }
 
 .applepayButton:hover {

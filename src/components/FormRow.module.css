@@ -4,7 +4,7 @@
   grid-template-columns: 14rem 1fr;
   row-gap: 0.6rem;
   align-items: center;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -13,5 +13,5 @@
 .formError {
   grid-column: 2;
   color: var(--color-error);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }

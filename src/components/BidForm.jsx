@@ -35,6 +35,7 @@ function BidForm({ currentBid, onCloseBid }) {
     e.preventDefault();
 
     const bid = Number(amount);
+    const allAgreed = Object.values(agreed).every(Boolean);
 
     if (!amount) {
       setBidError("Please enter your bid.");
@@ -51,7 +52,7 @@ function BidForm({ currentBid, onCloseBid }) {
       return;
     }
 
-    if (!agreed) {
+    if (!allAgreed) {
       setAgreeError("You must agree before placing a bid.");
       return;
     }

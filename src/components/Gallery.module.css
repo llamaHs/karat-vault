@@ -2,13 +2,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5rem;
-  padding: 5rem 0;
+  gap: 4rem;
+  padding: 4rem 0;
   background-color: var(--color-background--brand);
 }
 
 .galleryText {
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 .galleryContainer {
@@ -18,13 +18,13 @@
 
 .galleryTrack {
   display: flex;
-  gap: 2rem;
+  gap: 1.8rem;
   width: max-content;
   animation: scroll 40s linear infinite;
 }
 
 .galleryTrack img {
-  height: 25rem;
+  height: 22rem;
   width: auto;
   flex-shrink: 0;
 }

@@ -1,5 +1,6 @@
 footer {
-  height: 55vh;
+  width: 100%;
+  background-color: var(--color-background--brand);
 }
 
 ul {
@@ -14,13 +15,12 @@ a:visited {
 .container {
   width: 100%;
   height: 100%;
-  padding: 10rem 12rem;
-  background-color: var(--color-background--brand);
+  padding: 8rem 10rem;
 
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10rem;
-  justify-items: end;
+  grid-template-columns: 1.2fr 0.8fr 0.8fr 0.9fr;
+  column-gap: 8rem;
+  align-items: start;
 }
 
 .col {
@@ -28,13 +28,21 @@ a:visited {
   flex-direction: column;
 }
 
+.colLogo {
+  justify-self: start;
+}
+
+.col:not(.colLogo) {
+  justify-self: center;
+}
+
 .colLogo img {
-  width: 20rem;
+  width: 18rem;
   margin-bottom: 14rem;
 }
 
 .copyright {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   padding-left: 2rem;
   margin-bottom: 2rem;
 }
@@ -44,7 +52,7 @@ a:visited {
   color: var(--color-text-light);
   display: flex;
   gap: 0.7rem;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 
 .term {
@@ -56,7 +64,7 @@ a:visited {
 }
 
 .linkTitle {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 600;
   margin-bottom: 5rem;
 }
@@ -66,7 +74,7 @@ a:visited {
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 
 .linkList a:link,

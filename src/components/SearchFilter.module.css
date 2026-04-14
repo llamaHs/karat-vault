@@ -4,14 +4,14 @@
 }
 
 .container {
-  max-width: 70%;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 3rem 0;
+  padding: 2.4rem 8rem;
   display: grid;
-  grid-template-columns: 40rem 40rem 40rem;
+  grid-template-columns: 34rem 34rem 34rem;
   justify-content: center;
   justify-items: center;
-  align-items: center;
+  align-items: start;
   column-gap: 6rem;
 }
 
@@ -22,19 +22,19 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .title {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .optionContainer {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  gap: 3rem;
+  gap: 2rem;
 }
 
 .option {
@@ -57,14 +57,14 @@
 }
 
 .image {
-  width: 3rem;
+  width: 2.6rem;
 }
 
 .icon14k,
 .icon18k,
 .iconGemstone {
-  width: 3.2rem;
-  height: 3.2rem;
+  width: 2.8rem;
+  height: 2.8rem;
   border-radius: 50%;
 }
 
@@ -82,7 +82,7 @@
 }
 
 .option p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 300;
 }
 
@@ -91,28 +91,28 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 4rem;
+  gap: 4.5rem;
 }
 
 .bidRange {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .bidContainer {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 2rem;
 }
 
 .bidContainer p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 500;
 }
 
 .range {
   width: 100%;
-  max-width: 40rem;
+  max-width: 28rem;
   -webkit-appearance: none;
   appearance: none;
   background: transparent;
@@ -133,13 +133,14 @@
   height: 2rem;
   background-color: var(--color-brand--main);
   border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
   margin-top: -0.6rem;
 }
 
 .rangeContainer {
   position: relative;
   width: 100%;
-  max-width: 40rem;
+  max-width: 28rem;
 }
 
 .rangeValue {
@@ -154,7 +155,7 @@
   background-color: var(--color-background);
   border: 1px solid rgba(0, 0, 0, 0.1);
 
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 500;
 
   box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.12);
