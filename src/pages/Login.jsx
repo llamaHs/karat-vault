@@ -22,6 +22,20 @@ function Login() {
     success && navigate(from, { replace: true });
   }
 
+  function handleDemoLogin(e) {
+    e.preventDefault();
+
+    const demoId = "user";
+    const demoPassword = "0000";
+
+    setUserId(demoId);
+    setUserPassword(demoPassword);
+
+    const successDemo = login(demoId, demoPassword);
+
+    successDemo && navigate(from, { replace: true });
+  }
+
   useEffect(() => {
     finishLoading();
     clearLoginError();
@@ -72,6 +86,10 @@ function Login() {
               Login
             </button>
           </div>
+
+          <button className={styles.demoLogin} onClick={handleDemoLogin}>
+            Demo Login
+          </button>
         </form>
       </div>
 

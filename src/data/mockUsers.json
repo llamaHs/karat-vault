@@ -1,11 +1,11 @@
 {
   "users": [
     {
-      "id": "hs",
-      "firstName": "Julia",
-      "famailyName": "Lee",
-      "email": "hsjlee@mockmail.com",
-      "password": "1234",
+      "id": "user",
+      "firstName": "user",
+      "famailyName": "user family",
+      "email": "user@mockmail.com",
+      "password": "0000",
       "address": "45 Aurora Lane, Suite 1203 San Francisco, CA 94105 United States"
     },
     {

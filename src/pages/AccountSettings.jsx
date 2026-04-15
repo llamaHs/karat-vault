@@ -39,10 +39,10 @@ function AccountSettings() {
       },
       {
         root: null,
-        // 기준이 되는 영역. null = viewport
-        // 특정 div를 넣으면 그 div 안에서만 감지
+        // standard area. null = viewport
+        // check inside of the specific root (div) only.
         threshold: 1,
-        // 0.3: 30% 이상 보이면 감지, 1: 100% 보이면 감지
+        // 0.3: 30% , 1: 100%
       }
     );
 
@@ -96,7 +96,7 @@ function AccountSettings() {
                 className={styles.shortInput}
                 type="text"
                 readOnly
-                value={"Georgia"}
+                value={"Test Name"}
               />
             </div>
 
@@ -109,7 +109,7 @@ function AccountSettings() {
                 className={styles.shortInput}
                 type="text"
                 readOnly
-                value={"Robinson"}
+                value={"Test FamilyName"}
               />
             </div>
           </div>
@@ -124,7 +124,7 @@ function AccountSettings() {
                   className={styles.shortInput}
                   type="text"
                   readOnly
-                  value={"georgiarobinson"}
+                  value={"testuserid"}
                 />
                 <button className={styles.editButton}>Edit</button>
               </div>
@@ -140,7 +140,7 @@ function AccountSettings() {
                   className={styles.longInput}
                   type="text"
                   readOnly
-                  value={"georgiarobinson@mockmail.com"}
+                  value={"useremailid@mockmail.com"}
                 />
                 <button className={styles.editButton}>Edit</button>
               </div>
