@@ -66,7 +66,7 @@ npm run build
 
 ## 🌐 Live Demo
 
-Karat Vault is deployed on Netlify. You can access it [here]().
+Karat Vault is deployed on Netlify. You can access it [here](https://karat-vault.netlify.app/).
 
 🚧 This project is currently in progress. Some features may not be fully implemented.
 
