@@ -13,6 +13,10 @@ function Nav({ startLoading }) {
 
   const enableScrollNav = pathname === "/";
 
+  function handleLogout() {
+    logout();
+  }
+
   useEffect(() => {
     if (!enableScrollNav) {
       setScrolled(false);
@@ -140,7 +144,7 @@ function Nav({ startLoading }) {
                 >
                   Account Settings
                 </NavLink>
-                <button className={styles.logoutButton} onClick={logout}>
+                <button className={styles.logoutButton} onClick={handleLogout}>
                   Logout
                 </button>
               </div>

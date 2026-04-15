@@ -87,7 +87,11 @@ function App() {
 
               <Route
                 path="mypage"
-                element={<MyPageLayout finishLoading={finish} />}
+                element={
+                  <ProtectedRoute>
+                    <MyPageLayout finishLoading={finish} />
+                  </ProtectedRoute>
+                }
               >
                 <Route index element={<Navigate to="bids" replace />} />
                 <Route path="bids" element={<MyBids />} />

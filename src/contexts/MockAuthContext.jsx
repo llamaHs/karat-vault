@@ -21,7 +21,15 @@ function reducer(state, action) {
       return { ...state, loginError: null };
 
     case "logout":
-      return { ...state, isAuthenticated: false, user: null };
+      return {
+        ...state,
+        isAuthenticated: false,
+        user: null,
+        justLoggedOut: true,
+      };
+
+    case "clearLogout":
+      return { ...state, justLoggedOut: false };
 
     default:
       throw new Error("Unknown action");
@@ -32,13 +40,12 @@ const initialState = {
   isAuthenticated: false,
   user: null,
   loginError: null,
+  justLoggedOut: false,
 };
 
 function AuthProvider({ children }) {
-  const [{ isAuthenticated, user, loginError }, dispatch] = useReducer(
-    reducer,
-    initialState
-  );
+  const [{ isAuthenticated, user, loginError, justLoggedOut }, dispatch] =
+    useReducer(reducer, initialState);
 
   function login(id, password) {
     const user = users.find(
@@ -60,15 +67,21 @@ function AuthProvider({ children }) {
     dispatch({ type: "clearLoginError" });
   }
 
+  function clearLogout() {
+    dispatch({ type: "clearLogout" });
+  }
+
   return (
     <AuthContext.Provider
       value={{
         isAuthenticated,
         user,
         loginError,
+        justLoggedOut,
         login,
         logout,
         clearLoginError,
+        clearLogout,
       }}
     >
       {children}
