@@ -16,7 +16,11 @@ function ByMaterial() {
           <Link to={{ pathname: "/buy", search: "?material=14k" }}>
             <div className={styles.listItem}>
               <div className={styles.imgContainer}>
-                <img src="./backgrounds/14k2.jpg" alt="a gold jewelry" />
+                <img
+                  src="./backgrounds/14k2.jpg"
+                  alt="a gold jewelry"
+                  loading="lazy"
+                />
               </div>
               <p>14K GOLD</p>
             </div>
@@ -25,7 +29,11 @@ function ByMaterial() {
           <Link to={{ pathname: "/buy", search: "?material=18k" }}>
             <div className={styles.listItem}>
               <div className={styles.imgContainer}>
-                <img src="./backgrounds/14k3.jpg" alt="a gold jewelry" />
+                <img
+                  src="./backgrounds/14k3.jpg"
+                  alt="a gold jewelry"
+                  loading="lazy"
+                />
               </div>
               <p>18K GOLD</p>
             </div>
@@ -37,6 +45,7 @@ function ByMaterial() {
                 <img
                   src="./backgrounds/gemstone.png"
                   alt="a gold jewelry with blue gemstones"
+                  loading="lazy"
                 />
               </div>
               <p>GEMSTONES</p>

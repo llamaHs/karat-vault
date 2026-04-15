@@ -113,6 +113,7 @@ function ItemList({ listType, category, material, maxBid }) {
                   src={item.image}
                   alt={item.name}
                   className={styles.image}
+                  loading="lazy"
                 />
                 <div className={styles.offerCount}>
                   <p>{item.offerCount}</p>

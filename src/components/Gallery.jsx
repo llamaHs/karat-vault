@@ -24,12 +24,16 @@ function Gallery() {
       <div className={styles.galleryContainer}>
         <div className={styles.galleryTrack}>
           {images.map((img, i) => (
-            <img key={i} src={`/products/${img}.webp`} />
+            <img key={i} src={`/products/${img}.webp`} loading="lazy" />
           ))}
 
           {/* duplicate for infinite loop */}
           {images.map((img, i) => (
-            <img key={`dup-${i}`} src={`/products/${img}.webp`} />
+            <img
+              key={`dup-${i}`}
+              src={`/products/${img}.webp`}
+              loading="lazy"
+            />
           ))}
         </div>
       </div>

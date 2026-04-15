@@ -16,7 +16,11 @@ function HotItemsNow() {
           <Link to={{ pathname: "/hot-items", search: "?category=ring" }}>
             <div className={styles.listItem}>
               <div className={styles.imgContainer}>
-                <img src="./backgrounds/ring.png" alt="a gold ring" />
+                <img
+                  src="./backgrounds/ring.png"
+                  alt="a gold ring"
+                  loading="lazy"
+                />
               </div>
               <p>RINGS</p>
             </div>
@@ -25,7 +29,11 @@ function HotItemsNow() {
           <Link to={{ pathname: "/hot-items", search: "?category=necklace" }}>
             <div className={styles.listItem}>
               <div className={styles.imgContainer}>
-                <img src="./backgrounds/necklace.jpg" alt="a gold necklace" />
+                <img
+                  src="./backgrounds/necklace.jpg"
+                  alt="a gold necklace"
+                  loading="lazy"
+                />
               </div>
               <p>NECKLACES</p>
             </div>
@@ -37,6 +45,7 @@ function HotItemsNow() {
                 <img
                   src="./backgrounds/earings.png"
                   alt="a pair of gold earings"
+                  loading="lazy"
                 />
               </div>
               <p>EARINGS</p>
@@ -46,7 +55,11 @@ function HotItemsNow() {
           <Link to={{ pathname: "/hot-items", search: "?category=bracelet" }}>
             <div className={styles.listItem}>
               <div className={styles.imgContainer}>
-                <img src="./backgrounds/bracelet.png" alt="a gold bracelet" />
+                <img
+                  src="./backgrounds/bracelet.png"
+                  alt="a gold bracelet"
+                  loading="lazy"
+                />
               </div>
               <p>BRACELETS</p>
             </div>

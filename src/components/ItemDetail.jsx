@@ -35,7 +35,12 @@ function ItemDetail({ item }) {
       <div className={styles.container}>
         {/* Image */}
         <div className={styles.imgContainer}>
-          <img src={item.image} alt={item.name} className={styles.image} />
+          <img
+            src={item.image}
+            alt={item.name}
+            className={styles.image}
+            loading="lazy"
+          />
         </div>
 
         {/* Text */}
