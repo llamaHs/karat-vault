@@ -43,9 +43,10 @@ function Buy() {
   return (
     <div className={styles.container}>
       <PageTitle
-        img="./backgrounds/background-title-2-1.png"
+        img="./backgrounds/background-title-2-1.webp"
         heading="Bid on Pieces"
         subHeading="Explore fine gold and jewelry listings available for competitive bidding now."
+        alt="gold jewelry"
       />
       <SearchFilter
         category={category}

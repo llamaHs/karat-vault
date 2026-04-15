@@ -1,10 +1,10 @@
 import styles from "./PageTitle.module.css";
 
-function PageTitle({ img, heading, subHeading }) {
+function PageTitle({ img, heading, subHeading, alt }) {
   return (
     <section className={styles.section}>
       <div className={styles.imgContainer}>
-        <img src={img} alt="gold jewelry" className={styles.titleImage} />
+        <img src={img} alt={alt} className={styles.titleImage} />
       </div>
       <div className={styles.titleContainer}>
         <h1 className={styles.heading}>{heading}</h1>

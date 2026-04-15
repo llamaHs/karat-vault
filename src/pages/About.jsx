@@ -17,9 +17,10 @@ function About() {
   return (
     <div className={styles.container}>
       <PageTitle
-        img="/backgrounds/background-title-4.png"
+        img="/backgrounds/background-title-4.webp"
         heading="About Us"
         subHeading="Discover the story behind Karat Vault."
+        alt="gold gemstone jewelry"
       />
       <OurMission />
       <Gallery />

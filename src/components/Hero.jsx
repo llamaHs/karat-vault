@@ -7,7 +7,7 @@ function Hero({ startLoading }) {
       <div className={styles.hero}>
         <div className={styles.heroImg}>
           <img
-            src="./backgrounds/hero-img-dark.png"
+            src="./backgrounds/hero-img-dark.webp"
             alt="hero image with gold necklace"
           />
         </div>

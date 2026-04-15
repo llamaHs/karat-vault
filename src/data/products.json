@@ -2,7 +2,7 @@
   "products": [
     {
       "id": 2001,
-      "image": "/products/2001.png",
+      "image": "/products/2001.webp",
       "name": "Yellow gold flower ring",
       "category": "ring",
       "material": "14k",
@@ -21,7 +21,7 @@
     },
     {
       "id": 2002,
-      "image": "/products/2002.png",
+      "image": "/products/2002.webp",
       "name": "White gold cable chain necklace",
       "category": "necklace",
       "material": "18k",
@@ -40,7 +40,7 @@
     },
     {
       "id": 2003,
-      "image": "/products/2003.png",
+      "image": "/products/2003.webp",
       "name": "Pink gold heart stud earrings",
       "category": "earrings",
       "material": "14k",
@@ -59,7 +59,7 @@
     },
     {
       "id": 2004,
-      "image": "/products/2004.png",
+      "image": "/products/2004.webp",
       "name": "Gemstone tennis bracelet",
       "category": "bracelet",
       "material": "gemstone",
@@ -78,7 +78,7 @@
     },
     {
       "id": 2005,
-      "image": "/products/2005.png",
+      "image": "/products/2005.webp",
       "name": "Yellow gold minimalist band ring",
       "category": "ring",
       "material": "18k",
@@ -97,7 +97,7 @@
     },
     {
       "id": 2006,
-      "image": "/products/2006.png",
+      "image": "/products/2006.webp",
       "name": "White gold drop earrings",
       "category": "earrings",
       "material": "18k",
@@ -116,7 +116,7 @@
     },
     {
       "id": 2007,
-      "image": "/products/2007.png",
+      "image": "/products/2007.webp",
       "name": "Pink gold charm bracelet",
       "category": "bracelet",
       "material": "14k",
@@ -135,7 +135,7 @@
     },
     {
       "id": 2008,
-      "image": "/products/2008.png",
+      "image": "/products/2008.webp",
       "name": "Gemstone pendant necklace",
       "category": "necklace",
       "material": "gemstone",
@@ -154,7 +154,7 @@
     },
     {
       "id": 2009,
-      "image": "/products/2009.png",
+      "image": "/products/2009.webp",
       "name": "White gold eternity ring",
       "category": "ring",
       "material": "18k",
@@ -173,7 +173,7 @@
     },
     {
       "id": 2010,
-      "image": "/products/2010.png",
+      "image": "/products/2010.webp",
       "name": "Yellow gold hoop earrings",
       "category": "earrings",
       "material": "14k",
@@ -192,7 +192,7 @@
     },
     {
       "id": 2011,
-      "image": "/products/2011.png",
+      "image": "/products/2011.webp",
       "name": "White gold paperclip bracelet",
       "category": "bracelet",
       "material": "18k",
@@ -211,7 +211,7 @@
     },
     {
       "id": 2012,
-      "image": "/products/2012.png",
+      "image": "/products/2012.webp",
       "name": "Gemstone halo ring",
       "category": "ring",
       "material": "gemstone",
@@ -230,7 +230,7 @@
     },
     {
       "id": 2013,
-      "image": "/products/2013.png",
+      "image": "/products/2013.webp",
       "name": "Pink gold station necklace",
       "category": "necklace",
       "material": "14k",
@@ -249,7 +249,7 @@
     },
     {
       "id": 2014,
-      "image": "/products/2014.png",
+      "image": "/products/2014.webp",
       "name": "Yellow gold huggie earrings",
       "category": "earrings",
       "material": "18k",
@@ -268,7 +268,7 @@
     },
     {
       "id": 2015,
-      "image": "/products/2015.png",
+      "image": "/products/2015.webp",
       "name": "Gemstone bar bracelet",
       "category": "bracelet",
       "material": "gemstone",
@@ -287,7 +287,7 @@
     },
     {
       "id": 2016,
-      "image": "/products/2016.png",
+      "image": "/products/2016.webp",
       "name": "White gold solitaire-style ring",
       "category": "ring",
       "material": "14k",
@@ -306,7 +306,7 @@
     },
     {
       "id": 2017,
-      "image": "/products/2017.png",
+      "image": "/products/2017.webp",
       "name": "Yellow gold pendant necklace",
       "category": "necklace",
       "material": "18k",
@@ -325,7 +325,7 @@
     },
     {
       "id": 2018,
-      "image": "/products/2018.png",
+      "image": "/products/2018.webp",
       "name": "Pink gold small hoop earrings",
       "category": "earrings",
       "material": "14k",
@@ -344,7 +344,7 @@
     },
     {
       "id": 2019,
-      "image": "/products/2019.png",
+      "image": "/products/2019.webp",
       "name": "White gold layered chain necklace",
       "category": "necklace",
       "material": "14k",
@@ -363,7 +363,7 @@
     },
     {
       "id": 2020,
-      "image": "/products/2020.png",
+      "image": "/products/2020.webp",
       "name": "Gemstone cluster earrings",
       "category": "earrings",
       "material": "gemstone",
@@ -383,7 +383,7 @@
 
     {
       "id": 3001,
-      "image": "/products/3001.png",
+      "image": "/products/3001.webp",
       "name": "Yellow gold vintage signet ring",
       "category": "ring",
       "material": "18k",
@@ -402,7 +402,7 @@
     },
     {
       "id": 3002,
-      "image": "/products/3002.png",
+      "image": "/products/3002.webp",
       "name": "White gold diamond eternity ring",
       "category": "ring",
       "material": "18k",
@@ -421,7 +421,7 @@
     },
     {
       "id": 3003,
-      "image": "/products/3003.png",
+      "image": "/products/3003.webp",
       "name": "Yellow gold chain bracelet",
       "category": "bracelet",
       "material": "14k",
@@ -440,7 +440,7 @@
     },
     {
       "id": 3004,
-      "image": "/products/3004.png",
+      "image": "/products/3004.webp",
       "name": "Pink gold diamond necklace",
       "category": "necklace",
       "material": "18k",
@@ -459,7 +459,7 @@
     },
     {
       "id": 3005,
-      "image": "/products/3005.png",
+      "image": "/products/3005.webp",
       "name": "White gold tennis bracelet",
       "category": "bracelet",
       "material": "18k",
@@ -478,7 +478,7 @@
     },
     {
       "id": 3006,
-      "image": "/products/3006.png",
+      "image": "/products/3006.webp",
       "name": "Yellow gold hoop earrings",
       "category": "earrings",
       "material": "14k",
@@ -497,7 +497,7 @@
     },
     {
       "id": 3007,
-      "image": "/products/3007.png",
+      "image": "/products/3007.webp",
       "name": "White gold layered chain necklace",
       "category": "necklace",
       "material": "18k",
@@ -516,7 +516,7 @@
     },
     {
       "id": 3008,
-      "image": "/products/3008.png",
+      "image": "/products/3008.webp",
       "name": "Yellow gold cuff bracelet",
       "category": "bracelet",
       "material": "18k",
@@ -535,7 +535,7 @@
     },
     {
       "id": 3009,
-      "image": "/products/3009.png",
+      "image": "/products/3009.webp",
       "name": "Pink gold solitaire ring",
       "category": "ring",
       "material": "18k",
@@ -554,7 +554,7 @@
     },
     {
       "id": 3010,
-      "image": "/products/3010.png",
+      "image": "/products/3010.webp",
       "name": "Yellow gold statement necklace",
       "category": "necklace",
       "material": "18k",
@@ -573,7 +573,7 @@
     },
     {
       "id": 3011,
-      "image": "/products/3011.png",
+      "image": "/products/3011.webp",
       "name": "White gold drop earrings",
       "category": "earrings",
       "material": "18k",
@@ -592,7 +592,7 @@
     },
     {
       "id": 3012,
-      "image": "/products/3012.png",
+      "image": "/products/3012.webp",
       "name": "Yellow gold flat band ring",
       "category": "ring",
       "material": "14k",
@@ -611,7 +611,7 @@
     },
     {
       "id": 3013,
-      "image": "/products/3013.png",
+      "image": "/products/3013.webp",
       "name": "Pink gold chain bracelet",
       "category": "bracelet",
       "material": "18k",
@@ -630,7 +630,7 @@
     },
     {
       "id": 3014,
-      "image": "/products/3014.png",
+      "image": "/products/3014.webp",
       "name": "White gold choker necklace",
       "category": "necklace",
       "material": "18k",
@@ -649,7 +649,7 @@
     },
     {
       "id": 3015,
-      "image": "/products/3015.png",
+      "image": "/products/3015.webp",
       "name": "Yellow gold bangle bracelet",
       "category": "bracelet",
       "material": "18k",
@@ -668,7 +668,7 @@
     },
     {
       "id": 3016,
-      "image": "/products/3016.png",
+      "image": "/products/3016.webp",
       "name": "White gold stud earrings",
       "category": "earrings",
       "material": "14k",
@@ -687,7 +687,7 @@
     },
     {
       "id": 3017,
-      "image": "/products/3017.png",
+      "image": "/products/3017.webp",
       "name": "Pink gold vintage ring",
       "category": "ring",
       "material": "18k",
@@ -706,7 +706,7 @@
     },
     {
       "id": 3018,
-      "image": "/products/3018.png",
+      "image": "/products/3018.webp",
       "name": "Yellow gold long chain necklace",
       "category": "necklace",
       "material": "14k",
@@ -725,7 +725,7 @@
     },
     {
       "id": 3019,
-      "image": "/products/3019.png",
+      "image": "/products/3019.webp",
       "name": "White gold oval link bracelet",
       "category": "bracelet",
       "material": "18k",
@@ -744,7 +744,7 @@
     },
     {
       "id": 3020,
-      "image": "/products/3020.png",
+      "image": "/products/3020.webp",
       "name": "Yellow gold pavé hoop earrings",
       "category": "earrings",
       "material": "18k",

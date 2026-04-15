@@ -8,9 +8,10 @@ function Careers() {
   return (
     <div className={styles.container}>
       <PageTitle
-        img="./backgrounds/background-title-9.png"
+        img="./backgrounds/background-title-9.webp"
         heading="Careers at Karat Vault"
         subHeading="Work with us to create a smarter and more transparent jewelry marketplace."
+        alt="a man looking at a diamond"
       />
       <CareerFeature />
       <CareerList />

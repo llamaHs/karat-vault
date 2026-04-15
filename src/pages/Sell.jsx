@@ -16,6 +16,7 @@ function Sell() {
         img="./backgrounds/background-title-5.jpg"
         heading="List Your Pieces"
         subHeading="Submit your jewelry pieces for bidding."
+        alt="gold jewelry"
       />
       <SellForm />
     </>
