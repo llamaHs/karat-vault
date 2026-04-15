@@ -43,7 +43,7 @@ function ByMaterial() {
             <div className={styles.listItem}>
               <div className={styles.imgContainer}>
                 <img
-                  src="./backgrounds/gemstone.png"
+                  src="./backgrounds/gemstone.webp"
                   alt="a gold jewelry with blue gemstones"
                   loading="lazy"
                 />

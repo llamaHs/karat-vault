@@ -5,7 +5,7 @@ import styles from "./Wishlist.module.css";
 const tempWishLists = [
   {
     id: 3009,
-    image: "/products/3009.png",
+    image: "/products/3009.webp",
     name: "Pink gold solitaire ring",
     category: "ring",
     material: "18k",
@@ -25,7 +25,7 @@ const tempWishLists = [
   },
   {
     id: 3010,
-    image: "/products/3010.png",
+    image: "/products/3010.webp",
     name: "Yellow gold statement necklace",
     category: "necklace",
     material: "18k",

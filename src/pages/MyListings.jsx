@@ -5,7 +5,7 @@ import styles from "./MyListings.module.css";
 const tempActiveListings = [
   {
     id: 3018,
-    image: "/products/3018.png",
+    image: "/products/3018.webp",
     name: "Yellow gold long chain necklace",
     category: "necklace",
     material: "14k",
@@ -25,7 +25,7 @@ const tempActiveListings = [
   },
   {
     id: 3019,
-    image: "/products/3019.png",
+    image: "/products/3019.webp",
     name: "White gold oval link bracelet",
     category: "bracelet",
     material: "18k",
@@ -45,7 +45,7 @@ const tempActiveListings = [
   },
   {
     id: 3020,
-    image: "/products/3020.png",
+    image: "/products/3020.webp",
     name: "Yellow gold pavé hoop earrings",
     category: "earrings",
     material: "18k",
@@ -68,7 +68,7 @@ const tempActiveListings = [
 const tempSoldItems = [
   {
     id: 3015,
-    image: "/products/3015.png",
+    image: "/products/3015.webp",
     name: "Yellow gold bangle bracelet",
     category: "bracelet",
     material: "18k",
@@ -88,7 +88,7 @@ const tempSoldItems = [
   },
   {
     id: 3016,
-    image: "/products/3016.png",
+    image: "/products/3016.webp",
     name: "White gold stud earrings",
     category: "earrings",
     material: "14k",
@@ -108,7 +108,7 @@ const tempSoldItems = [
   },
   {
     id: 3017,
-    image: "/products/3017.png",
+    image: "/products/3017.webp",
     name: "Pink gold vintage ring",
     category: "ring",
     material: "18k",
@@ -131,7 +131,7 @@ const tempSoldItems = [
 const tempExpiredListings = [
   {
     id: 3012,
-    image: "/products/3012.png",
+    image: "/products/3012.webp",
     name: "Yellow gold flat band ring",
     category: "ring",
     material: "14k",
@@ -151,7 +151,7 @@ const tempExpiredListings = [
   },
   {
     id: 3013,
-    image: "/products/3013.png",
+    image: "/products/3013.webp",
     name: "Pink gold chain bracelet",
     category: "bracelet",
     material: "18k",

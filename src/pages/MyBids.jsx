@@ -9,7 +9,7 @@ import styles from "./MyBids.module.css";
 const tempBidItems = [
   {
     id: 2001,
-    image: "/products/2001.png",
+    image: "/products/2001.webp",
     name: "Yellow gold flower ring",
     category: "ring",
     material: "14k",
@@ -29,7 +29,7 @@ const tempBidItems = [
   },
   {
     id: 2002,
-    image: "/products/2002.png",
+    image: "/products/2002.webp",
     name: "White gold cable chain necklace",
     category: "necklace",
     material: "18k",
@@ -49,7 +49,7 @@ const tempBidItems = [
   },
   {
     id: 2003,
-    image: "/products/2003.png",
+    image: "/products/2003.webp",
     name: "Pink gold heart stud earrings",
     category: "earrings",
     material: "14k",
@@ -69,7 +69,7 @@ const tempBidItems = [
   },
   {
     id: 2004,
-    image: "/products/2004.png",
+    image: "/products/2004.webp",
     name: "Gemstone tennis bracelet",
     category: "bracelet",
     material: "gemstone",
@@ -89,7 +89,7 @@ const tempBidItems = [
   },
   {
     id: 2005,
-    image: "/products/2005.png",
+    image: "/products/2005.webp",
     name: "Yellow gold minimalist band ring",
     category: "ring",
     material: "18k",
@@ -109,7 +109,7 @@ const tempBidItems = [
   },
   {
     id: 2006,
-    image: "/products/2006.png",
+    image: "/products/2006.webp",
     name: "White gold drop earrings",
     category: "earrings",
     material: "18k",
@@ -132,7 +132,7 @@ const tempBidItems = [
 const tempCompletedAuction = [
   {
     id: 2007,
-    image: "/products/2007.png",
+    image: "/products/2007.webp",
     name: "Pink gold charm bracelet",
     category: "bracelet",
     material: "14k",
@@ -152,7 +152,7 @@ const tempCompletedAuction = [
   },
   {
     id: 2008,
-    image: "/products/2008.png",
+    image: "/products/2008.webp",
     name: "Gemstone pendant necklace",
     category: "necklace",
     material: "gemstone",
@@ -172,7 +172,7 @@ const tempCompletedAuction = [
   },
   {
     id: 2009,
-    image: "/products/2009.png",
+    image: "/products/2009.webp",
     name: "White gold eternity ring",
     category: "ring",
     material: "18k",
@@ -192,7 +192,7 @@ const tempCompletedAuction = [
   },
   {
     id: 2010,
-    image: "/products/2010.png",
+    image: "/products/2010.webp",
     name: "Yellow gold hoop earrings",
     category: "earrings",
     material: "14k",
@@ -212,7 +212,7 @@ const tempCompletedAuction = [
   },
   {
     id: 2011,
-    image: "/products/2011.png",
+    image: "/products/2011.webp",
     name: "White gold paperclip bracelet",
     category: "bracelet",
     material: "18k",
@@ -232,7 +232,7 @@ const tempCompletedAuction = [
   },
   {
     id: 2012,
-    image: "/products/2012.png",
+    image: "/products/2012.webp",
     name: "Gemstone halo ring",
     category: "ring",
     material: "gemstone",
@@ -252,7 +252,7 @@ const tempCompletedAuction = [
   },
   {
     id: 2013,
-    image: "/products/2013.png",
+    image: "/products/2013.webp",
     name: "Pink gold station necklace",
     category: "necklace",
     material: "14k",
@@ -272,7 +272,7 @@ const tempCompletedAuction = [
   },
   {
     id: 2014,
-    image: "/products/2014.png",
+    image: "/products/2014.webp",
     name: "Yellow gold huggie earrings",
     category: "earrings",
     material: "18k",
@@ -292,7 +292,7 @@ const tempCompletedAuction = [
   },
   {
     id: 2015,
-    image: "/products/2015.png",
+    image: "/products/2015.webp",
     name: "Gemstone bar bracelet",
     category: "bracelet",
     material: "gemstone",
@@ -312,7 +312,7 @@ const tempCompletedAuction = [
   },
   {
     id: 2016,
-    image: "/products/2016.png",
+    image: "/products/2016.webp",
     name: "White gold solitaire-style ring",
     category: "ring",
     material: "14k",
@@ -332,7 +332,7 @@ const tempCompletedAuction = [
   },
   {
     id: 2017,
-    image: "/products/2017.png",
+    image: "/products/2017.webp",
     name: "Yellow gold pendant necklace",
     category: "necklace",
     material: "18k",
@@ -352,7 +352,7 @@ const tempCompletedAuction = [
   },
   {
     id: 2018,
-    image: "/products/2018.png",
+    image: "/products/2018.webp",
     name: "Pink gold small hoop earrings",
     category: "earrings",
     material: "14k",
@@ -372,7 +372,7 @@ const tempCompletedAuction = [
   },
   {
     id: 2019,
-    image: "/products/2019.png",
+    image: "/products/2019.webp",
     name: "White gold layered chain necklace",
     category: "necklace",
     material: "14k",
@@ -392,7 +392,7 @@ const tempCompletedAuction = [
   },
   {
     id: 2020,
-    image: "/products/2020.png",
+    image: "/products/2020.webp",
     name: "Gemstone cluster earrings",
     category: "earrings",
     material: "gemstone",
@@ -413,7 +413,7 @@ const tempCompletedAuction = [
 
   {
     id: 3001,
-    image: "/products/3001.png",
+    image: "/products/3001.webp",
     name: "Yellow gold vintage signet ring",
     category: "ring",
     material: "18k",
@@ -436,7 +436,7 @@ const tempCompletedAuction = [
 const tempPurchasedItems = [
   {
     id: 3002,
-    image: "/products/3002.png",
+    image: "/products/3002.webp",
     name: "White gold diamond eternity ring",
     category: "ring",
     material: "18k",
@@ -456,7 +456,7 @@ const tempPurchasedItems = [
   },
   {
     id: 3003,
-    image: "/products/3003.png",
+    image: "/products/3003.webp",
     name: "Yellow gold chain bracelet",
     category: "bracelet",
     material: "14k",
