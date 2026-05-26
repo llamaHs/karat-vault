@@ -3,7 +3,7 @@ import styles from "./ItemList.module.css";
 import { useProduct } from "../contexts/ProductContext";
 import { useEffect, useState } from "react";
 import Spinner from "./Spinner";
-import { useAuth } from "../contexts/MockAuthContext";
+import { useAuth } from "../contexts/AuthContext";
 
 const initialListNumber = 24;
 

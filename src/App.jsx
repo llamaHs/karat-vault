@@ -25,10 +25,11 @@ import ScrollToHash from "./components/ScrollToHash";
 import Careers from "./pages/Careers";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import Privacy from "./pages/Privacy";
-import { AuthProvider } from "./contexts/MockAuthContext";
+import { AuthProvider } from "./contexts/AuthContext";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ProtectedRoute from "./pages/ProtectedRoute";
+import SignupSuccess from "./pages/SignupSuccess";
 
 function App() {
   const { isLoading, progress, start, finish } = useFakeProgress();
@@ -111,6 +112,7 @@ function App() {
 
               <Route path="login" element={<Login />} />
               <Route path="signup" element={<Signup />} />
+              <Route path="signup-success" element={<SignupSuccess />} />
             </Route>
           </Routes>
         </BrowserRouter>

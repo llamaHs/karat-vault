@@ -3,7 +3,7 @@ import Logo from "./Logo";
 import styles from "./Nav.module.css";
 import { IoCartOutline, IoSearchOutline } from "react-icons/io5";
 import { useEffect, useState } from "react";
-import { useAuth } from "../contexts/MockAuthContext";
+import { useAuth } from "../contexts/AuthContext";
 
 function Nav({ startLoading }) {
   const { isAuthenticated, logout } = useAuth();

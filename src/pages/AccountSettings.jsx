@@ -116,7 +116,7 @@ function AccountSettings() {
           <div className={styles.accountContainer}>
             <div className={styles.wrapper}>
               <label className={styles.label} htmlFor="id">
-                ID
+                Username
               </label>
               <div className={styles.inputRow}>
                 <input

@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useAuth } from "../contexts/MockAuthContext";
+import { useAuth } from "../contexts/AuthContext";
 import styles from "./Login.module.css";
 import { useState, useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
@@ -47,7 +47,7 @@ function Login() {
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
         <form className={styles.form} onSubmit={handleLogin}>
           <div className={styles.inputContainer}>
-            <label className={styles.label}>ID</label>
+            <label className={styles.label}>Username</label>
             <input
               className={styles.input}
               type="text"
