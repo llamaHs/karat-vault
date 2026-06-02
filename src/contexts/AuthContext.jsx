@@ -1,21 +1,28 @@
-import { createContext, useContext, useReducer } from "react";
-import usersData from "../data/mockUsers.json";
+import { createContext, useContext, useEffect, useReducer } from "react";
+import { supabase } from "../lib/supabase";
 
-const { users } = usersData;
 const AuthContext = createContext();
+
+const initialState = {
+  session: null,
+  user: null,
+  isLoading: true,
+  loginError: null,
+  justLoggedOut: false,
+};
 
 function reducer(state, action) {
   switch (action.type) {
-    case "login":
+    case "setSession":
       return {
         ...state,
-        isAuthenticated: true,
-        user: action.payload,
-        loginError: null,
+        session: action.payload,
+        user: action.payload?.user ?? null,
+        isLoading: false,
       };
 
     case "loginFailed":
-      return { ...state, loginError: "Invalid ID or password" };
+      return { ...state, loginError: action.payload };
 
     case "clearLoginError":
       return { ...state, loginError: null };
@@ -23,7 +30,7 @@ function reducer(state, action) {
     case "logout":
       return {
         ...state,
-        isAuthenticated: false,
+        session: null,
         user: null,
         justLoggedOut: true,
       };
@@ -32,35 +39,41 @@ function reducer(state, action) {
       return { ...state, justLoggedOut: false };
 
     default:
-      throw new Error("Unknown action");
+      return state;
+    // reducer는 항상 state 반환.
   }
 }
 
-const initialState = {
-  isAuthenticated: false,
-  user: null,
-  loginError: null,
-  justLoggedOut: false,
-};
-
 function AuthProvider({ children }) {
-  const [{ isAuthenticated, user, loginError, justLoggedOut }, dispatch] =
+  const [{ session, user, isLoading, loginError, justLoggedOut }, dispatch] =
     useReducer(reducer, initialState);
 
-  function login(id, password) {
-    const user = users.find(
-      (user) => user.id === id && user.password === password
-    );
-    if (!user) {
-      dispatch({ type: "loginFailed" });
-      return false;
+  useEffect(() => {
+    async function getSession() {
+      const { data } = await supabase.auth.getSession();
+      dispatch({ type: "setSession", payload: data.session });
     }
-    dispatch({ type: "login", payload: user });
-    return true;
+
+    getSession();
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      dispatch({ type: "setSession", payload: session });
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, []);
+
+  async function logout() {
+    await supabase.auth.signOut();
+    dispatch({ tyle: "logout" });
   }
 
-  function logout() {
-    dispatch({ type: "logout" });
+  function setLoginError(message) {
+    dispatch({ type: "loginFailed", payload: message });
   }
 
   function clearLoginError() {
@@ -74,12 +87,14 @@ function AuthProvider({ children }) {
   return (
     <AuthContext.Provider
       value={{
-        isAuthenticated,
+        session,
         user,
+        isAuthenticated: !!session, //derived state
+        isLoading,
         loginError,
         justLoggedOut,
-        login,
         logout,
+        setLoginError,
         clearLoginError,
         clearLogout,
       }}

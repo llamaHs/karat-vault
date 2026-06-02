@@ -1,4 +1,4 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import Logo from "./Logo";
 import styles from "./Nav.module.css";
 import { IoCartOutline, IoSearchOutline } from "react-icons/io5";
@@ -13,8 +13,11 @@ function Nav({ startLoading }) {
 
   const enableScrollNav = pathname === "/";
 
+  const navigate = useNavigate();
+
   function handleLogout() {
     logout();
+    navigate("/");
   }
 
   useEffect(() => {

@@ -3,10 +3,11 @@ import { useAuth } from "../contexts/AuthContext";
 import styles from "./Login.module.css";
 import { useState, useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
+import { useLogin } from "../hooks/useAuthMutations";
 
 function Login() {
-  const { login, loginError, clearLoginError } = useAuth();
-  const [userId, setUserId] = useState("");
+  const { loginError, setLoginError, clearLoginError } = useAuth();
+  const [username, setUsername] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const { finishLoading } = useOutletContext();
 
@@ -14,26 +15,51 @@ function Login() {
   const location = useLocation();
   const from = location.state?.from || "/";
 
+  const loginMutation = useLogin();
+
   function handleLogin(e) {
     e.preventDefault();
 
-    const success = login(userId, userPassword);
+    clearLoginError();
 
-    success && navigate(from, { replace: true });
+    loginMutation.mutate(
+      {
+        username,
+        password: userPassword,
+      },
+      {
+        onSuccess: () => {
+          navigate(from, { replace: true });
+        },
+        onError: (error) => {
+          setLoginError(error.message);
+        },
+      }
+    );
   }
 
   function handleDemoLogin(e) {
     e.preventDefault();
 
-    const demoId = "user";
-    const demoPassword = "0000";
+    const demoUsername = "demo";
+    const demoPassword = "00000000";
 
-    setUserId(demoId);
+    setUsername(demoUsername);
     setUserPassword(demoPassword);
 
-    const successDemo = login(demoId, demoPassword);
+    clearLoginError();
 
-    successDemo && navigate(from, { replace: true });
+    loginMutation.mutate(
+      { username: demoUsername, password: demoPassword },
+      {
+        onSuccess: () => {
+          navigate(from, { replace: true });
+        },
+        onError: (error) => {
+          setLoginError(error.message);
+        },
+      }
+    );
   }
 
   useEffect(() => {
@@ -51,9 +77,9 @@ function Login() {
             <input
               className={styles.input}
               type="text"
-              value={userId}
+              value={username}
               onChange={(e) => {
-                setUserId(e.target.value);
+                setUsername(e.target.value);
                 clearLoginError();
               }}
             />
@@ -87,7 +113,11 @@ function Login() {
             </button>
           </div>
 
-          <button className={styles.demoLogin} onClick={handleDemoLogin}>
+          <button
+            type="button"
+            className={styles.demoLogin}
+            onClick={handleDemoLogin}
+          >
             Demo Login
           </button>
         </form>

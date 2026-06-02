@@ -1,8 +1,9 @@
 import { useReducer } from "react";
 import styles from "./Signup.module.css";
 import { useNavigate } from "react-router-dom";
-import { supabase } from "../lib/supabase";
 import { useAddProfile } from "../hooks/useProfile";
+import { signupWithEmail } from "../api/auth";
+import { useSignup } from "../hooks/useAuthMutations";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -67,6 +68,7 @@ function Signup() {
 
   const navigate = useNavigate();
 
+  const signupMutation = useSignup();
   const addProfileMutation = useAddProfile();
 
   async function handleSignup(e) {
@@ -83,40 +85,32 @@ function Signup() {
       return;
     }
 
-    const { data, error } = await supabase.auth.signUp({
-      email,
-      password,
-    });
-
-    if (error) {
-      dispatch({ type: "signupError", payload: error.message });
-      return;
-    }
-
-    if (!data.user) {
-      dispatch({
-        type: "signupError",
-        payload: "Signup failed. Please try again.",
-      });
-      return;
-    }
-
-    addProfileMutation.mutate(
+    signupMutation.mutate(
+      { email, password },
       {
-        id: data.user.id,
-        first_name: firstName,
-        family_name: familyName,
-        email,
-        username,
-      },
-      {
-        // onSuccess -> component level
-        onSuccess: () => {
-          navigate("/signup-success");
+        onSuccess: (user) => {
+          addProfileMutation.mutate(
+            {
+              id: user.id,
+              first_name: firstName,
+              family_name: familyName,
+              email,
+              username,
+            },
+            {
+              // onSuccess -> component level
+              onSuccess: () => {
+                navigate("/signup-success");
+              },
+
+              onError: (error) => {
+                dispatch({ type: "addProfileError", payload: error.message });
+              },
+            }
+          );
         },
-
         onError: (error) => {
-          dispatch({ type: "addProfileError", payload: error.message });
+          dispatch({ type: "signupError", payload: error.message });
         },
       }
     );
