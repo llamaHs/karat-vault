@@ -8,7 +8,6 @@ const initialState = {
   user: null,
   isLoading: true,
   loginError: null,
-  justLoggedOut: false,
 };
 
 function reducer(state, action) {
@@ -32,11 +31,7 @@ function reducer(state, action) {
         ...state,
         session: null,
         user: null,
-        justLoggedOut: true,
       };
-
-    case "clearLogout":
-      return { ...state, justLoggedOut: false };
 
     default:
       return state;
@@ -45,8 +40,10 @@ function reducer(state, action) {
 }
 
 function AuthProvider({ children }) {
-  const [{ session, user, isLoading, loginError, justLoggedOut }, dispatch] =
-    useReducer(reducer, initialState);
+  const [{ session, user, isLoading, loginError }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
 
   useEffect(() => {
     async function getSession() {
@@ -80,10 +77,6 @@ function AuthProvider({ children }) {
     dispatch({ type: "clearLoginError" });
   }
 
-  function clearLogout() {
-    dispatch({ type: "clearLogout" });
-  }
-
   return (
     <AuthContext.Provider
       value={{
@@ -92,11 +85,9 @@ function AuthProvider({ children }) {
         isAuthenticated: !!session, //derived state
         isLoading,
         loginError,
-        justLoggedOut,
         logout,
         setLoginError,
         clearLoginError,
-        clearLogout,
       }}
     >
       {children}

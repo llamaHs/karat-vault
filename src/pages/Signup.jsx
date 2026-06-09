@@ -2,7 +2,6 @@ import { useReducer } from "react";
 import styles from "./Signup.module.css";
 import { useNavigate } from "react-router-dom";
 import { useAddProfile } from "../hooks/useProfile";
-import { signupWithEmail } from "../api/auth";
 import { useSignup } from "../hooks/useAuthMutations";
 
 function reducer(state, action) {

@@ -189,7 +189,7 @@ a {
 }
 
 .toggle:checked::before {
-  transform: translateX(1.8rem);
+  transform: translateX(1.6rem);
 }
 
 .toggleNotice {

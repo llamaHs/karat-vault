@@ -12,7 +12,7 @@ Karat Vault is a gold jewelry auction marketplace where users can buy and sell p
 
 ### 📈 Market-Based Pricing
 
-- Prices reflects real-time gold value
+- Prices reflect real-time gold value
 - Transparent starting price guidance
 
 ### 🔐 Secure Transactions (UI Simulation)
@@ -27,19 +27,22 @@ Karat Vault is a gold jewelry auction marketplace where users can buy and sell p
 - Manage listings and wishlist
 - Manage payment methods
 
-### 💾 Persistent State
+### 💾 Authentication & Data
 
-- Custom hooks for reusable state logic
-- Currently managing state on the client side
-- Planning to integrate Supabase for persistent storage
+- User authentication with Supabase
+- Session persistence across page refreshes
+- Persistent data storage powered by Supabase
 
 ## 🛠️ Tech Stack
 
 **Frontend**
 
 - React (Vite)
-- React Router (SPA routing)
 - CSS Modules
+
+**Backend & Server**
+
+- Supabase
 
 **Deployment**
 
@@ -70,12 +73,7 @@ Karat Vault is deployed on Netlify. You can access it [here](https://karat-vault
 
 ## 🔐 Demo Login
 
-To explore login-protected features, use the demo account below:
-
-- **ID**: user
-- **Password**: 0000
-
-Or simply click the "Demo Login" button on the login page.
+To explore authenticated features without creating an account, simply click the "Demo Login" button on the login page.
 
 🚧 This project is currently in progress. Some features may not be fully implemented.
 
