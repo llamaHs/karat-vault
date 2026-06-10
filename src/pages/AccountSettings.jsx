@@ -281,11 +281,13 @@ function AccountSettings() {
             </p>
             <button
               className={styles.deleteAccountButton}
-              onClick={() =>
-                alert(
+              onClick={() => {
+                const confirmed = confirm(
                   "Are you sure you want to delete your account? This action cannot be undone."
-                )
-              }
+                );
+
+                if (!confirmed) return;
+              }}
             >
               Delete Account
             </button>
