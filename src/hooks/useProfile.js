@@ -1,5 +1,5 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { addProfile } from "../api/profiles";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { addProfile, getProfile } from "../api/profiles";
 
 function useAddProfile() {
   const queryClient = useQueryClient();
@@ -15,4 +15,11 @@ function useAddProfile() {
   });
 }
 
-export { useAddProfile };
+function useProfile() {
+  return useQuery({
+    queryKey: ["profile"],
+    queryFn: getProfile,
+  });
+}
+
+export { useAddProfile, useProfile };

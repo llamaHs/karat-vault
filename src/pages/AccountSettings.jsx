@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import styles from "./AccountSettings.module.css";
 import { countryCodes } from "../data/countryCodes";
+import { useProfile } from "../hooks/useProfile";
+import Spinner from "../components/Spinner";
 
 function AccountSettings() {
   const [active, setActive] = useState("profile");
@@ -10,6 +12,10 @@ function AccountSettings() {
   const [sellerNotify, setSellerNotify] = useState(false);
 
   const { finishLoading } = useOutletContext();
+
+  const { data: profile, isLoading, error } = useProfile();
+
+  console.log(profile);
 
   function handleAgreeAll() {
     const newValue = !agreeAll; // agreeAll = !agreeAll
@@ -60,6 +66,10 @@ function AccountSettings() {
   // if {} without useEffect can cause infinite loop
   // state change -> inside of event handler or useEffect
 
+  if (isLoading) return <Spinner />;
+
+  if (error) return <p>{error.message}</p>;
+
   return (
     <div className={styles.container}>
       <nav className={styles.navContainer}>
@@ -96,7 +106,7 @@ function AccountSettings() {
                 className={styles.shortInput}
                 type="text"
                 readOnly
-                value={"Test Name"}
+                value={profile.first_name}
               />
             </div>
 
@@ -109,7 +119,7 @@ function AccountSettings() {
                 className={styles.shortInput}
                 type="text"
                 readOnly
-                value={"Test FamilyName"}
+                value={profile.family_name}
               />
             </div>
           </div>
@@ -124,7 +134,7 @@ function AccountSettings() {
                   className={styles.shortInput}
                   type="text"
                   readOnly
-                  value={"testuserid"}
+                  value={profile.username}
                 />
                 <button className={styles.editButton}>Edit</button>
               </div>
@@ -140,7 +150,7 @@ function AccountSettings() {
                   className={styles.longInput}
                   type="text"
                   readOnly
-                  value={"useremailid@mockmail.com"}
+                  value={profile.email}
                 />
                 <button className={styles.editButton}>Edit</button>
               </div>
@@ -181,9 +191,7 @@ function AccountSettings() {
                 className={styles.textarea}
                 rows={4}
                 readOnly
-                value={
-                  "19 Harbourview Drive, Apt 7B, Sydney, NSW 2000, Australias"
-                }
+                value={profile?.address || ""}
               />
               <button className={styles.editButton}>Edit</button>
             </div>
@@ -194,18 +202,18 @@ function AccountSettings() {
               Phone
             </label>
             <div className={styles.inputRow}>
-              <select className={styles.countryCode}>
+              {/* <select className={styles.countryCode}>
                 {countryCodes.map((country) => (
                   <option key={country.name} value={country.code}>
                     {country.code} ({country.name})
                   </option>
                 ))}
-              </select>
+              </select> */}
               <input
                 id="phone"
                 className={styles.shortInput}
                 readOnly
-                value={"1012345678"}
+                value={profile?.phone_number || ""}
               />
               <button className={styles.editButton}>Edit</button>
             </div>

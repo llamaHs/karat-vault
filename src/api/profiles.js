@@ -25,4 +25,24 @@ async function getEmailByUsername(username) {
   return data.email;
 }
 
-export { addProfile, getEmailByUsername };
+async function getProfile() {
+  const {
+    data: { user },
+    error: userError,
+  } = await supabase.auth.getUser();
+
+  if (userError) throw new Error(userError.message);
+  if (!user) throw new Error("User is not logged in");
+
+  const { data, error } = await supabase
+    .from("profiles")
+    .select("*")
+    .eq("id", user.id)
+    .single();
+
+  if (error) throw new Error(error.message);
+
+  return data;
+}
+
+export { addProfile, getEmailByUsername, getProfile };
