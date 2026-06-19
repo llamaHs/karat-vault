@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { addProfile, getProfile } from "../api/profiles";
+import { addProfile, getProfile, updateProfile } from "../api/profiles";
 
 function useAddProfile() {
   const queryClient = useQueryClient();
@@ -9,7 +9,7 @@ function useAddProfile() {
     // onSuccess -> global level
     onSuccess: () => {
       queryClient.invalidateQueries({
-        queryKey: ["profiles"],
+        queryKey: ["profile"],
       });
     },
   });
@@ -22,4 +22,17 @@ function useProfile() {
   });
 }
 
-export { useAddProfile, useProfile };
+function useUpdateProfile() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: updateProfile,
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ["profile"],
+      });
+    },
+  });
+}
+
+export { useAddProfile, useProfile, useUpdateProfile };

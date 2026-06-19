@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import styles from "./AccountSettings.module.css";
 import { countryCodes } from "../data/countryCodes";
-import { useProfile } from "../hooks/useProfile";
+import { useProfile, useUpdateProfile } from "../hooks/useProfile";
 import Spinner from "../components/Spinner";
 
 function AccountSettings() {
@@ -15,7 +15,9 @@ function AccountSettings() {
 
   const { data: profile, isLoading, error } = useProfile();
 
-  console.log(profile);
+  const [editingField, setEditingField] = useState(null);
+  const [editingValue, setEditingValue] = useState("");
+  const { mutate: updateProfile, isPending: isUpdating } = useUpdateProfile();
 
   function handleAgreeAll() {
     const newValue = !agreeAll; // agreeAll = !agreeAll
@@ -23,6 +25,38 @@ function AccountSettings() {
     setAgreeAll(newValue);
     setBuyerNotify(newValue);
     setSellerNotify(newValue);
+  }
+
+  function handleStartEdit(field, currentValue) {
+    setEditingField(field);
+    setEditingValue(currentValue);
+  }
+
+  function handleCancelEdit() {
+    setEditingField(null);
+    setEditingValue("");
+  }
+
+  function handleSaveEdit() {
+    if (!editingValue.trim()) {
+      alert("Please enter the content");
+      return;
+    }
+
+    updateProfile(
+      {
+        id: profile.id,
+        updates: {
+          [editingField]: editingValue,
+        },
+      },
+      {
+        onSuccess: () => {
+          setEditingField(null);
+          setEditingValue("");
+        },
+      }
+    );
   }
 
   useEffect(() => {
@@ -133,10 +167,40 @@ function AccountSettings() {
                   id="id"
                   className={styles.shortInput}
                   type="text"
-                  readOnly
-                  value={profile.username}
+                  readOnly={editingField !== "username"}
+                  value={
+                    editingField === "username"
+                      ? editingValue
+                      : profile.username || ""
+                  }
+                  onChange={(e) => setEditingValue(e.target.value)}
                 />
-                <button className={styles.editButton}>Edit</button>
+                {editingField === "username" ? (
+                  <>
+                    <button
+                      className={styles.saveButton}
+                      onClick={handleSaveEdit}
+                      disabled={isUpdating}
+                    >
+                      Save
+                    </button>
+                    <button
+                      className={styles.cancelButton}
+                      onClick={handleCancelEdit}
+                    >
+                      Cancel
+                    </button>
+                  </>
+                ) : (
+                  <button
+                    className={styles.editButton}
+                    onClick={() =>
+                      handleStartEdit("username", profile.username || "")
+                    }
+                  >
+                    Edit
+                  </button>
+                )}
               </div>
             </div>
 
@@ -152,7 +216,33 @@ function AccountSettings() {
                   readOnly
                   value={profile.email}
                 />
-                <button className={styles.editButton}>Edit</button>
+
+                {/* {editingField === "email" ? (
+                  <>
+                    <button
+                      className={styles.saveButton}
+                      onClick={handleSaveEdit}
+                      disabled={isUpdating}
+                    >
+                      Save
+                    </button>
+                    <button
+                      className={styles.cancelButton}
+                      onClick={handleCancelEdit}
+                    >
+                      Cancel
+                    </button>
+                  </>
+                ) : (
+                  <button
+                    className={styles.editButton}
+                    onClick={() =>
+                      handleStartEdit("email", profile.email || "")
+                    }
+                  >
+                    Edit
+                  </button>
+                )} */}
               </div>
             </div>
           </div>
@@ -190,10 +280,41 @@ function AccountSettings() {
                 id="address"
                 className={styles.textarea}
                 rows={4}
-                readOnly
-                value={profile?.address || ""}
+                readOnly={editingField !== "address"}
+                value={
+                  editingField === "address"
+                    ? editingValue
+                    : profile.address || ""
+                }
+                onChange={(e) => setEditingValue(e.target.value)}
               />
-              <button className={styles.editButton}>Edit</button>
+
+              {editingField === "address" ? (
+                <>
+                  <button
+                    className={styles.saveButton}
+                    onClick={handleSaveEdit}
+                    disabled={isUpdating}
+                  >
+                    Save
+                  </button>
+                  <button
+                    className={styles.cancelButton}
+                    onClick={handleCancelEdit}
+                  >
+                    Cancel
+                  </button>
+                </>
+              ) : (
+                <button
+                  className={styles.editButton}
+                  onClick={() =>
+                    handleStartEdit("address", profile.address || "")
+                  }
+                >
+                  Edit
+                </button>
+              )}
             </div>
           </div>
 
@@ -212,10 +333,41 @@ function AccountSettings() {
               <input
                 id="phone"
                 className={styles.shortInput}
-                readOnly
-                value={profile?.phone_number || ""}
+                readOnly={editingField !== "phone_number"}
+                value={
+                  editingField === "phone_number"
+                    ? editingValue
+                    : profile.phone_number || ""
+                }
+                onChange={(e) => setEditingValue(e.target.value)}
               />
-              <button className={styles.editButton}>Edit</button>
+
+              {editingField === "phone_number" ? (
+                <>
+                  <button
+                    className={styles.saveButton}
+                    onClick={handleSaveEdit}
+                    disabled={isUpdating}
+                  >
+                    Save
+                  </button>
+                  <button
+                    className={styles.cancelButton}
+                    onClick={handleCancelEdit}
+                  >
+                    Cancel
+                  </button>
+                </>
+              ) : (
+                <button
+                  className={styles.editButton}
+                  onClick={() =>
+                    handleStartEdit("phone_number", profile.phone_number || "")
+                  }
+                >
+                  Edit
+                </button>
+              )}
             </div>
           </div>
         </section>

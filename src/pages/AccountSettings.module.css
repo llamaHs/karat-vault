@@ -132,7 +132,9 @@ a {
   height: 3.6rem;
 }
 
-.editButton {
+.editButton,
+.saveButton,
+.cancelButton {
   font-family: inherit;
   border: none;
   background-color: var(--color-brand--main);
@@ -141,6 +143,13 @@ a {
   border-radius: 3px;
   padding: 0.4rem 0.8rem;
   cursor: pointer;
+}
+
+.cancelButton {
+  background-color: #fff;
+  color: var(--color-brand--main);
+  border: 1px solid var(--color-brand--main);
+  padding: 0.3rem 0.7rem;
 }
 
 .toggleWrapper {

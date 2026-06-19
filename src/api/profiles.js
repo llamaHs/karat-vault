@@ -45,4 +45,17 @@ async function getProfile() {
   return data;
 }
 
-export { addProfile, getEmailByUsername, getProfile };
+async function updateProfile({ id, updates }) {
+  const { data, error } = await supabase
+    .from("profiles")
+    .update(updates)
+    .eq("id", id)
+    .select()
+    .single();
+
+  if (error) throw new Error("Failed to edit profile");
+
+  return data;
+}
+
+export { addProfile, getEmailByUsername, getProfile, updateProfile };
