@@ -1,18 +1,19 @@
 import { Link } from "react-router-dom";
 import styles from "./ItemList.module.css";
-import { useProduct } from "../contexts/ProductContext";
 import { useEffect, useState } from "react";
 import Spinner from "./Spinner";
 import { useAuth } from "../contexts/AuthContext";
+import { useProducts } from "../hooks/useProducts";
+import ErrorMessage from "./ErrorMessage";
 
 const initialListNumber = 24;
 
 function ItemList({ listType, category, material, maxBid }) {
-  const { products } = useProduct();
+  const { data: products = [], isLoading, error } = useProducts();
   const { isAuthenticated } = useAuth();
 
   const [listNumber, setListNumber] = useState(initialListNumber);
-  const [isLoad, setIsLoad] = useState(false);
+  const [isLoad, setIsLoad] = useState(false); // load button click
   const [isSpin, setIsSpin] = useState(false);
 
   const [sort, setSort] = useState("latest");
@@ -78,6 +79,12 @@ function ItemList({ listType, category, material, maxBid }) {
     setIsLoad(false);
     setListNumber(initialListNumber);
   }, [category, material, maxBid]);
+
+  if (isLoading) return <Spinner />;
+
+  if (error) return <ErrorMessage message={error.message} />;
+
+  console.log(products);
 
   return (
     <section className={styles.section}>

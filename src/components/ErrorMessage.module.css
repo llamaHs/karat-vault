@@ -1,0 +1,10 @@
+.error {
+  margin: 4rem auto;
+  padding: 2rem;
+
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 500;
+
+  color: var(--color-danger);
+}
