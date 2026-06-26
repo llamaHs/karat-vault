@@ -5,7 +5,6 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
 import { useState } from "react";
 import BidForm from "./BidForm";
-import { useAuth } from "../contexts/AuthContext";
 
 function ItemDetail({ item }) {
   const [openBid, setOpenBid] = useState(false);

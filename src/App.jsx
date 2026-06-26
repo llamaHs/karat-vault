@@ -18,7 +18,6 @@ import Wishlist from "./pages/Wishlist";
 import PaymentMethods from "./pages/PaymentMethods";
 import AccountSettings from "./pages/AccountSettings";
 
-import { ProductProvider } from "./contexts/ProductContext";
 import LoadingBar from "./components/LoadingBar";
 import useFakeProgress from "./hooks/useFakeProgress";
 import ScrollToHash from "./components/ScrollToHash";
@@ -36,87 +35,83 @@ function App() {
 
   return (
     <AuthProvider>
-      <ProductProvider>
-        <BrowserRouter>
-          <LoadingBar isLoading={isLoading} progress={progress} />
-          <ScrollToHash />
-          <Routes>
+      <BrowserRouter>
+        <LoadingBar isLoading={isLoading} progress={progress} />
+        <ScrollToHash />
+        <Routes>
+          <Route
+            path="/"
+            element={<AppLayout startLoading={start} finishLoading={finish} />}
+          >
+            <Route index element={<Home />} />
+
+            <Route path="hot-items" element={<HotItemsLayout />}>
+              <Route index element={<HotItems />} />
+              <Route
+                path="item/:id"
+                element={
+                  <ProtectedRoute>
+                    <Item />
+                  </ProtectedRoute>
+                }
+              />
+            </Route>
+
+            <Route path="buy" element={<BuyLayout />}>
+              <Route index element={<Buy />} />
+
+              <Route
+                path="item/:id"
+                element={
+                  <ProtectedRoute>
+                    <Item />
+                  </ProtectedRoute>
+                }
+              />
+            </Route>
+
+            <Route path="item/:id" element={<Item />} />
+
             <Route
-              path="/"
+              path="sell"
               element={
-                <AppLayout startLoading={start} finishLoading={finish} />
+                <ProtectedRoute>
+                  <Sell />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="about" element={<About />} />
+
+            <Route
+              path="mypage"
+              element={
+                <ProtectedRoute>
+                  <MyPageLayout finishLoading={finish} />
+                </ProtectedRoute>
               }
             >
-              <Route index element={<Home />} />
-
-              <Route path="hot-items" element={<HotItemsLayout />}>
-                <Route index element={<HotItems />} />
-                <Route
-                  path="item/:id"
-                  element={
-                    <ProtectedRoute>
-                      <Item />
-                    </ProtectedRoute>
-                  }
-                />
-              </Route>
-
-              <Route path="buy" element={<BuyLayout />}>
-                <Route index element={<Buy />} />
-
-                <Route
-                  path="item/:id"
-                  element={
-                    <ProtectedRoute>
-                      <Item />
-                    </ProtectedRoute>
-                  }
-                />
-              </Route>
-
-              <Route path="item/:id" element={<Item />} />
-
-              <Route
-                path="sell"
-                element={
-                  <ProtectedRoute>
-                    <Sell />
-                  </ProtectedRoute>
-                }
-              />
-              <Route path="about" element={<About />} />
-
-              <Route
-                path="mypage"
-                element={
-                  <ProtectedRoute>
-                    <MyPageLayout finishLoading={finish} />
-                  </ProtectedRoute>
-                }
-              >
-                <Route index element={<Navigate to="bids" replace />} />
-                <Route path="bids" element={<MyBids />} />
-                <Route path="listings" element={<MyListings />} />
-                <Route path="wishlist" element={<Wishlist />} />
-                <Route path="payment-methods" element={<PaymentMethods />} />
-                <Route path="account-settings" element={<AccountSettings />} />
-              </Route>
-
-              <Route path="careers" element={<Careers />} />
-
-              <Route
-                path="terms-and-conditions"
-                element={<TermsAndConditions />}
-              />
-              <Route path="privacy" element={<Privacy />} />
-
-              <Route path="login" element={<Login />} />
-              <Route path="signup" element={<Signup />} />
-              <Route path="signup-success" element={<SignupSuccess />} />
+              <Route index element={<Navigate to="bids" replace />} />
+              <Route path="bids" element={<MyBids />} />
+              <Route path="listings" element={<MyListings />} />
+              <Route path="wishlist" element={<Wishlist />} />
+              <Route path="payment-methods" element={<PaymentMethods />} />
+              <Route path="account-settings" element={<AccountSettings />} />
             </Route>
-          </Routes>
-        </BrowserRouter>
-      </ProductProvider>
+
+            <Route path="careers" element={<Careers />} />
+
+            <Route
+              path="terms-and-conditions"
+              element={<TermsAndConditions />}
+            />
+            <Route path="privacy" element={<Privacy />} />
+
+            <Route path="login" element={<Login />} />
+            <Route path="signup" element={<Signup />} />
+            <Route path="signup-success" element={<SignupSuccess />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </AuthProvider>
   );
 }

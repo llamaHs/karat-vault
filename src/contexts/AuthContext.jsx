@@ -66,7 +66,7 @@ function AuthProvider({ children }) {
 
   async function logout() {
     await supabase.auth.signOut();
-    dispatch({ tyle: "logout" });
+    dispatch({ type: "logout" });
   }
 
   function setLoginError(message) {

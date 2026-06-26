@@ -8,4 +8,16 @@ async function getProducts() {
   return data;
 }
 
-export { getProducts };
+async function getProduct(id) {
+  const { data, error } = await supabase
+    .from("products")
+    .select("*")
+    .eq("id", id)
+    .single();
+
+  if (error) throw new Error(error.message);
+
+  return data;
+}
+
+export { getProducts, getProduct };

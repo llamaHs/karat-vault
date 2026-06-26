@@ -84,8 +84,6 @@ function ItemList({ listType, category, material, maxBid }) {
 
   if (error) return <ErrorMessage message={error.message} />;
 
-  console.log(products);
-
   return (
     <section className={styles.section}>
       <div className={styles.sortContainer}>
