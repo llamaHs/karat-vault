@@ -14,6 +14,8 @@ function Buy() {
   );
   const [searchParams, setSearchParams] = useSearchParams();
 
+  const search = searchParams.get("search") || "";
+
   useEffect(() => {
     finishLoading();
   }, [finishLoading]);
@@ -22,12 +24,13 @@ function Buy() {
   useEffect(() => {
     const params = {};
 
+    if (search) params.search = search;
     if (category) params.category = category;
     if (material) params.material = material;
     if (range !== 0) params.range = range;
 
     setSearchParams(params, { replace: true });
-  }, [category, material, range]);
+  }, [category, material, range, search, setSearchParams]);
 
   // URL -> state
   useEffect(() => {
@@ -54,7 +57,12 @@ function Buy() {
         range={range}
         dispatch={dispatch}
       />
-      <ItemList category={category} material={material} maxBid={range} />
+      <ItemList
+        category={category}
+        material={material}
+        maxBid={range}
+        search={search}
+      />
     </div>
   );
 }

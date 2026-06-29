@@ -29,6 +29,13 @@
   cursor: pointer;
 }
 
+.noResults {
+  margin: 6rem 0;
+  text-align: center;
+  font-size: 1.8rem;
+  color: #777;
+}
+
 .listContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

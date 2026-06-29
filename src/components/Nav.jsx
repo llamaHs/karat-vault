@@ -1,11 +1,15 @@
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import Logo from "./Logo";
 import styles from "./Nav.module.css";
-import { IoCartOutline, IoSearchOutline } from "react-icons/io5";
+import { IoSearchOutline, IoCloseOutline } from "react-icons/io5";
+import { IoMdHeartEmpty } from "react-icons/io";
 import { useEffect, useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 
 function Nav({ startLoading }) {
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
+
   const { isAuthenticated, logout } = useAuth();
 
   const { pathname } = useLocation();
@@ -18,6 +22,16 @@ function Nav({ startLoading }) {
   function handleLogout() {
     logout();
     navigate("/");
+  }
+
+  function handleSearchSubmit(e) {
+    e.preventDefault();
+
+    const keyword = searchValue.trim();
+    if (!keyword) return;
+
+    navigate(`buy?search=${encodeURIComponent(keyword)}`);
+    setSearchOpen(false);
   }
 
   useEffect(() => {
@@ -177,12 +191,48 @@ function Nav({ startLoading }) {
 
           <li>
             <div className={styles.navIconContainer}>
-              <IoCartOutline className={styles.iconCart} />
-              <IoSearchOutline className={styles.iconSearch} />
+              <Link to="mypage/wishlist">
+                <IoMdHeartEmpty className={styles.iconWishList} />
+              </Link>
+
+              <button
+                type="button"
+                className={styles.searchButton}
+                onClick={() => setSearchOpen((open) => !open)}
+                aria-label="Open search"
+              >
+                <IoSearchOutline className={styles.iconSearch} />
+              </button>
             </div>
           </li>
         </ul>
       </div>
+
+      {searchOpen && (
+        <div className={styles.searchBar}>
+          <form className={styles.searchInner} onSubmit={handleSearchSubmit}>
+            <IoSearchOutline className={styles.searchBarIcon} />
+
+            <input
+              type="text"
+              value={searchValue}
+              className={styles.searchInput}
+              placeholder="Search by item name, category, or material"
+              autoFocus
+              onChange={(e) => setSearchValue(e.target.value)}
+            />
+
+            <button
+              type="button"
+              className={styles.searchCloseButton}
+              onClick={() => setSearchOpen(false)}
+              aria-label="Close search"
+            >
+              <IoCloseOutline />
+            </button>
+          </form>
+        </div>
+      )}
     </nav>
   );
 }

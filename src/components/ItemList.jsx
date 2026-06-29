@@ -8,7 +8,7 @@ import ErrorMessage from "./ErrorMessage";
 
 const initialListNumber = 24;
 
-function ItemList({ listType, category, material, maxBid }) {
+function ItemList({ listType, category, material, maxBid, search = "" }) {
   const { data: products = [], isLoading, error } = useProducts();
   const { isAuthenticated } = useAuth();
 
@@ -17,6 +17,8 @@ function ItemList({ listType, category, material, maxBid }) {
   const [isSpin, setIsSpin] = useState(false);
 
   const [sort, setSort] = useState("latest");
+
+  const searchKeyword = search.trim().toLowerCase();
 
   const fullItems =
     listType === "hot"
@@ -27,8 +29,10 @@ function ItemList({ listType, category, material, maxBid }) {
     const matchesCategory = category === "" || item.category === category;
     const matchesMaterial = material === "" || item.material === material;
     const matchesMaxBid = maxBid === 0 || item.currentBid <= maxBid;
+    const matchedSearch =
+      searchKeyword === "" || item.name.toLowerCase().includes(searchKeyword);
 
-    return matchesCategory && matchesMaterial && matchesMaxBid;
+    return matchesCategory && matchesMaterial && matchesMaxBid && matchedSearch;
   });
 
   let sortedItems;
@@ -61,6 +65,8 @@ function ItemList({ listType, category, material, maxBid }) {
     );
 
   const shownItems = sortedItems.slice(0, listNumber);
+
+  const hasNoResults = filteredItems.length === 0;
 
   function handleLoadList() {
     setIsLoad(true);
@@ -105,47 +111,50 @@ function ItemList({ listType, category, material, maxBid }) {
         </select>
       </div>
 
-      <div className={styles.listContainer}>
-        {shownItems.map((item) => (
-          <Link
-            to={`item/${item.id}`}
-            className={styles.itemLink}
-            key={item.id}
-          >
-            <div className={styles.listItem}>
-              <div className={styles.imgContainer}>
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className={styles.image}
-                  loading="lazy"
-                />
-                <div className={styles.offerCount}>
-                  <p>{item.offerCount}</p>
+      {hasNoResults ? (
+        <p className={styles.noResults}>No items found for "{search}"</p>
+      ) : (
+        <div className={styles.listContainer}>
+          {shownItems.map((item) => (
+            <Link
+              to={`item/${item.id}`}
+              className={styles.itemLink}
+              key={item.id}
+            >
+              <div className={styles.listItem}>
+                <div className={styles.imgContainer}>
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className={styles.image}
+                    loading="lazy"
+                  />
+                  <div className={styles.offerCount}>
+                    <p>{item.offerCount}</p>
+                  </div>
+                </div>
+                <div className={styles.infoContainer}>
+                  <h3 className={styles.title}>{item.name}</h3>
+                  <dl className={styles.itemInfo}>
+                    <dt>Starting Price</dt>
+                    <dd>{`$${item.askingPrice}`}</dd>
+
+                    <dt>Current Bid</dt>
+                    <dd className={styles.bid}>
+                      {isAuthenticated
+                        ? `$${item.currentBid}`
+                        : "Log in to see price"}
+                    </dd>
+
+                    <dt>Due Date</dt>
+                    <dd>{item.dueDate}</dd>
+                  </dl>
                 </div>
               </div>
-              <div className={styles.infoContainer}>
-                <h3 className={styles.title}>{item.name}</h3>
-                <dl className={styles.itemInfo}>
-                  <dt>Starting Price</dt>
-                  <dd>{`$${item.askingPrice}`}</dd>
-
-                  <dt>Current Bid</dt>
-                  <dd className={styles.bid}>
-                    {isAuthenticated
-                      ? `$${item.currentBid}`
-                      : "Log in to see price"}
-                  </dd>
-
-                  <dt>Due Date</dt>
-                  <dd>{item.dueDate}</dd>
-                </dl>
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
-
+            </Link>
+          ))}
+        </div>
+      )}
       <div className={styles.loadContainer}>
         {!isLoad && filteredItems.length > listNumber && (
           <button
