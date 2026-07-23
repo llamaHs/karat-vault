@@ -5,10 +5,13 @@ import { IoSearchOutline, IoCloseOutline } from "react-icons/io5";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { useEffect, useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
+import { useCurrency } from "../contexts/CurrencyContext";
 
 function Nav({ startLoading }) {
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchValue, setSearchValue] = useState("");
+
+  const { currency, setCurrency } = useCurrency();
 
   const { isAuthenticated, logout } = useAuth();
 
@@ -179,7 +182,11 @@ function Nav({ startLoading }) {
             </li>
           )}
           <li>
-            <select className={styles.currency}>
+            <select
+              className={styles.currency}
+              value={currency}
+              onChange={(e) => setCurrency(e.target.value)}
+            >
               <option value={"USD"}>USD $ 🇺🇸</option>
               <option value={"AUD"}>AUD $ 🇦🇺</option>
               <option value={"CAD"}>CAD $ 🇨🇦</option>

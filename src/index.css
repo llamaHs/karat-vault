@@ -27,9 +27,21 @@
   --color-card-master: #eb001b;
   --color-card-amex: #2e77bb;
 
-  /* --color-14kgold: #ffd43b;
-  --color-18kgold: #fcc419;
-  --color-gemstone: #ff8787; */
+  --color-success: #2e7d32;
+
+  --color-success-bg: #edf7ed;
+
+  --color-error-bg: #fef3f2;
+  --color-error-border: #fecdca;
+
+  --color-modal-overlay: rgba(17, 17, 17, 0.55);
+
+  --color-shadow: rgba(0, 0, 0, 0.2);
+
+  --color-text-secondary: #666666;
+  --color-text-tertiary: #777777;
+
+  --color-border-gray: #d9d9d9;
 }
 
 * {

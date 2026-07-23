@@ -5,11 +5,14 @@ import Spinner from "./Spinner";
 import { useAuth } from "../contexts/AuthContext";
 import { useProducts } from "../hooks/useProducts";
 import ErrorMessage from "./ErrorMessage";
+import { useLoadingProgress } from "../contexts/LoadingProgressContext";
 
 const initialListNumber = 24;
 
 function ItemList({ listType, category, material, maxBid, search = "" }) {
   const { data: products = [], isLoading, error } = useProducts();
+  const { start, finish } = useLoadingProgress();
+
   const { isAuthenticated } = useAuth();
 
   const [listNumber, setListNumber] = useState(initialListNumber);
@@ -20,10 +23,12 @@ function ItemList({ listType, category, material, maxBid, search = "" }) {
 
   const searchKeyword = search.trim().toLowerCase();
 
+  const forSaleItems = products.filter((item) => item.isForSale);
+
   const fullItems =
     listType === "hot"
-      ? products.filter((item) => item.offerCount >= 10)
-      : products;
+      ? forSaleItems.filter((item) => item.offerCount >= 10)
+      : forSaleItems;
 
   const filteredItems = fullItems.filter((item) => {
     const matchesCategory = category === "" || item.category === category;
@@ -82,11 +87,17 @@ function ItemList({ listType, category, material, maxBid, search = "" }) {
   }
 
   useEffect(() => {
+    if (isLoading) {
+      start();
+    } else {
+      finish();
+    }
+  }, [isLoading, start, finish]);
+
+  useEffect(() => {
     setIsLoad(false);
     setListNumber(initialListNumber);
   }, [category, material, maxBid]);
-
-  if (isLoading) return <Spinner />;
 
   if (error) return <ErrorMessage message={error.message} />;
 

@@ -1,6 +1,9 @@
 import styles from "./LoadingBar.module.css";
+import { useLoadingProgress } from "../contexts/LoadingProgressContext";
 
-function LoadingBar({ isLoading, progress }) {
+function LoadingBar() {
+  const { isLoading, progress } = useLoadingProgress();
+
   if (!isLoading) return null;
 
   return (

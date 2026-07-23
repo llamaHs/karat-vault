@@ -1,4 +1,4 @@
-import { useOutletContext, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import styles from "../pages/Buy.module.css";
 import ItemList from "../components/ItemList";
 import SearchFilter from "../components/SearchFilter";
@@ -7,7 +7,6 @@ import { useEffect, useReducer } from "react";
 import { initialState, reducer } from "../reducers/filterReducer";
 
 function Buy() {
-  const { finishLoading } = useOutletContext();
   const [{ category, material, range }, dispatch] = useReducer(
     reducer,
     initialState
@@ -15,10 +14,6 @@ function Buy() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const search = searchParams.get("search") || "";
-
-  useEffect(() => {
-    finishLoading();
-  }, [finishLoading]);
 
   // state -> URL
   useEffect(() => {

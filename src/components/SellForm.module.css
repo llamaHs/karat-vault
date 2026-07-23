@@ -159,6 +159,11 @@ textarea {
   resize: none;
 }
 
+.titleInputWrapper {
+  position: relative;
+  width: 50rem;
+}
+
 .title,
 .category,
 .material,
@@ -174,8 +179,23 @@ textarea {
   font-size: 1.4rem;
   font-weight: 400;
   padding: 0.8rem 1.2rem;
-  border: 1px solid var(--color-brand--main);
+  border: 1px solid var(--color-border-gray);
   border-radius: 0.3rem;
+}
+
+.title:focus,
+.category:focus,
+.material:focus,
+.condition:focus,
+.description:focus,
+.goldPrice:focus,
+.purity:focus,
+.weight:focus,
+.purchasePrice:focus,
+.startingPrice:focus,
+.dueDate:focus {
+  outline: none;
+  border-color: var(--color-brand--main);
 }
 
 .title,
@@ -183,10 +203,33 @@ textarea {
   width: 50rem;
 }
 
+.titleCount {
+  position: absolute;
+  top: 50%;
+  right: 1.2rem;
+
+  transform: translateY(-50%);
+
+  color: #999;
+  font-size: 1.1rem;
+
+  pointer-events: none;
+}
+
 .goldPrice,
 .purchasePrice,
 .startingPrice {
   width: 11rem;
+}
+
+.goldPriceDateRow {
+  margin-top: -1rem;
+}
+
+.goldPriceDate {
+  font-size: 1.1rem;
+  color: #777;
+  letter-spacing: 0.08em;
 }
 
 .startingPrice {
@@ -268,4 +311,171 @@ input[type="checkbox"] {
 .listButton:hover {
   border-color: var(--color-brand--main-darker);
   background-color: var(--color-brand--main-darker);
+}
+
+.formErrorWrapper {
+  grid-column: 1 / -1;
+
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formError {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1.4rem 2rem;
+
+  color: var(--color-error);
+  background-color: var(--color-error-bg);
+  border: 1px solid var(--color-error-border);
+  border-radius: 0.6rem;
+
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+.formError p {
+  margin: 0;
+}
+
+.formErrorIcon {
+  flex-shrink: 0;
+  font-size: 1.8rem;
+}
+
+/* Modal */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 2rem;
+
+  background-color: var(--color-modal-overlay);
+  backdrop-filter: blur(2px);
+}
+
+.successModal {
+  width: 100%;
+  max-width: 48rem;
+
+  padding: 4rem 3.5rem;
+
+  text-align: center;
+
+  background-color: var(--color-background);
+  border-radius: 1.2rem;
+  box-shadow: 0 2rem 5rem var(--color-shadow);
+
+  animation: modalAppear 0.25s ease-out;
+}
+
+.successIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 6rem;
+  height: 6rem;
+
+  margin: 0 auto 2.4rem;
+
+  background-color: var(--color-success-bg);
+  border-radius: 50%;
+}
+
+.successIcon {
+  color: var(--color-success);
+
+  font-size: 2.4rem;
+}
+
+.successModalTitle {
+  margin-bottom: 1.4rem;
+
+  color: var(--color-text);
+
+  font-size: 2.6rem;
+  font-weight: 700;
+}
+
+.successModalText {
+  margin-bottom: 2rem;
+
+  color: var(--color-text-secondary);
+
+  font-size: 1.7rem;
+  line-height: 1.6;
+}
+
+.countdownText {
+  margin-bottom: 3rem;
+
+  color: var(--color-text-tertiary);
+
+  font-size: 1.5rem;
+}
+
+.countdownText strong {
+  color: var(--color-brand--main-darker);
+  font-weight: 700;
+}
+
+.modalCloseButton {
+  min-width: 14rem;
+
+  padding: 1.3rem 2.8rem;
+
+  color: var(--color-text-white);
+  background-color: var(--color-brand--main);
+
+  border: none;
+  border-radius: 0.8rem;
+
+  font: inherit;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.08rem;
+
+  cursor: pointer;
+
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.modalCloseButton:hover {
+  background-color: var(--color-brand--main-darker);
+}
+
+.modalCloseButton:active {
+  transform: scale(0.98);
+}
+
+.modalCloseButton:focus-visible {
+  outline: 2px solid var(--color-brand--main);
+  outline-offset: 3px;
+}
+
+@keyframes modalAppear {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }

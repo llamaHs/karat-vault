@@ -19,7 +19,6 @@ import PaymentMethods from "./pages/PaymentMethods";
 import AccountSettings from "./pages/AccountSettings";
 
 import LoadingBar from "./components/LoadingBar";
-import useFakeProgress from "./hooks/useFakeProgress";
 import ScrollToHash from "./components/ScrollToHash";
 import Careers from "./pages/Careers";
 import TermsAndConditions from "./pages/TermsAndConditions";
@@ -29,89 +28,93 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import SignupSuccess from "./pages/SignupSuccess";
+import { CurrencyProvider } from "./contexts/CurrencyContext";
+import { LoadingProgressProvider } from "./contexts/LoadingProgressContext";
 
 function App() {
-  const { isLoading, progress, start, finish } = useFakeProgress();
-
   return (
     <AuthProvider>
-      <BrowserRouter>
-        <LoadingBar isLoading={isLoading} progress={progress} />
-        <ScrollToHash />
-        <Routes>
-          <Route
-            path="/"
-            element={<AppLayout startLoading={start} finishLoading={finish} />}
-          >
-            <Route index element={<Home />} />
+      <CurrencyProvider>
+        <LoadingProgressProvider>
+          <BrowserRouter>
+            <LoadingBar />
+            <ScrollToHash />
+            <Routes>
+              <Route path="/" element={<AppLayout />}>
+                <Route index element={<Home />} />
 
-            <Route path="hot-items" element={<HotItemsLayout />}>
-              <Route index element={<HotItems />} />
-              <Route
-                path="item/:id"
-                element={
-                  <ProtectedRoute>
-                    <Item />
-                  </ProtectedRoute>
-                }
-              />
-            </Route>
+                <Route path="hot-items" element={<HotItemsLayout />}>
+                  <Route index element={<HotItems />} />
+                  <Route
+                    path="item/:id"
+                    element={
+                      <ProtectedRoute>
+                        <Item />
+                      </ProtectedRoute>
+                    }
+                  />
+                </Route>
 
-            <Route path="buy" element={<BuyLayout />}>
-              <Route index element={<Buy />} />
+                <Route path="buy" element={<BuyLayout />}>
+                  <Route index element={<Buy />} />
 
-              <Route
-                path="item/:id"
-                element={
-                  <ProtectedRoute>
-                    <Item />
-                  </ProtectedRoute>
-                }
-              />
-            </Route>
+                  <Route
+                    path="item/:id"
+                    element={
+                      <ProtectedRoute>
+                        <Item />
+                      </ProtectedRoute>
+                    }
+                  />
+                </Route>
 
-            <Route path="item/:id" element={<Item />} />
+                <Route path="item/:id" element={<Item />} />
 
-            <Route
-              path="sell"
-              element={
-                <ProtectedRoute>
-                  <Sell />
-                </ProtectedRoute>
-              }
-            />
-            <Route path="about" element={<About />} />
+                <Route
+                  path="sell"
+                  element={
+                    <ProtectedRoute>
+                      <Sell />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route path="about" element={<About />} />
 
-            <Route
-              path="mypage"
-              element={
-                <ProtectedRoute>
-                  <MyPageLayout finishLoading={finish} />
-                </ProtectedRoute>
-              }
-            >
-              <Route index element={<Navigate to="bids" replace />} />
-              <Route path="bids" element={<MyBids />} />
-              <Route path="listings" element={<MyListings />} />
-              <Route path="wishlist" element={<Wishlist />} />
-              <Route path="payment-methods" element={<PaymentMethods />} />
-              <Route path="account-settings" element={<AccountSettings />} />
-            </Route>
+                <Route
+                  path="mypage"
+                  element={
+                    <ProtectedRoute>
+                      <MyPageLayout />
+                    </ProtectedRoute>
+                  }
+                >
+                  <Route index element={<Navigate to="bids" replace />} />
+                  <Route path="bids" element={<MyBids />} />
+                  <Route path="listings" element={<MyListings />} />
+                  <Route path="wishlist" element={<Wishlist />} />
+                  <Route path="payment-methods" element={<PaymentMethods />} />
+                  <Route
+                    path="account-settings"
+                    element={<AccountSettings />}
+                  />
+                </Route>
 
-            <Route path="careers" element={<Careers />} />
+                <Route path="careers" element={<Careers />} />
 
-            <Route
-              path="terms-and-conditions"
-              element={<TermsAndConditions />}
-            />
-            <Route path="privacy" element={<Privacy />} />
+                <Route
+                  path="terms-and-conditions"
+                  element={<TermsAndConditions />}
+                />
+                <Route path="privacy" element={<Privacy />} />
 
-            <Route path="login" element={<Login />} />
-            <Route path="signup" element={<Signup />} />
-            <Route path="signup-success" element={<SignupSuccess />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+                <Route path="login" element={<Login />} />
+                <Route path="signup" element={<Signup />} />
+                <Route path="signup-success" element={<SignupSuccess />} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </LoadingProgressProvider>
+      </CurrencyProvider>
     </AuthProvider>
   );
 }

@@ -1,7 +1,10 @@
 import { NavLink, Outlet } from "react-router-dom";
 import styles from "./MyPageLayout.module.css";
+import { useLoadingProgress } from "../contexts/LoadingProgressContext";
 
-function MyPageLayout({ finishLoading }) {
+function MyPageLayout() {
+  const { finish: finishLoading } = useLoadingProgress();
+
   return (
     <section className={styles.section}>
       <nav className={styles.navigation}>

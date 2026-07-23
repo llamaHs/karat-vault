@@ -5,8 +5,11 @@ import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
 import styles from "./AppLayout.module.css";
 import Message from "../components/Message";
+import { useLoadingProgress } from "../contexts/LoadingProgressContext";
 
-function AppLayout({ startLoading, finishLoading }) {
+function AppLayout() {
+  const { start: startLoading, finish: finishLoading } = useLoadingProgress();
+
   const { pathname } = useLocation();
   // const location = useLocation();
   // const pathname = location.pathname;
@@ -22,7 +25,7 @@ function AppLayout({ startLoading, finishLoading }) {
   return (
     <>
       <ScrollToTop />
-      <Message />
+      {/* <Message /> */}
       <Nav startLoading={startLoading} />
 
       <main className={styles.main}>

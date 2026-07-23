@@ -1,4 +1,4 @@
-import { useOutletContext, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import ItemList from "../components/ItemList";
 import PageTitle from "../components/PageTitle";
 import SearchFilter from "../components/SearchFilter";
@@ -7,16 +7,11 @@ import { useEffect, useReducer } from "react";
 import { initialState, reducer } from "../reducers/filterReducer";
 
 function HotItems() {
-  const { finishLoading } = useOutletContext();
   const [{ category, material, range }, dispatch] = useReducer(
     reducer,
     initialState
   );
   const [searchParams, setSearchParams] = useSearchParams();
-
-  useEffect(() => {
-    finishLoading();
-  }, [finishLoading]);
 
   // state -> URL
   useEffect(() => {
