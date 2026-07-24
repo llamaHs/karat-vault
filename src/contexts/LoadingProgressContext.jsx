@@ -16,7 +16,7 @@ function LoadingProgressProvider({ children }) {
   // to save timer ID
   const delayTimerRef = useRef(null);
   const tickTimerRef = useRef(null);
-  const hideTimeRef = useRef(null);
+  const hideTimerRef = useRef(null);
   const isVisibleRef = useRef(false);
 
   const delayMs = 150; // no bar when loading is end within 150ms
@@ -34,19 +34,13 @@ function LoadingProgressProvider({ children }) {
       tickTimerRef.current = null;
     }
 
-    if (hideTimeRef.current) {
-      clearTimeout(hideTimeRef.current);
-      hideTimeRef.current = null;
+    if (hideTimerRef.current) {
+      clearTimeout(hideTimerRef.current);
+      hideTimerRef.current = null;
     }
   }
 
   const start = useCallback(() => {
-    console.log("🟡 start called", {
-      delay: !!delayTimerRef.current,
-      tick: !!tickTimerRef.current,
-      visible: isVisibleRef.current,
-    });
-
     // prevent overlap
     if (delayTimerRef.current || tickTimerRef.current || isVisibleRef.current)
       return;
@@ -74,12 +68,6 @@ function LoadingProgressProvider({ children }) {
   }, []);
 
   const finish = useCallback(() => {
-    console.log("🟢 finish called", {
-      delay: !!delayTimerRef.current,
-      tick: !!tickTimerRef.current,
-      visible: isVisibleRef.current,
-    });
-
     // if it's end within 150ms
     if (delayTimerRef.current) {
       clearTimeout(delayTimerRef.current);
@@ -97,12 +85,12 @@ function LoadingProgressProvider({ children }) {
 
     setProgress(100);
 
-    hideTimeRef.current = setTimeout(() => {
+    hideTimerRef.current = setTimeout(() => {
       isVisibleRef.current = false;
       setIsLoading(false);
       setProgress(0);
 
-      hideTimeRef.current = null; // finish itself
+      hideTimerRef.current = null; // finish itself
     }, finishHoldMs);
   }, []);
 
@@ -125,7 +113,7 @@ function useLoadingProgress() {
 
   if (context === undefined) {
     throw new Error(
-      "useLoadingProgress must be used within a LoadingProgessProvider"
+      "useLoadingProgress must be used within a LoadingProgressProvider"
     );
   }
 

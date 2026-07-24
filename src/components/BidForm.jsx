@@ -2,8 +2,9 @@ import { useState } from "react";
 import styles from "./BidForm.module.css";
 import { IoLogoPaypal, IoCardSharp } from "react-icons/io5";
 import { MdAddCard } from "react-icons/md";
+import { usePlaceBid } from "../hooks/usePlaceBid";
 
-function BidForm({ currentBid, onCloseBid }) {
+function BidForm({ productId, currentBid, onCloseBid }) {
   const [amount, setAmount] = useState("");
   const [bidError, setBidError] = useState("");
   const [agreeError, setAgreeError] = useState("");
@@ -31,7 +32,9 @@ function BidForm({ currentBid, onCloseBid }) {
     },
   ];
 
-  function handleSubmit(e) {
+  const { mutateAsync: placeBid, isPending } = usePlaceBid();
+
+  async function handleSubmit(e) {
     e.preventDefault();
 
     const bid = Number(amount);
@@ -42,13 +45,13 @@ function BidForm({ currentBid, onCloseBid }) {
       return;
     }
 
-    if (bid <= currentBid) {
-      setBidError("Your bid must be higher than the current bid.");
+    if (Number.isNaN(bid)) {
+      setBidError("Please enter a valid number.");
       return;
     }
 
-    if (Number.isNaN(bid)) {
-      setBidError("Please enter a valid number.");
+    if (bid <= currentBid) {
+      setBidError("Your bid must be higher than the current bid.");
       return;
     }
 
@@ -60,10 +63,16 @@ function BidForm({ currentBid, onCloseBid }) {
     setBidError("");
     setAgreeError("");
 
-    // dispatch here later
-    // dispatch ({type: "placeBid" payload: {itemId, bid}})
+    try {
+      await placeBid({
+        productId,
+        bidAmount: bid,
+      });
 
-    onCloseBid?.();
+      onCloseBid();
+    } catch (error) {
+      setBidError(error.message);
+    }
   }
 
   return (
@@ -149,7 +158,9 @@ function BidForm({ currentBid, onCloseBid }) {
         {method === "paypal" && (
           <div className={styles.subContent}>
             <div className={styles.paypalButtonWrapper}>
-              <button className={styles.paypalButton}>Pay with PayPal</button>
+              <button type="button" className={styles.paypalButton}>
+                Pay with PayPal
+              </button>
             </div>
           </div>
         )}
@@ -205,8 +216,12 @@ function BidForm({ currentBid, onCloseBid }) {
         )}
       </div>
 
-      <button type="submit" className={styles.submitButton}>
-        PLACE BID
+      <button
+        type="submit"
+        disabled={isPending}
+        className={styles.submitButton}
+      >
+        {isPending ? "PLACING BID..." : "PLACE BID"}
       </button>
     </form>
   );

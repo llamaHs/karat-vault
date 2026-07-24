@@ -5,6 +5,7 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
 import { useState } from "react";
 import BidForm from "./BidForm";
+import { useAuth } from "../contexts/AuthContext";
 
 function ItemDetail({ item }) {
   const [openBid, setOpenBid] = useState(false);
@@ -14,6 +15,9 @@ function ItemDetail({ item }) {
 
   const category = CATEGORY_META[item.category];
   const material = MATERIAL_META[item.material];
+
+  const { user } = useAuth();
+  const isSeller = user?.id === item.sellerId;
 
   function handleCloseBid() {
     setOpenBid(false);
@@ -143,33 +147,44 @@ function ItemDetail({ item }) {
               <IoMdHeartEmpty className={styles.wishlistIcon} />
             </button>
             <div className={styles.bidDropdown}>
-              <button
-                className={`${styles.bidButton} ${
-                  openBid ? styles.active : ""
-                }`}
-                onClick={() => {
-                  setOpenBid((prev) => !prev);
-                  setSuccessBid(false);
-                }}
-              >
-                BID
-              </button>
+              {isSeller ? (
+                <p className={styles.ownItemMessage}>
+                  You cannot bid on your listing.
+                </p>
+              ) : (
+                <>
+                  <button
+                    className={`${styles.bidButton} ${
+                      openBid ? styles.active : ""
+                    }`}
+                    onClick={() => {
+                      setOpenBid((prev) => !prev);
+                      setSuccessBid(false);
+                    }}
+                  >
+                    BID
+                  </button>
 
-              {/* form */}
-              <div
-                className={`${styles.accordion} ${openBid ? styles.open : ""}`}
-              >
-                <BidForm
-                  currentBid={item.currentBid}
-                  onCloseBid={handleCloseBid}
-                />
-              </div>
+                  {/* form */}
+                  <div
+                    className={`${styles.accordion} ${
+                      openBid ? styles.open : ""
+                    }`}
+                  >
+                    <BidForm
+                      productId={item.id}
+                      currentBid={item.currentBid}
+                      onCloseBid={handleCloseBid}
+                    />
+                  </div>
 
-              {!openBid && successBid && (
-                <div className={styles.bidMessage}>
-                  <p>Your bid was successfully placed.</p>
-                  <p>Check your My page.</p>
-                </div>
+                  {!openBid && successBid && (
+                    <div className={styles.bidMessage}>
+                      <p>Your bid was successfully placed.</p>
+                      <p>Check your My page.</p>
+                    </div>
+                  )}
+                </>
               )}
             </div>
           </div>

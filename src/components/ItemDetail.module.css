@@ -319,6 +319,18 @@
   color: var(--color-wishlist);
 }
 
+.ownItemMessage {
+  height: 3.6rem;
+
+  display: flex;
+  align-items: center;
+
+  font-size: 1.4rem;
+  color: var(--color-text-secondary);
+
+  white-space: nowrap;
+}
+
 .bidDropdown {
   position: relative;
 }
