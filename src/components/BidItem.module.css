@@ -1,0 +1,124 @@
+.listItem {
+  width: 100%;
+  max-width: 29rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.8rem;
+  cursor: pointer;
+}
+
+.imgContainer {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  position: relative;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.title {
+  font-family: "Lora", serif;
+  font-weight: 300;
+  font-size: 1.8rem;
+}
+
+.itemInfo {
+  width: 25rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.9rem 1.1rem;
+  font-size: 1.25rem;
+  align-items: center;
+}
+
+.itemInfo dt {
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--color-text-light);
+}
+
+.itemInfo dd {
+  justify-self: end;
+  font-size: 1.4rem;
+}
+
+.bid {
+  color: var(--color-price);
+  font-weight: 600;
+}
+
+.yourBid {
+  color: var(--color-price-bid);
+  font-weight: 600;
+}
+
+.listItem:hover .imgContainer {
+  transform: scale(1.03);
+}
+
+.offerCount {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  background-color: var(--color-brand--main);
+  color: var(--color-text-white);
+}
+
+.listItem.completed {
+  cursor: auto;
+  filter: grayscale(100%);
+}
+
+.listItem.completed:hover .imgContainer {
+  transform: none;
+}
+
+.roadContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.roadButton {
+  font-family: inherit;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 3px;
+  padding: 1.2rem 2.4rem;
+  background-color: var(--color-brand--main);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.roadButton:hover {
+  background-color: var(--color-brand--main-darker);
+}
