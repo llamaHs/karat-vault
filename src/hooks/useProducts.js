@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getProduct, getProducts } from "../api/products";
+import { getMyListings, getProduct, getProducts } from "../api/products";
 
 function useProducts() {
   return useQuery({
@@ -15,4 +15,11 @@ function useProduct(id) {
   });
 }
 
-export { useProducts, useProduct };
+function useMyListings() {
+  return useQuery({
+    queryKey: ["myListings"],
+    queryFn: getMyListings,
+  });
+}
+
+export { useProducts, useProduct, useMyListings };

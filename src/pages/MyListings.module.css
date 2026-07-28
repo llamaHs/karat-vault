@@ -31,6 +31,13 @@
   text-underline-offset: 2px;
 }
 
+.sortButton.selected {
+  text-decoration: underline;
+  text-decoration-color: var(--color-text);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
 .listContainer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -38,83 +45,4 @@
   align-items: center;
   row-gap: 5rem;
   column-gap: 5rem;
-}
-
-.listItem {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 3rem;
-  cursor: pointer;
-  padding: 2rem 4rem;
-  background-color: var(--color-background--brand);
-  border-radius: 3px;
-}
-
-.imgContainer {
-  width: 20rem;
-  height: 20rem;
-  overflow: hidden;
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
-  position: relative;
-}
-
-.image {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.infoContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 3rem;
-}
-
-.title {
-  font-family: "Lora", serif;
-  font-weight: 300;
-  font-size: 2rem;
-  margin: 0;
-  line-height: 1.1;
-  transform: translateY(-1px);
-}
-
-.itemInfo {
-  width: 28rem;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1rem 1.2rem;
-  font-size: 1.4rem;
-  align-items: center;
-}
-
-.itemInfo dt {
-  text-transform: uppercase;
-  font-weight: 500;
-  color: var(--color-text-light);
-}
-
-.itemInfo dd {
-  justify-self: end;
-  font-size: 1.6rem;
-}
-
-.bid {
-  color: var(--color-price);
-  font-weight: 600;
-}
-
-.finalBid {
-  color: var(--color-price-bid);
-  font-weight: 600;
-}
-
-.listItem:hover {
-  box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
 }

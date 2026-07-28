@@ -51,4 +51,25 @@ async function uploadProductImage(file) {
   return data.publicUrl;
 }
 
-export { getProducts, getProduct, createProduct, uploadProductImage };
+async function getMyListings() {
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  const { data, error } = await supabase
+    .from("products")
+    .select("*")
+    .eq("sellerId", user.id);
+
+  if (error) throw new Error(error.message);
+
+  return data;
+}
+
+export {
+  getProducts,
+  getProduct,
+  createProduct,
+  uploadProductImage,
+  getMyListings,
+};
