@@ -127,13 +127,21 @@ function BidForm({ productId, currentBid, onCloseBid }) {
             <div className={styles.savedCardOption}>
               <input id="visa4821" type="radio" name="savedCard" />
               <label htmlFor="visa4821" className={styles.savedCardOption}>
-                Visa 4123 **** **** 4821
+                Visa 4123 **** **** 4812
               </label>
             </div>
+
             <div className={styles.savedCardOption}>
               <input id="master9012" type="radio" name="savedCard" />
               <label htmlFor="master9012" className={styles.savedCardOption}>
                 Master 5234 **** **** 9012
+              </label>
+            </div>
+
+            <div className={styles.savedCardOption}>
+              <input id="amex0529" type="radio" name="savedCard" />
+              <label htmlFor="amex0529" className={styles.savedCardOption}>
+                Amex 3728 **** **** 0529
               </label>
             </div>
           </div>

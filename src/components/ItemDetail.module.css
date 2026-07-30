@@ -319,6 +319,10 @@
   color: var(--color-wishlist);
 }
 
+.wishlisted {
+  color: var(--color-wishlist);
+}
+
 .ownItemMessage {
   height: 3.6rem;
 

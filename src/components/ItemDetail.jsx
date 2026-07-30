@@ -6,6 +6,11 @@ import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
 import { useState } from "react";
 import BidForm from "./BidForm";
 import { useAuth } from "../contexts/AuthContext";
+import {
+  useAddWishlist,
+  useDeleteWishlist,
+  useWishlists,
+} from "../hooks/useWishlists";
 
 function ItemDetail({ item }) {
   const [openBid, setOpenBid] = useState(false);
@@ -19,10 +24,28 @@ function ItemDetail({ item }) {
   const { user } = useAuth();
   const isSeller = user?.id === item.sellerId;
 
+  const { data: wishlists = [] } = useWishlists();
+  const isWishlisted = wishlists.some(
+    (wishlist) => wishlist.productId === item.id
+  );
+
+  const { mutate: addWishlist, isPending: isAddingWishlist } = useAddWishlist();
+
+  const { mutate: deleteWishlist, isPending: isDeletingWishlist } =
+    useDeleteWishlist();
+
   function handleCloseBid() {
     setOpenBid(false);
     setSuccessBid(true);
     setTimeout(() => setSuccessBid(false), 3000);
+  }
+
+  function handleWishlist() {
+    if (isWishlisted) {
+      deleteWishlist(item.id);
+    } else {
+      addWishlist(item.id);
+    }
   }
 
   return (
@@ -143,8 +166,16 @@ function ItemDetail({ item }) {
 
           {/* Bid */}
           <div className={styles.bidContainer}>
-            <button className={styles.wishlistButton}>
-              <IoMdHeartEmpty className={styles.wishlistIcon} />
+            <button
+              className={styles.wishlistButton}
+              onClick={handleWishlist}
+              disabled={isAddingWishlist || isDeletingWishlist}
+            >
+              <IoMdHeartEmpty
+                className={`${styles.wishlistIcon} ${
+                  isWishlisted ? styles.wishlisted : ""
+                }`}
+              />
             </button>
             <div className={styles.bidDropdown}>
               {isSeller ? (

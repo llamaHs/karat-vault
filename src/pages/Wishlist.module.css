@@ -17,6 +17,15 @@
   justify-items: center;
 }
 
+.emptyMessage {
+  grid-column: 1 / -1;
+  width: 100%;
+  padding: 8rem 2rem;
+  color: var(--color-text-light);
+  font-size: 1.8rem;
+  text-align: center;
+}
+
 .listItem {
   width: 100%;
   max-width: 29rem;
