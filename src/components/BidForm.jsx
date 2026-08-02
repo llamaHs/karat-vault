@@ -3,8 +3,13 @@ import styles from "./BidForm.module.css";
 import { IoLogoPaypal, IoCardSharp } from "react-icons/io5";
 import { MdAddCard } from "react-icons/md";
 import { usePlaceBid } from "../hooks/usePlaceBid";
+import { useCurrencyFormatter } from "../hooks/useCurrencyFormatter";
+import { convertToUsd } from "../utils/currency";
 
 function BidForm({ productId, currentBid, onCloseBid }) {
+  const { displayPrice, currency, currencySymbol, exchangeRates } =
+    useCurrencyFormatter();
+
   const [amount, setAmount] = useState("");
   const [bidError, setBidError] = useState("");
   const [agreeError, setAgreeError] = useState("");
@@ -37,7 +42,7 @@ function BidForm({ productId, currentBid, onCloseBid }) {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    const bid = Number(amount);
+    const enteredBid = Number(amount);
     const allAgreed = Object.values(agreed).every(Boolean);
 
     if (!amount) {
@@ -45,12 +50,24 @@ function BidForm({ productId, currentBid, onCloseBid }) {
       return;
     }
 
-    if (Number.isNaN(bid)) {
+    if (Number.isNaN(enteredBid)) {
       setBidError("Please enter a valid number.");
       return;
     }
 
-    if (bid <= currentBid) {
+    if (enteredBid <= 0) {
+      setBidError("Your bid must be greater than zero.");
+      return;
+    }
+
+    if (currency !== "USD" && !exchangeRates) {
+      setBidError("Exchange rates are still loading. Please try again.");
+      return;
+    }
+
+    const bidInUsd = convertToUsd(enteredBid, currency, exchangeRates);
+
+    if (bidInUsd <= currentBid) {
       setBidError("Your bid must be higher than the current bid.");
       return;
     }
@@ -66,7 +83,7 @@ function BidForm({ productId, currentBid, onCloseBid }) {
     try {
       await placeBid({
         productId,
-        bidAmount: bid,
+        bidAmount: Math.round(bidInUsd * 100) / 100,
       });
 
       onCloseBid();
@@ -75,11 +92,26 @@ function BidForm({ productId, currentBid, onCloseBid }) {
     }
   }
 
+  function formatInputAmount(value) {
+    if (!value) return "";
+
+    return new Intl.NumberFormat(undefined, {
+      maximumFractionDigits: 0,
+    }).format(Number(value));
+  }
+
+  function handleAmountChange(e) {
+    const rawValue = e.target.value.replace(/[^\d]/g, "");
+    setAmount(rawValue);
+  }
+
   return (
     <form className={styles.bidForm} onSubmit={handleSubmit}>
       <div className={styles.currentBidContainer}>
         <p className={styles.currentBid}>CURRENT BID</p>
-        <span className={styles.currentBidValue}>${currentBid}</span>
+        <span className={styles.currentBidValue}>
+          {displayPrice(currentBid)}
+        </span>
       </div>
 
       <div className={styles.userBidContainer}>
@@ -88,13 +120,13 @@ function BidForm({ productId, currentBid, onCloseBid }) {
             YOUR BID
           </label>
           <div className={styles.inputWrapper}>
-            <span className={styles.currency}>$</span>
+            <span className={styles.currency}>{currencySymbol}</span>
             <input
               id="bidAmount"
-              type="number"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-              step="1"
+              type="text"
+              inputMode="numeric"
+              value={formatInputAmount(amount)}
+              onChange={handleAmountChange}
               className={styles.bidInput}
             />
           </div>

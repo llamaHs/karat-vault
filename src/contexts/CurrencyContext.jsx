@@ -1,15 +1,7 @@
 import { createContext, useContext, useState } from "react";
+import { CURRENCY_META } from "../constants/currencyMETA";
 
 const CurrencyContext = createContext();
-
-const CURRENCY_META = {
-  USD: { symbol: "$", label: "USD $ 🇺🇸" },
-  AUD: { symbol: "$", label: "AUD $ 🇦🇺" },
-  CAD: { symbol: "$", label: "CAD $ 🇨🇦" },
-  EUR: { symbol: "€", label: "EUR € 🇪🇺" },
-  GBP: { symbol: "£", label: "GBP £ 🇬🇧" },
-  KRW: { symbol: "₩", label: "KRW ₩ 🇰🇷" },
-};
 
 function CurrencyProvider({ children }) {
   const [currency, setCurrency] = useState("USD");

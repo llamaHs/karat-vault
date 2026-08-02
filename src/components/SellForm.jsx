@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useReducer, useRef, useState } from "react";
 import styles from "./SellForm.module.css";
 import { BsExclamationCircle } from "react-icons/bs";
 import { IoChevronDownOutline, IoChevronUp } from "react-icons/io5";
@@ -6,11 +6,12 @@ import { FaCheck } from "react-icons/fa6";
 import { CiCirclePlus } from "react-icons/ci";
 import { TiDelete } from "react-icons/ti";
 import FormRow from "./FormRow";
-import { useCurrency } from "../contexts/CurrencyContext";
 import { useGoldPrice } from "../hooks/useGoldPrice";
 import { useCreateProduct } from "../hooks/useCreateProduct";
 import { uploadProductImage } from "../api/products";
 import { useAuth } from "../contexts/AuthContext";
+import { useCurrencyFormatter } from "../hooks/useCurrencyFormatter";
+import { convertToUsd } from "../utils/currency";
 
 const guidelines = [
   {
@@ -134,6 +135,14 @@ function reducer(state, action) {
     case "updateDueDate":
       return { ...state, dueDate: action.payload };
 
+    case "resetPrices":
+      return {
+        ...state,
+        goldPrice: "",
+        purchasePrice: "",
+        startingPrice: "",
+      };
+
     case "resetForm":
       return initialState;
 
@@ -162,8 +171,10 @@ function SellForm() {
   const [isGuideOpen, setIsGuideOpen] = useState(false);
 
   const { user } = useAuth();
-  const { currency, currencySymbol } = useCurrency();
+  const { currency, currencySymbol, exchangeRates } = useCurrencyFormatter();
   const { data } = useGoldPrice();
+
+  const previousCurrency = useRef(currency);
 
   const goldPrice = data?.price;
   const goldPriceAt = data?.updatedAt;
@@ -255,6 +266,11 @@ function SellForm() {
       (isChecked) => !isChecked
     );
 
+    if (currency !== "USD" && !exchangeRates) {
+      setFormError("Exchange rates are still loading. Please try again.");
+      return;
+    }
+
     if (hasUncheckedAgreement) {
       setFormError("Please agree to all terms before listing the item.");
       return;
@@ -287,6 +303,15 @@ function SellForm() {
       return;
     }
 
+    const startingPriceInUsd = convertToUsd(
+      Number(state.startingPrice),
+      currency,
+      exchangeRates
+    );
+
+    const roundedStartingPriceInUsd =
+      Math.round(startingPriceInUsd * 100) / 100;
+
     const imageUrl = await uploadProductImage(state.uploadedImage).catch(
       (error) => {
         setFormError(error.message);
@@ -306,10 +331,10 @@ function SellForm() {
 
       sellerId: user.id,
 
-      askingPrice: Number(state.startingPrice),
-      currentBid: Number(state.startingPrice),
+      askingPrice: roundedStartingPriceInUsd,
+      currentBid: roundedStartingPriceInUsd,
 
-      currency,
+      currency: "USD",
 
       highestBidderId: null,
 
@@ -342,6 +367,13 @@ function SellForm() {
     setIsSuccessModalOpen(false);
     setSecondsLeft(5);
   }
+
+  useEffect(() => {
+    if (previousCurrency.current !== currency) {
+      dispatch({ type: "resetPrices" });
+      previousCurrency.current = currency;
+    }
+  }, [currency]);
 
   useEffect(() => {
     if (!state.uploadedImage) {

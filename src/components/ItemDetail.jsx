@@ -11,6 +11,7 @@ import {
   useDeleteWishlist,
   useWishlists,
 } from "../hooks/useWishlists";
+import { useCurrencyFormatter } from "../hooks/useCurrencyFormatter";
 
 function ItemDetail({ item }) {
   const [openBid, setOpenBid] = useState(false);
@@ -23,6 +24,8 @@ function ItemDetail({ item }) {
 
   const { user } = useAuth();
   const isSeller = user?.id === item.sellerId;
+
+  const { displayPrice } = useCurrencyFormatter();
 
   const { data: wishlists = [] } = useWishlists();
   const isWishlisted = wishlists.some(
@@ -144,10 +147,12 @@ function ItemDetail({ item }) {
           <div className={styles.priceContainer}>
             <dl className={styles.priceInfo}>
               <dt>Starting Price</dt>
-              <dd>{`$${item.askingPrice}`}</dd>
+              <dd>{displayPrice(item.askingPrice)}</dd>
 
               <dt>Current Bid</dt>
-              <dd className={styles.currentBid}>{`$${item.currentBid}`}</dd>
+              <dd className={styles.currentBid}>
+                {displayPrice(item.currentBid)}
+              </dd>
 
               <dt>Number of Bids</dt>
               <dd>{item.offerCount}</dd>

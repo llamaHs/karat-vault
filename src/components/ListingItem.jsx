@@ -1,8 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./ListingItem.module.css";
+import { useCurrencyFormatter } from "../hooks/useCurrencyFormatter";
 
 function ListingItem({ item, type }) {
   const navigate = useNavigate();
+
+  const { displayPrice } = useCurrencyFormatter();
 
   function handleMovePage() {
     navigate(`/item/${item.id}`);
@@ -17,19 +20,21 @@ function ListingItem({ item, type }) {
         <h3 className={styles.title}>{item.name}</h3>
         <dl className={styles.itemInfo}>
           <dt>Starting Price</dt>
-          <dd>{`$${item.askingPrice}`}</dd>
+          <dd>{displayPrice(item.askingPrice)}</dd>
 
           {type === "active" && (
             <>
               <dt>Current Bid</dt>
-              <dd className={styles.bid}>{`$${item.currentBid}`}</dd>
+              <dd className={styles.bid}>{displayPrice(item.currentBid)}</dd>
             </>
           )}
 
           {type === "sold" && (
             <>
               <dt>Final Price</dt>
-              <dd className={styles.finalBid}>{`$${item.finalPrice}`}</dd>
+              <dd className={styles.finalBid}>
+                {displayPrice(item.finalPrice)}
+              </dd>
             </>
           )}
 

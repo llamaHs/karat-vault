@@ -6,6 +6,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { useProducts } from "../hooks/useProducts";
 import ErrorMessage from "./ErrorMessage";
 import { useLoadingProgress } from "../contexts/LoadingProgressContext";
+import { useCurrencyFormatter } from "../hooks/useCurrencyFormatter";
 
 const initialListNumber = 24;
 
@@ -14,6 +15,8 @@ function ItemList({ listType, category, material, maxBid, search = "" }) {
   const { start, finish } = useLoadingProgress();
 
   const { isAuthenticated } = useAuth();
+
+  const { displayPrice } = useCurrencyFormatter();
 
   const [listNumber, setListNumber] = useState(initialListNumber);
   const [isLoad, setIsLoad] = useState(false); // load button click
@@ -148,12 +151,12 @@ function ItemList({ listType, category, material, maxBid, search = "" }) {
                   <h3 className={styles.title}>{item.name}</h3>
                   <dl className={styles.itemInfo}>
                     <dt>Starting Price</dt>
-                    <dd>{`$${item.askingPrice}`}</dd>
+                    <dd>{displayPrice(item.askingPrice)}</dd>
 
                     <dt>Current Bid</dt>
                     <dd className={styles.bid}>
                       {isAuthenticated
-                        ? `$${item.currentBid}`
+                        ? displayPrice(item.currentBid)
                         : "Log in to see price"}
                     </dd>
 

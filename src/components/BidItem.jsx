@@ -1,8 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./BidItem.module.css";
+import { useCurrencyFormatter } from "../hooks/useCurrencyFormatter";
 
 function BidItem({ item, type }) {
   const navigate = useNavigate();
+
+  const { displayPrice } = useCurrencyFormatter();
 
   function handleMovePage(d) {
     navigate(`/item/${item.id}`);
@@ -26,15 +29,15 @@ function BidItem({ item, type }) {
         <h3 className={styles.title}>{item.name}</h3>
         <dl className={styles.itemInfo}>
           <dt>Starting Price</dt>
-          <dd>{`$${item.askingPrice}`}</dd>
+          <dd>{displayPrice(item.askingPrice)}</dd>
 
           {type === "active" && (
             <>
               <dt>Current Bid</dt>
-              <dd className={styles.bid}>{`$${item.currentBid}`}</dd>
+              <dd className={styles.bid}>{displayPrice(item.currentBid)}</dd>
 
               <dt>Your Bid</dt>
-              <dd className={styles.yourBid}>{`$${item.myBid}`}</dd>
+              <dd className={styles.yourBid}>{displayPrice(item.myBid)}</dd>
 
               <dt>Due Date</dt>
               <dd>{item.dueDate}</dd>
@@ -44,10 +47,10 @@ function BidItem({ item, type }) {
           {type === "complete" && (
             <>
               <dt>Winning Bid</dt>
-              <dd className={styles.bid}>{`$${item.winningBid}`}</dd>
+              <dd className={styles.bid}>{displayPrice(item.winningBid)}</dd>
 
               <dt>Your Bid</dt>
-              <dd className={styles.yourBid}>{`$${item.myBid}`}</dd>
+              <dd className={styles.yourBid}>{displayPrice(item.myBid)}</dd>
 
               <dt>Due Date</dt>
               <dd>{item.dueDate}</dd>
@@ -57,7 +60,7 @@ function BidItem({ item, type }) {
           {type === "purchased" && (
             <>
               <dt>Winning Bid</dt>
-              <dd className={styles.bid}>{`$${item.winningBid}`}</dd>
+              <dd className={styles.bid}>{displayPrice(item.winningBid)}</dd>
 
               <dt>Payment Date</dt>
               <dd>{item.paymentDate}</dd>
