@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import styles from "./Footer.module.css";
+import { useAuth } from "../contexts/AuthContext";
 
 function Footer() {
+  const { user } = useAuth();
+
   return (
     <footer>
       <div className={styles.container}>
@@ -47,9 +50,15 @@ function Footer() {
         <div className={styles.col}>
           <p className={styles.linkTitle}>ACCOUNT</p>
           <ul className={styles.linkList}>
-            <li>
-              <a href="#">Create Account</a>
-            </li>
+            {user ? (
+              <li>
+                <Link to="/mypage/account-settings">Account Settings</Link>
+              </li>
+            ) : (
+              <li>
+                <Link to="/signup">Create Account</Link>
+              </li>
+            )}
             <li>
               <Link to="/mypage/bids">My Transactions</Link>
             </li>
